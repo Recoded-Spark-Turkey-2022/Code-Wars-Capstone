@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
-import Content from './components/blogs/content';
+import Content from './components/blogs/Content';
 
 function App() {
   return (

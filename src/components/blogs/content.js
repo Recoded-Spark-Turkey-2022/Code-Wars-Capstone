@@ -1,4 +1,4 @@
-import Subscribeform from "./subscribe";
+import Subscribeform from "./Subscribe";
 
 function Content (){
 
