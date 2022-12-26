@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Auth } from "../../Firebase";
+
 
 
 
@@ -10,9 +10,8 @@ function Subscribeform(){
 
     const  Handlesubmit = (e)=>{
 e.preventDefault();
-Auth.collection("subscriptions").add({
-    email: email
-})}
+
+}}
 
 
 
