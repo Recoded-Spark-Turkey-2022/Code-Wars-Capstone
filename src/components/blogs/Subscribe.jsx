@@ -1,38 +1,59 @@
 
-import { useState } from "react";
-import app from "./Firebase";
 
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+import React, { useState } from 'react';
+import { collection, addDoc } from "firebase/firestore";
 
+import db from './Firebase';
 
+// import { useNavigate } from 'react-router-dom';
 
-function Subscribeform(){
-    const [email , setEmail] = useState("")
+const SubscribeForm = () => {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  // const history = useNavigate();
 
-    const  Handlesubmit = (e)=>{
-e.preventDefault();
-app.collection("subscriptions").add({
-email: email,
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-})}
+    // Validate email using regex
+    const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!emailRegex.test(email)) {
+      // Email is invalid, show an error message
+      setError('Please enter an email address');
+      return;
+    }
 
+    // Email is valid, add it to Firestore
 
+  await addDoc(collection(db, "emails"), {
+      useremail: email,    
+    });
+    // await db.firestore().collection('sub').add({ useremail: email });
+ console.log(`${email} added to Firebase Firestore`);
+    setEmail('');
+    setError('');
+  } 
 
+   
+    // Redirect to thank you page
+    // history.push('/thank-you');
 
+  return (
+    <form >
+      <label htmlFor="email">Email:
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+      />
+      </label>
+      <button type="submit" onClick={handleSubmit} >Subscribe</button>
+      {error && <p>{error}</p>}
+    </form>
+  );
+};
 
-
-
-
-return (
-
-<form>
-    <label htmlFor='email'>
-        <input type="email" placeholder="Enter your e-mail" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-    </label>
-    <button type="submit" onSubmit={Handlesubmit}>submit</button>
-</form>
-
-)
-}
-
-
-export default Subscribeform
+export default SubscribeForm;
