@@ -7,17 +7,24 @@ import { auth } from '../../firebase-config';
 
 // const usersCollectionRef = collection(db, 'users');
 
-export const signupUser = createAsyncThunk('users/signupUser', async(payload)=>{
-  const user = await createUserWithEmailAndPassword(auth,payload.email, payload.password);
-  console.log(user);
-})
+export const signupUser = createAsyncThunk(
+  'users/signupUser',
+  async (action) => {
+    const user = await createUserWithEmailAndPassword(
+      auth,
+      action.payload.email,
+      action.payload.password
+    );
+    console.log(user);
+  }
+);
 
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
     loading: false,
     users: [],
-    error: "",
+    error: '',
   },
   extraReducers: (builder) => {
     builder.addCase(signupUser.pending, (state) => {
