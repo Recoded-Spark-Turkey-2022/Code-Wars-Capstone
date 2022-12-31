@@ -5,7 +5,7 @@ import Image from "./Logo.svg"
 const [title , setTitle] = useState('');
 
 return (
-     <nav  className="bg-cyan-100 px-2 sm:px-4 py-2.5 rounded  ">
+     <nav  className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded  z-10 ">
         
            <img src={Image} alt="logo" className=" h-5 w-5 mt-2 ml-2"  />
            <h1 className="absolute top-3 left-14  text-xl">Healing</h1>
@@ -14,7 +14,7 @@ return (
              <div className="    flex justify-around text-sm">
              <a href="#Home" className=" hover:text-orange-300 mr-4 mt-2" >Home</a>
              <a href="#Blogs" className=" hover:text-orange-300 mr-2  mt-2">Blogs</a>
-             <div><select value={title} onChange = { (e)=> setTitle(e.target.value) } className=" text-center bg-cyan-100 hover:text-orange-300 mr-1 mt-2 w-16 h-5">
+             <div><select value={title} onChange = { (e)=> setTitle(e.target.value) } className=" text-center bg-cyan-50 hover:text-orange-300 mr-1 mt-2 w-16 h-5">
                    <option selected value="about" >About</option>
                    <option value="about page" >About Page</option>
                    <option value="team page">Team Page</option>

@@ -1,0 +1,14 @@
+.imgsofa{
+    transform: translatex(4rem) ;
+}
+.paragrapHelp{
+   font-size:128px;
+   margin-bottom: 3rem;
+}
+.paragraph{
+    font-size: 35px;
+    z-index: 10;
+    transform: translate(0.8rem, 4rem);
+    
+    
+}
