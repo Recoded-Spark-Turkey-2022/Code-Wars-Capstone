@@ -1,14 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
-const users = useSelector((state) => state.users.users);
+// const users = useSelector((state) => state.users.users);
 
-function SignupForm() {
+const SignupForm = () => {
+  const [user, setUser] = useState({
+    fullName: "",
+    lastName: "",
+    email: "",
+    emailConfirmation: "",
+    password: "",
+    passwordConfirmation: "",
+    birthdayDay:"",
+    birthdayMonth:"",
+    birthdayYear:"",
+  })
+
   return (
     <div>
       <div>
         <h2>SIGNUP NOW</h2>
-        <h1>{users}</h1>
         <form>
           <div>
             <input type="text" placeholder="First Name" name="userFirstName" />
@@ -43,6 +55,6 @@ function SignupForm() {
       </div>
     </div>
   );
-}
+};
 
 export default SignupForm;
