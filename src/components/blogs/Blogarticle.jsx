@@ -6,7 +6,7 @@ import React from 'react';
     <div id={id}>
 <img src={imageUrl} alt="article"/>
 <div>
-<h2>{header}</h2>
+<h1>{header}</h1>
 <p>{paragraph}</p>
 </div>
 <div>

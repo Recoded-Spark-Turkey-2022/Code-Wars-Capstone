@@ -1,9 +1,11 @@
-
+import first from "./1st.jpg"
+import second from "./2nd.jpg"
+import third from "./3rd.jpg"
 
 const BlogData = [
   {
     id: 1,
-    imageUrl: '../components/1st.jpg',
+    imageUrl: first,
     header: 'Mental Health and Technology',
     paragraph: 'Technology and mental well-being might seem like profoundly antagonistic terms. However, there are excellent digital tools to help you reach mindfulness and to practice meditation. You can even use smartphone apps, virtual reality solutions and digital devices as a form of relieving stressing and achieving digital detox – as, after a while, you will be able to practice all types of anti-anxiety skills on your own. So, let The Medical Futurist show you how you can enhance your mental and emotional health with the help of technology.',
     header1: 'The need for taking care of our emotional health',
@@ -15,7 +17,7 @@ const BlogData = [
 
 {
     id: 2,
-    imageUrl: '/components/2nd.jpg',
+    imageUrl: second,
     header: 'The Power of Therapy: How It Can Help You Make Positive Changes in Your Life',
     header1: 'Therapy can be a powerful tool for making positive changes in your life. It provides a safe, non-judgmental space where you can explore your thoughts, feelings, and behaviors and gain insight into how they may be impacting your life. Here are just a few of the many benefits of therapy:',
     paragraph: 'Improved mental health: Therapy can help reduce symptoms of depression, anxiety, and other mental health conditions. It can also help you develop coping skills and strategies for managing difficult emotions and situations.Enhanced self-awareness: Therapy can help you gain a better understanding of yourself, including your strengths, weaknesses, and patterns of behavior. This can lead to greater self-awareness and self-acceptance, which can help you make positive changes in your life.',
@@ -27,7 +29,7 @@ const BlogData = [
 
 {
     id: 3,
-    imageUrl: '/components/3rd.jpg',
+    imageUrl: third,
     header: 'The Many Benefits of Therapy: How It Can Help You Thrive',
     header1: 'Therapy can be an invaluable resource for helping you make positive changes in your life. It provides a supportive, confidential environment where you can explore your thoughts, feelings, and behaviors and gain insight into how they may be impacting your life. Here are just a few of the many benefits of therapy:',
     paragraph: 'Greater overall well-being: Therapy can lead to a variety of positive changes in your life, including improved mental health, stronger relationships, and a greater sense of purpose and fulfillment. All of these factors can contribute to a greater overall sense of well-being and happiness.',
