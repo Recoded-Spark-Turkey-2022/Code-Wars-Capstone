@@ -1,5 +1,9 @@
+
 import { useState ,React  } from "react";
+
 import Image from "./Logo.svg"
+
+
 
  function Navebar (){
 const [title , setTitle] = useState('');
@@ -21,7 +25,9 @@ return (
                    <option value="carees page">Carees Page</option>
                </select></div>
              <a href="#Contact Us" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</a>
-             <a href="#Loge In" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded ml-3 mt-1">Log In</a>
+             <a href="#Loge In" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-6 rounded ml-3 mt-1 ">LogIn</a>
+
+             
              </div>   
              </div>
         

@@ -13,7 +13,7 @@ function BookAppointment(){
          <div className="z-10 w-6/12 translate-y-1/3  translate-x-2/3 "  >
             <img src ={Mainimg} alt="iltration" className="imgsofa" />
          </div>
-         <div className=" absolute top-28 left-40">
+         <div className=" absolute top-28  left-40">
             <p className="paragraph">We Are Here To</p>
             <p className="paragrapHelp">Help</p>
             <a href="#Loge In" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-2 rounded ml-3 text-lg ">BOOK AN APPOINTMENT</a>
