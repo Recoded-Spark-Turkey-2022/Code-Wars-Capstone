@@ -1,10 +1,10 @@
 import React from 'react';
 
- function Blogarticle ({id,imageUrl,header,header1,paragraph,paragraph2,paragraph3,paragraph4}) {
+ function Blogarticle ({id,url,header,header1,paragraph,paragraph2,paragraph3,paragraph4}) {
 
   return (
     <div id={id}>
-<img src={imageUrl} alt="article"/>
+<img src={url} alt="article"/>
 <div>
 <h1>{header}</h1>
 <p>{paragraph}</p>
