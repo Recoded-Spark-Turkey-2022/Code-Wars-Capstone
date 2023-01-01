@@ -4,15 +4,15 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import React, { useState } from 'react';
 import { collection, addDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 
 import db from './Firebase';
 
-// import { useNavigate } from 'react-router-dom';
 
 const SubscribeForm = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-  // const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,11 +34,14 @@ const SubscribeForm = () => {
  console.log(`${email} added to Firebase Firestore`);
     setEmail('');
     setError('');
+
+     // Redirect to thank you page
+    //  navigate.push('/thank-you');
+    navigate("/thank-you");
   } 
 
    
-    // Redirect to thank you page
-    // history.push('/thank-you');
+   
 
   return (
     <form >

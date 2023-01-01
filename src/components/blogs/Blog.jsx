@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import Subscribeform from "./Subscribe";
 import BlogData from './Blogdata';
 import Blogarticle from "./Blogarticle";
@@ -6,7 +6,6 @@ import Recommends from "./Recommends";
 import first from "./1st.jpg"
 
 function Blog (){
-
     const Article = BlogData[0];
     return(
        
