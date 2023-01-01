@@ -29,13 +29,13 @@ const FormCard = () => {
           onChange={(event) => setPassword(event.target.value)}
         />
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded mt-4"
+          className="md:text-xl lg:px-12 rounded-md box-border py-2  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
           type="submit"
         >
           Login
         </button>
         <button
-          className=" hover:bg-blue-700 text-blue-500 font-bold py-2 px-6 rounded mt-4 translate-x-32 border border-blue-700 rounded hover:text-white  "
+          className=" hover:bg-cyan-500 text-cyan-500 font-bold py-2 lg:px-12 rounded mt-4 translate-x-4 border border-cyan-500 rounded hover:text-white"
           type="submit"
         >
           Sign Up

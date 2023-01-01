@@ -20,8 +20,8 @@ const HandleLogin = (e)=>{
 return (
      <nav  className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded  z-10 ">
         
-           <img src={Image} alt="logo" className=" h-5 w-5 mt-2 ml-2"  />
-           <h1 className="absolute top-3 left-14  text-xl">Healing</h1>
+           <img src={Image} alt="logo" className=" h-5 w-5 mt-2 ml-6"  />
+           <h1 className="absolute top-3 left-16  text-xl">Healing</h1>
        
              <div className="absolute top-2 right-14">
              <div className="    flex justify-around text-sm">
@@ -34,7 +34,7 @@ return (
                    <option value="carees page">Carees Page</option>
                </select></div>
              <a href="#Contact Us" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</a>
-             <button type="submit" onClick={HandleLogin} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-6 rounded ml-3 mt-1 ">LogIn</button>
+             <button type="submit" onClick={HandleLogin} className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ">Login</button>
              
 
              
