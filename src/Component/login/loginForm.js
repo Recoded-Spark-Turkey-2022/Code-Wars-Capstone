@@ -38,7 +38,7 @@ const FormCard = () => {
           className=" hover:bg-blue-700 text-blue-500 font-bold py-2 px-6 rounded mt-4 translate-x-32 border border-blue-700 rounded hover:text-white  "
           type="submit"
         >
-          singup
+          Sign Up
         </button>
       </form>
     </div>

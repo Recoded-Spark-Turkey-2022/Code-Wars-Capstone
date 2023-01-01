@@ -8,10 +8,11 @@ import CommuncicationCard  from './Component/Home/communication/CommuncicationCa
  
 function App() {
   return (
-    <>
     
-    <Navebar/>
+    
+   
     <BrowserRouter>
+     <Navebar/>
       <Routes>
         <Route path="/" element={<BookAppointment />} />
         <Route path="/login" element ={<Login/>}/>
@@ -21,7 +22,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     
-    </>
+    
     
   )
 }

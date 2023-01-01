@@ -14,7 +14,7 @@ function LoginwithGoogle(){
       <div className="flex w-8 gap-4 translate-x-60 ">
          
        
-      <img src={googleicon} alt="googleicon" />
+         <img src={googleicon} alt="googleicon" />
 
           
          <img src={facebookicon}  alt="facebookicon" />

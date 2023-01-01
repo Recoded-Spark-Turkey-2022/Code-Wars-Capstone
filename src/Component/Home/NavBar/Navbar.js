@@ -1,5 +1,7 @@
 
 import { useState ,React  } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 import Image from "./Logo.svg"
 
@@ -7,6 +9,13 @@ import Image from "./Logo.svg"
 
  function Navebar (){
 const [title , setTitle] = useState('');
+const Navigate = useNavigate();
+
+const HandleLogin = (e)=>{
+  e.preventDefault();
+  return Navigate(
+    "/login")
+}
 
 return (
      <nav  className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded  z-10 ">
@@ -25,7 +34,8 @@ return (
                    <option value="carees page">Carees Page</option>
                </select></div>
              <a href="#Contact Us" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</a>
-             <a href="#Loge In" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-6 rounded ml-3 mt-1 ">LogIn</a>
+             <button type="submit" onClick={HandleLogin} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-6 rounded ml-3 mt-1 ">LogIn</button>
+             
 
              
              </div>   
