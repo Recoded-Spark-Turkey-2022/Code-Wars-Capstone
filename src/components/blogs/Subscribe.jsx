@@ -45,16 +45,17 @@ const SubscribeForm = () => {
 
   return (
     <form >
-      <label htmlFor="email">Email:
-      <input
+      <label htmlFor="email" >Email:
+      <input className="w-64 h-full text-xl leading-loose text-gray-500"
         type="email"
         id="email"
         value={email}
-        onChange={(event) => setEmail(event.target.value)}
-      />
+        onChange={(event) => setEmail(event.target.value)} placeholder="Enter your e-mail"
+      /> 
       </label>
       <button type="submit" onClick={handleSubmit} >Subscribe</button>
       {error && <p>{error}</p>}
+      
     </form>
   );
 };

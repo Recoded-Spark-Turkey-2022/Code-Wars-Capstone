@@ -10,7 +10,7 @@ function Blog2 (){
     const Article = BlogData[1];
     return(
         <>  
-    <Blogarticle  url={second} header={Article.header} paragraph={Article.paragraph} header1={Article.header1} paragraph2={Article.paragraph2}
+    <Blogarticle  src={second} header={Article.header} paragraph={Article.paragraph} header1={Article.header1} paragraph2={Article.paragraph2}
     paragraph3={Article.paragraph3} paragraph4={Article.paragraph4} />
         <Subscribeform />
         <Recommends />

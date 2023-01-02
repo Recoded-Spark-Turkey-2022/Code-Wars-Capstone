@@ -8,9 +8,8 @@ import first from "./1st.jpg"
 function Blog (){
     const Article = BlogData[0];
     return(
-       
-        <Link to="/blog">
-    <Blogarticle  url={first} header={Article.header} paragraph={Article.paragraph} header1={Article.header1} paragraph2={Article.paragraph2}
+        <Link to="/blog1">
+    <Blogarticle  src={first} header={Article.header} paragraph={Article.paragraph} header1={Article.header1} paragraph2={Article.paragraph2}
     paragraph3={Article.paragraph3} paragraph4={Article.paragraph4} />
         <Subscribeform />
         <Recommends />
