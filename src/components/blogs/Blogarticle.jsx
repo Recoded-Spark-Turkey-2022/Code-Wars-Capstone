@@ -4,9 +4,9 @@ import React from 'react';
 
   return (
     <div id={id}>
-<img className="rounded-1xl justify-start" style={{width: 1116, height: 530,}} src={src} alt="article"/>
-<div className="inline-flex flex-col space-y-9 items-center justify-start" style={{width: 1002, height: 1129,}} >
-<h1 className="text-5xl uppercase" >{header}</h1>
+<img  className="rounded-xl inline-flex text-align: left;" style={{width: 1116, height: 530,}} src={src} alt="article"/>
+<div className=" inline-flex flex-col space-y-9 items-center justify-start" style={{width: 1002, height: 1129,}} >
+<h1 className="text-5xl uppercase text-start " >{header}</h1>
 <p className="text-xl font-light leading-loose uppercase" style={{width: 1002,}} >{paragraph}</p>
 <h4 className="text-3xl uppercase">{header1}</h4>
 <p className="text-xl font-light leading-loose uppercase">{paragraph2}</p>

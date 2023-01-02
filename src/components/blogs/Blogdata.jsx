@@ -40,7 +40,7 @@ const BlogData = [
     paragraph3: 'Enhanced self-awareness: Therapy can help you gain a better understanding of yourself, including your strengths, weaknesses, and patterns of behavior',
 },
 {
-id: 4,
+id: 1,
 src: first,
 alt: 'Image 1',
 header: 'Mental Health and Technology',
@@ -53,7 +53,7 @@ paragraph4: 'The pressure to perform and the stress to achieve is the air every 
 
 
 {
-id: 5,
+id: 2,
 src: second,
 alt: 'Image 2',
 header: 'The Power of Therapy: How It Can Help You Make Positive Changes in Your Life',
@@ -66,7 +66,7 @@ paragraph3: 'If you are considering therapy, dont hesitate to reach out for supp
 
 
 {
-id: 6,
+id: 3,
 src: third,
 alt: 'Image 3',
 header: 'The Many Benefits of Therapy: How It Can Help You Thrive',
