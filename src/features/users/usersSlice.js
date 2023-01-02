@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // import { async } from '@firebase/util';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase-config';
 // import { collection } from '@firebase/firestore';
 
@@ -21,7 +21,7 @@ import { auth } from '../../firebase-config';
 // );
 
 export const signupUser = createAsyncThunk(
-  'users/signupUser',
+  'user/signupUser',
   async (payload, { rejectWithValue }) => {
     const { email, password } = payload;
     try {
@@ -29,8 +29,25 @@ export const signupUser = createAsyncThunk(
         auth,
         email,
         password
-      );
-      return user;
+        );
+        return user;
+    } catch (error) {
+      return rejectWithValue(JSON.stringify(error));
+    }
+  }
+);
+
+export const loginUser = createAsyncThunk(
+  'user/loginUser',
+  async (payload, { rejectWithValue }) => {
+    const { email, password } = payload;
+    try {
+      const { user } = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+        );
+        return user;
     } catch (error) {
       return rejectWithValue(JSON.stringify(error));
     }

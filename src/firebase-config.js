@@ -1,4 +1,3 @@
-// import firebase from 'firebase/compat/app';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from '@firebase/firestore';
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth"; 
@@ -11,8 +10,6 @@ const firebaseConfig = {
   messagingSenderId: '435500261308',
   appId: '1:435500261308:web:99669583edce4ecd89d5b9',
 };
-
-// firebase.initializeApp(firebaseConfig);
 
 const app = initializeApp(firebaseConfig);
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { signupUser } from '../features/users/usersSlice';
 
 const SignupForm = () => {
@@ -17,9 +18,9 @@ const SignupForm = () => {
         className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
         onSubmit={handleSubmit((userData) => {
           console.log(userData);
-          if (userData.password !== userData.passwordConfirmation) {
-            return;
-          }
+          // if (userData.password !== userData.passwordConfirmation) {
+          //   return;
+          // }
           dispatch(signupUser(userData.email, userData.password));
         })}
       >
@@ -85,12 +86,14 @@ const SignupForm = () => {
           />
         </div>
         <div className="flex justify-around py-3 gap-8">
-          <button
-            type="submit"
-            className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 rounded-md"
-          >
-            Login
-          </button>
+          <Link to="/login">
+            <button
+              type="submit"
+              className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 rounded-md"
+            >
+              Login
+            </button>
+          </Link>
           <button
             type="submit"
             className="bg-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
