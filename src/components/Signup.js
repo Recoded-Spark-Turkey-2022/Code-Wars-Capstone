@@ -1,54 +1,12 @@
-import React, { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { signupUser } from '../features/users/usersSlice';
 
 const SignupForm = () => {
-  const [userData, setUserData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    emailConfirmation: '',
-    password: '',
-    passwordConfirmation: '',
-    birthdayDay: '',
-    birthdayMonth: '',
-    birthdayYear: '',
-  });
+  const { register, handleSubmit } = useForm();
 
   const dispatch = useDispatch();
-  const userEntered = useSelector((state) => state.users.users);
-  // console.log(userEntered);
-  // const history = useNavigate();
-
-  useEffect(() => {
-    if (userEntered) {
-      // history.push('/');
-      // console.log(userEntered);
-      // dispatch(createAccount(userData.email, userData.password))
-      console.log('true');
-      // dispatch(signupUser(userData.email, userData.password));
-    }
-  }, [userEntered, userData]);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (userData.password !== userData.passwordConfirmation) {
-      return;
-    }
-    dispatch(signupUser(userData.email, userData.password));
-  };
-
-  const handleChange = (event) => {
-    const { value, name } = event.target;
-    // return user((state) => {
-    //   return {
-    //     ...state,
-    //     [name]: value,
-    //   };
-    // });
-    setUserData({ ...userData, [name]: value });
-  };
 
   return (
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20">
@@ -57,75 +15,72 @@ const SignupForm = () => {
       </h2>
       <form
         className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit((userData) => {
+          console.log(userData);
+          if (userData.password !== userData.passwordConfirmation) {
+            return;
+          }
+          dispatch(signupUser(userData.email, userData.password));
+        })}
       >
         <div className="flex gap-x-7">
           <input
+            {...register('firstName')}
             type="text"
             placeholder="First Name"
-            name="userFirstName"
-            onChange={handleChange}
             className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
           />
           <input
+            {...register('lastName')}
             type="text"
             placeholder="Last Name"
-            name="userLastName"
-            onChange={handleChange}
             className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
           />
         </div>
         <input
+          {...register('email')}
           type="text"
           placeholder="Your Email"
-          name="userEmail"
-          onChange={handleChange}
           className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
         />
         <input
+          {...register('emailConfirmation')}
           type="text"
           placeholder="Confirm email"
-          name="userConfirmEmail"
-          onChange={handleChange}
           className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
         />
         <div>
           <input
+            {...register('password')}
             type="password"
             placeholder="Password"
-            name="userPassword"
-            onChange={handleChange}
             className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
           />
           <input
+            {...register('passwordConfirmation')}
             type="password"
             placeholder="Confirm password"
-            name="userConfirmPassword"
-            onChange={handleChange}
             className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
           />
         </div>
         <div className="flex items-center justify-between">
           <p className="mr-7 ml-7 font-light text-[#9DAFBD]">Birth Date</p>
           <input
+            {...register('birthdayDay')}
             type="text"
             placeholder="DD"
-            name="dayOfBirth"
-            onChange={handleChange}
             className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
           />
           <input
+            {...register('birthdayMonth')}
             type="text"
             placeholder="MM "
-            name="monthOfBirth"
-            onChange={handleChange}
             className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
           />
           <input
+            {...register('birthdayYear')}
             type="text"
             placeholder="YYYY"
-            name="yearOfYear"
-            onChange={handleChange}
             className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300"
           />
         </div>
