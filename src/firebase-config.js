@@ -1,4 +1,5 @@
-import firebase from 'firebase/app';
+// import firebase from 'firebase/compat/app';
+import { initializeApp } from "firebase/app";
 import { getFirestore } from '@firebase/firestore';
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth"; 
 
@@ -11,9 +12,11 @@ const firebaseConfig = {
   appId: '1:435500261308:web:99669583edce4ecd89d5b9',
 };
 
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 
-export const db = getFirestore();
-export const auth = getAuth();
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
+export const auth = getAuth(app);
 export const googleAuth = new GoogleAuthProvider();
 export const facebookAuth = new FacebookAuthProvider();

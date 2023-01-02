@@ -7,15 +7,30 @@ import { auth } from '../../firebase-config';
 
 // const usersCollectionRef = collection(db, 'users');
 
+// export const signupUser = createAsyncThunk(
+//   'users/signupUser',
+//   async (action) => {
+//     const user = await createUserWithEmailAndPassword(
+//       auth,
+//       action.payload.email,
+//       action.payload.password
+//     );
+//     return user;
+//   }
+// );
+
+export const createAccount = async (email, password) => {
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const signupUser = createAsyncThunk(
-  'users/signupUser',
-  async (action) => {
-    const user = await createUserWithEmailAndPassword(
-      auth,
-      action.payload.email,
-      action.payload.password
-    );
-    console.log(user);
+  "users/signupUser",
+  async ({ email, password }) => {
+    await createAccount(email, password);
   }
 );
 
