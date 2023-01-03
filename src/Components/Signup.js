@@ -21,7 +21,7 @@ const SignupForm = () => {
           // if (userData.password !== userData.passwordConfirmation) {
           //   return;
           // }
-          dispatch(signupUser(userData.email, userData.password));
+          dispatch(signupUser({password: userData.password, email: userData.email}));
         })}
       >
         <div className="flex gap-x-7">

@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../features/users/usersSlice';
 
 const FormCard = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // perform some action with the email and password values
-    
+    dispatch(loginUser({ email, password }));
   };
 
   return (
