@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Navebar from './Component/Home/NavBar/Navbar';
-import BookAppointment from "./Component/Home/Book an Appointment/bookAppointment"
-import Login from "./Component/login/Login";
-import CommuncicationCard  from './Component/Home/communication/CommuncicationCard';
-import Therapist  from "./Component/Home/therapist/Therapist" ;
+import Navebar from './Components/Home/NavBar/Navbar';
+import Login from "./Components/login/Login";
+
+import Home from "./Components/Home/Home"
 
  
 function App() {
@@ -15,13 +14,11 @@ function App() {
     <BrowserRouter>
      <Navebar/>
       <Routes>
-        <Route path="/" element={<BookAppointment />} />
-        <Route path="/login" element ={<Login/>}/>
-        <Route path="/comm" element ={<CommuncicationCard/>}/>
-        <Route path="/therapist" element ={<Therapist />}/>
-
         
+        <Route path="/login" element ={<Login/>}/>
+       
       </Routes>
+      <Home/>
     </BrowserRouter>
     
     

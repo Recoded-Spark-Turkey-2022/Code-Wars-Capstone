@@ -7,6 +7,7 @@ const FormCard = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // perform some action with the email and password values
+    
   };
 
   return (

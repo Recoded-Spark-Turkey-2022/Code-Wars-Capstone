@@ -8,7 +8,7 @@ import "./bookAppointment.css"
 function BookAppointment(){
 
     return(
-    <div className="relative  ">
+    <div className="relative h-screen    ">
         <img src ={bacgroundImg} alt="BackGround" className="absolute top-0 left-0 z-0 bg-cover   " /> 
          <div className="z-10 w-6/12 translate-y-1/3  translate-x-2/3 "  >
             <img src ={Mainimg} alt="iltration" className="imgsofa" />
