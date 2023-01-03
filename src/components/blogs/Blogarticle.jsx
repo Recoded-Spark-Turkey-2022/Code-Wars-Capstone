@@ -10,9 +10,11 @@ import React from 'react';
 <p className="text-xl font-light leading-loose uppercase" >{paragraph}</p>
 <div className='pt-[2rem]'>
 <h4 className="text-2xl uppercase pb-[1rem] "  >{header1}</h4>
-<p className="text-xl font-light leading-loose uppercase" >{paragraph2}</p>
-<p className="text-xl font-light leading-loose uppercase">{paragraph3}</p>
-<p className="text-xl font-light leading-loose uppercase"  >{paragraph4}</p>
+<div className=" pb-[1rem] text-xl font-light leading-loose uppercase">
+<p >{paragraph2}</p>
+<p >{paragraph3}</p>
+<p >{paragraph4}</p>
+</div>
 </div>
 </div>
 <div className=" ml-12 space-y-3 pt-3" style={{width: 1000, height: 100}}>
