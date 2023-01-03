@@ -14,15 +14,13 @@ function App() {
     <BrowserRouter>
      <Navebar/>
       <Routes>
-        
+      
         <Route path="/login" element ={<Login/>}/>
+        <Route path="/" element ={<Home/>}/>
+
        
       </Routes>
-      <Home/>
     </BrowserRouter>
-    
-    
-    
   )
 }
 
