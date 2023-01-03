@@ -4,18 +4,20 @@ import React from 'react';
 
   return (
     <div id={id}>
-<img  className="rounded-xl inline-flex text-align: left;" style={{width: 1116, height: 530,}} src={src} alt="article"/>
-<div className=" inline-flex flex-col space-y-9 items-center justify-start" style={{width: 1002, height: 1129,}} >
-<h1 className="text-5xl uppercase text-start " >{header}</h1>
-<p className="text-xl font-light leading-loose uppercase" style={{width: 1002,}} >{paragraph}</p>
+<img  className=" flex justify-center items-center rounded-xl p-12 w-12/24 h-4/12"  src={src} alt="article"/>
+<div className=" inline-flex flex-col space-y-9 justify-start p-3 ml-10" >
+<h1 className=" text-5xl uppercase " >{header}</h1>
+<p className="text-xl font-light leading-loose uppercase" style={{width: 1000,}} >{paragraph}</p>
 <h4 className="text-3xl uppercase">{header1}</h4>
-<p className="text-xl font-light leading-loose uppercase">{paragraph2}</p>
-<p className="text-xl font-light leading-loose uppercase">{paragraph3}</p>
-<p className="text-xl font-light leading-loose uppercase">{paragraph4}</p>
-  <h3  className="text-3xl uppercase" >Sign up for The Healing blog</h3>
-  <p className="text-xl uppercase">A weekly, ad-free Blog that helps you stay in the know.</p>
+<p className="text-xl font-light leading-loose uppercase" style={{width: 1000,}}>{paragraph2}</p>
+<p className="text-xl font-light leading-loose uppercase" style={{width: 1000,}}>{paragraph3}</p>
+<p className="text-xl font-light leading-loose uppercase" >{paragraph4}</p>
 </div>
-<h3 className="absolute left-0 top-0 text-3xl uppercase" >Recommended for you</h3>
+<div className="inline-flex flex-col ml-10 space-y-6 items-start justify-start pt-5" style={{width: 1000, height: 175}}>
+    <p className="text-3xl uppercase ">Sign up for The Healing blog</p>
+    <p className="text-xl uppercase ">A weekly, ad-free Blog that helps you stay in the know.</p>
+    
+</div>
     </div>
   )
 }

@@ -11,7 +11,7 @@ function ThankYouPage() {
       <Link to="/thank-you">
       <div className="w-72 h-16">
     <div className="flex items-center justify-center flex-1 font-bold h-full py-3 bg-[#2DD3E3] rounded-md">
-    <button className="flex-1 h-full text-2xl text-center uppercase"  type='submit' onClick={navigate("/home")}>Back to home</button>
+    <button className="flex-1 h-full text-2xl text-center uppercase"  type='submit' onClick={navigate("/")}>Back to home</button>
     </div>
 </div>
       </Link>
