@@ -3,13 +3,13 @@ import Therapistimg from './Therapistimg.svg';
 
 function ContentB() {
   return (
-    <div>
-      <div className="bg-amber-200 pb-12  ">
-        <h1 className=" lg:text-5xl text-lg font-bold lg:w-10/12 sm:p-8  sm:pl-16 font-seri ">
+    <div className='h-screen'>
+      <div className="bg-amber-200 h-screen "  style={{fontFamily: 'Poppins, sans-serif'}} >
+        <h1 className=" lg:text-5xl text-lg font-bold lg:w-10/12 sm:p-8  sm:pl-40  ">
           PROFESSIONAL, LICENSED, AND VETTED THERAPISTS THAT YOU CAN TRUST
         </h1>
-        <img className=" pb-8 pl-16" src={Therapistimg} alt="therapists" />
-        <p className="pl-16 lg:text-2xl font-seri text-sm lg:w-11/12 lg:pb-20 sm:pb-16">
+        <img className=" pb-8 pl-40" src={Therapistimg} alt="therapists" />
+        <p className="pl-40 lg:text-2xl font-seri text-sm lg:w-11/12 lg:pb-20 sm:pb-16">
           Tap into the worlds largest network of licensed, accredited, and
           experienced therapists who can help you with a range of issues
           including depression, anxiety, relationships, trauma, grief, and more.
@@ -20,7 +20,7 @@ function ContentB() {
 
         <button
           type="button"
-          className="text-xl md:text-lg ml-16 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white "
+          className="text-xl md:text-lg ml-40 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white "
         >
           BOOK AN APPOINTMENT
         </button>

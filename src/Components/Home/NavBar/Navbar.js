@@ -19,7 +19,7 @@ const HandleLogin = (e)=>{
 }
 
 return (
-     <nav  className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded  z-10 ">
+     <nav style={{fontFamily: 'Poppins, sans-serif'}} className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded  z-10 ">
         
            <img src={Image} alt="logo" className=" h-5 w-5 mt-2 ml-6"  />
            <h1 className="absolute top-3 left-16  text-xl">Healing</h1>
