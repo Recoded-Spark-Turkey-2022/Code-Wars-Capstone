@@ -1,6 +1,7 @@
 
 import { useState ,React  } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Link } from "react-router-dom";
+
 
 
 import Image from "./Logo.svg"
@@ -25,7 +26,7 @@ return (
        
              <div className="absolute top-2 right-14">
              <div className="    flex justify-around text-sm">
-             <a href="#Home" className=" hover:text-orange-300 mr-4 mt-2" >Home</a>
+             <Link to="/" className=" hover:text-orange-300 mr-4 mt-2" >Home</Link>
              <a href="#Blogs" className=" hover:text-orange-300 mr-2  mt-2">Blogs</a>
              <div><select value={title} onChange = { (e)=> setTitle(e.target.value) } className=" text-center bg-cyan-50 hover:text-orange-300 mr-1 mt-2 w-16 h-5">
                    <option selected value="about" >About</option>
