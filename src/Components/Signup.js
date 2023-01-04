@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { signupUser } from '../features/users/usersSlice';
+import LoginwithGoogle from "./login/LoginwithGoogle";
+
 
 const SignupForm = () => {
   const { register, handleSubmit } = useForm();
@@ -100,7 +102,9 @@ const SignupForm = () => {
           >
             Signup
           </button>
+
         </div>
+      <LoginwithGoogle />
       </form>
     </div>
   );
