@@ -5,11 +5,6 @@ import BlogData from "./Blogdata"
 function Recommends ({id}){
 
     const blogs = BlogData.filter(blog =>  blog.id !== id);
-    console.log(blogs[0].id)
-    
-    
-     
-    
     
     const navigate = useNavigate();
     const handleBlog1 =(e)=>{
