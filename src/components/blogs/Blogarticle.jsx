@@ -13,7 +13,8 @@ import third from "./3rd.jpg"
 let imageurl ;
   const { id } = useParams();
 
-  const filteredProducts = BlogData.filter(blog => blog.id === id);    
+  const filterbyid = BlogData.filter(blog => blog.id === id);    
+  
   if( id=== "1"){
     imageurl = first
   }
@@ -30,14 +31,14 @@ let imageurl ;
     <div id={id } >
 <img  className=" flex justify-center rounded-xl p-10 w-[60rem] h-[35rem]"  src={imageurl} alt="article"/>
 <div className=" inline-flex flex-col space-y-9 justify-start p-3 ml-10 w-[60rem]" >
-<h1 className=" text-5xl uppercase " >{filteredProducts[0].header}</h1>
-<p className="text-xl font-light leading-loose uppercase" >{filteredProducts[0].paragraph}</p>
+<h1 className=" text-5xl uppercase " >{filterbyid[0].header}</h1>
+<p className="text-xl font-light leading-loose uppercase" >{filterbyid[0].paragraph}</p>
 <div className='pt-[2rem]'>
-<h4 className="text-2xl uppercase pb-[1rem] "  >{filteredProducts[0].header1}</h4>
+<h4 className="text-2xl uppercase pb-[1rem] "  >{filterbyid[0].header1}</h4>
 <div className=" pb-[1rem] text-xl font-light leading-loose uppercase">
-<p >{filteredProducts[0].paragraph2}</p>
-<p >{filteredProducts[0].paragraph3}</p>
-<p >{filteredProducts[0].paragraph4}</p>
+<p >{filterbyid[0].paragraph2}</p>
+<p >{filterbyid[0].paragraph3}</p>
+<p >{filterbyid [0].paragraph4}</p>
 </div>
 </div>
 </div>

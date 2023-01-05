@@ -5,8 +5,8 @@ import BlogData from "./Blogdata"
 function Recommends ({id}){
 
     const blogs = BlogData.filter(blog =>  blog.id !== id);
-    
     const navigate = useNavigate();
+
     const handleBlog1 =(e)=>{
         window.scrollTo(0, 0);
         e.preventDefault();

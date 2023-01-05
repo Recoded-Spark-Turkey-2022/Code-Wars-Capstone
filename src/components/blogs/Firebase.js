@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 0be732bc27b055c315f540f13823acaf0b88d070
-
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"
+import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {

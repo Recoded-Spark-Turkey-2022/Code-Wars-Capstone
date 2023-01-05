@@ -12,7 +12,6 @@ function App() {
 <Routes>
 <Route path="/" element={<ImageCarousel/>}/>
 <Route path="/blog/:id" element={<Blogarticle/>}/>
-
 <Route path="/Thank-you" element={<ThankYouPage />}/>
 </Routes>
 </BrowserRouter>
