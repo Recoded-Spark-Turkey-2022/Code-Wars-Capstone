@@ -7,6 +7,7 @@ import first from "./1st.jpg"
 
 function Blog (){
     const Article = BlogData[0];
+   
     return(
         
         <div className=" bg-slate-50 ">

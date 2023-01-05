@@ -8,13 +8,13 @@ function Recommends (){
     const navigate = useNavigate();
     const handleBlog2 =(e)=>{
         e.preventDefault();
-        navigate(`/blog2`)
+     return   navigate(`/blog2`)
 
     }
 
     const handleBlog3 =(e)=>{
         e.preventDefault();
-        navigate(`/blog3`)
+     return   navigate(`/blog3`)
     }
     return(
     <div className="ml-12 w-[75rem] h-[35rem] pt-[10rem] "   >

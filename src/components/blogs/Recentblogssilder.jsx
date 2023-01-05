@@ -9,7 +9,7 @@ function ImageCarousel() {
   return (
     <div className="image-carousel">
       {BlogData.map((obj) => (
-        <Link to={`blog${obj.id}`} key={obj.id}>
+        <Link to={`blog/${obj.id}`} key={obj.id}>
           <img src={obj.src} alt={obj.alt} />
         </Link>
       ))}
