@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import React from 'react';
 import BlogData from "./Blogdata"
+import Subscribeform from "./Subscribe";
+import Recommends from "./Recommends";
 import first from "./1st.jpg"
 import second from "./2nd.jpg"
 import third from "./3rd.jpg"
@@ -11,11 +13,7 @@ import third from "./3rd.jpg"
 let imageurl ;
   const { id } = useParams();
 
-  const filteredProducts = BlogData.filter(blog => blog.id === id);
- 
- 
-
-    
+  const filteredProducts = BlogData.filter(blog => blog.id === id);    
   if( id=== "1"){
     imageurl = first
   }
@@ -46,9 +44,11 @@ let imageurl ;
 <div className=" ml-12 space-y-3 pt-3" style={{width: 1000, height: 100}}>
     <p className="text-3xl uppercase ">Sign up for The Healing blog</p>
     <p className="text-xl uppercase ">A weekly, ad-free Blog that helps you stay in the know.</p>
+</div>
+     <Subscribeform/>
+     <Recommends id={id}/>
 
     
-</div>
     </div>
   )
 }
