@@ -28,7 +28,7 @@ let imageurl ;
   
     
     <div id={id } >
-<img  className=" flex justify-center rounded-xl p-10 w-[70rem] h-[35rem]"  src={imageurl} alt="article"/>
+<img  className=" flex justify-center rounded-xl p-10 w-[60rem] h-[35rem]"  src={imageurl} alt="article"/>
 <div className=" inline-flex flex-col space-y-9 justify-start p-3 ml-10 w-[60rem]" >
 <h1 className=" text-5xl uppercase " >{filteredProducts[0].header}</h1>
 <p className="text-xl font-light leading-loose uppercase" >{filteredProducts[0].paragraph}</p>

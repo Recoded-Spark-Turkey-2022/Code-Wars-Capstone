@@ -26,17 +26,13 @@ const SubscribeForm = () => {
     }
 
     // Email is valid, add it to Firestore
-
   await addDoc(collection(db, "emails"), {
       useremail: email,    
     });
-    // await db.firestore().collection('sub').add({ useremail: email });
- console.log(`${email} added to Firebase Firestore`);
     setEmail('');
     setError('');
 
-     // Redirect to thank you page
-    //  navigate.push('/thank-you');
+
     navigate("/thank-you");
   } 
 

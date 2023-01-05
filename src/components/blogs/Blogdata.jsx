@@ -33,11 +33,11 @@ const BlogData = [
     id:"3",
     src: third,
     alt: 'Image 3',
-    header: 'The Many Benefits of Therapy',
-    header1: 'Therapy can be an invaluable resource for helping you make positive changes in your life.',
-    paragraph: 'Greater overall well-being: Therapy can lead to a variety of positive changes in your life, including improved mental health, stronger relationships, and a greater sense of purpose and fulfillment. All of these factors can contribute to a greater overall sense of well-being and happiness.',
-    paragraph2: 'Improved mental health: Therapy can help reduce symptoms of depression, anxiety, and other mental health conditions. It can also help you develop coping skills and strategies for managing difficult emotions and situations.',
-    paragraph3: 'Enhanced self-awareness: Therapy can help you gain a better understanding of yourself, including your strengths, weaknesses, and patterns of behavior',
+    header: 'Healing from Trauma',
+    header1: 'The Role of Forgiveness',
+    paragraph: 'Acknowledge and validate your feelings: It is normal to feel a wide range of emotions after experiencing trauma, including fear, anger, sadness, and confusion. It is important to allow yourself to feel and express these emotions, rather than suppressing them.Seek support: Reaching out to friends, family, or a mental health professional can provide much-needed emotional support and a sense of community during the healing process. It can also be helpful to join a support group or participate in therapy to connect with others who have gone through similar experiences,Practice self-care, Taking care of yourself physically and emotionally is crucial for healing from trauma, This can include activities such as getting enough sleep, eating a healthy diet, engaging in physical activity, and finding healthy ways to cope with stress',
+    paragraph2: 'Forgiveness is a personal choice and the process of forgiving oneself or others for past hurt or wrongdoings can be a critical step in the healing journey. It is important to note that forgiveness does not mean forgetting or excusing the harm that was caused, but rather it is a way to let go of anger and resentment and move forward. Forgiveness can also bring a sense of peace and closure, and can ultimately help to free you from the negative emotions that may be holding you back from fully healing.',
+    paragraph3: 'it is important to remember that healing from trauma is a journey and it is okay to take things one step at a time. There may be setbacks and difficult days, but with self-care, support, and time, it is possible to move forward and find hope and healing. It is also important to be gentle with yourself and to allow yourself to feel a range of emotions as you work through the healing process. Remember, healing is a process, not a destination, and it is okay to seek help and support whenever you need it.',
 },
 
 
