@@ -17,26 +17,25 @@ const SubscribeForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Validate email using regex
+   
     const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (!emailRegex.test(email)) {
-      // Email is invalid, show an error message
+     
       setError('Please enter an email address');
       return;
     }
 
-    // Email is valid, add it to Firestore
+   
 
   await addDoc(collection(db, "emails"), {
       useremail: email,    
     });
-    // await db.firestore().collection('sub').add({ useremail: email });
+   
  console.log(`${email} added to Firebase Firestore`);
     setEmail('');
     setError('');
 
-     // Redirect to thank you page
-    //  navigate.push('/thank-you');
+
     navigate("/thank-you");
   } 
 
