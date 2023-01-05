@@ -1,6 +1,6 @@
 import Sofa from './Images/Towperson.svg';
-import LoginForm from './LoginForm';
-import LoginwithGoogle from './LoginwithGoogle';
+import LoginForm from './loginForm';
+import LoginwithGoogle from './loginwithGoogle';
 
 function Login() {
   return (
