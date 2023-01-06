@@ -1,25 +1,39 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
-
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { auth } from '../../firebase-config';
-
+import { doc, setDoc } from 'firebase/firestore';
+import { db, auth } from '../../firebase-config';
 
 export const signupUser = createAsyncThunk(
   'user/signupUser',
   async (payload, { rejectWithValue }) => {
-    console.log(payload);
-    const { email, password } = payload;
+    const {
+      email,
+      password,
+      firstName,
+      lastName,
+      birthdayDay,
+      birthdayMonth,
+      birthdayYear,
+    } = payload;
     try {
       const { user } = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      console.log(user);
+      const docRef = doc(db, 'users', user.uid);
+      await setDoc(docRef, {
+        id: user.uid,
+        email,
+        firstName,
+        lastName,
+        birthdayDay,
+        birthdayMonth,
+        birthdayYear,
+      });
       return { id: user.uid, email: user.email };
     } catch (error) {
       return rejectWithValue(error);
@@ -34,14 +48,12 @@ export const loginUser = createAsyncThunk(
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       console.log(user);
-      return {id: user.uid, email: user.email};
-
+      return { id: user.uid, email: user.email };
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
-
 
 const usersSlice = createSlice({
   name: 'users',
@@ -55,7 +67,6 @@ const usersSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(signupUser.fulfilled, (state, action) => {
-      console.log(action);
       state.loading = false;
       state.user = action.payload;
       state.error = null;
@@ -69,7 +80,6 @@ const usersSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(loginUser.fulfilled, (state, action) => {
-      console.log(action);
       state.loading = false;
       state.user = action.payload;
       state.error = null;

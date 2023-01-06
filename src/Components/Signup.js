@@ -3,8 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { signupUser } from '../features/users/usersSlice';
-import LoginwithGoogle from "./login/LoginwithGoogle";
-
+import LoginwithGoogle from './login/LoginwithGoogle';
 
 const SignupForm = () => {
   const { register, handleSubmit } = useForm();
@@ -20,10 +19,17 @@ const SignupForm = () => {
         className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
         onSubmit={handleSubmit((userData) => {
           console.log(userData);
-          // if (userData.password !== userData.passwordConfirmation) {
-          //   return;
-          // }
-          dispatch(signupUser({password: userData.password, email: userData.email}));
+          dispatch(
+            signupUser({
+              email: userData.email,
+              password: userData.password,
+              firstName: userData.firstName,
+              lastName: userData.lastName,
+              birthdayDay: userData.birthdayDay,
+              birthdayMonth: userData.birthdayMonth,
+              birthdayYear: userData.birthdayYear,
+            })
+          );
         })}
       >
         <div className="flex gap-x-7">
@@ -102,9 +108,8 @@ const SignupForm = () => {
           >
             Signup
           </button>
-
         </div>
-      <LoginwithGoogle />
+        <LoginwithGoogle />
       </form>
     </div>
   );
