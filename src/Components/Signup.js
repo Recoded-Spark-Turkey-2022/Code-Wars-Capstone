@@ -16,7 +16,7 @@ const SignupForm = () => {
 
   return (
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
-      <img src={Image} alt="Sign up" />
+      {/* <img src={Image} alt="Sign up" /> */}
       <div className="flex flex-col">
         <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
           SIGNUP NOW
