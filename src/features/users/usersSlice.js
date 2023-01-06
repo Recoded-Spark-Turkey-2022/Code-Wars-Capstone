@@ -59,10 +59,14 @@ export const loginUser = createAsyncThunk(
 export const loginUserWithGoogle = createAsyncThunk(
   'user/loginUserWithGoogle',
   async ({ rejectWithValue }) => {
-    // const { email, password } = payload;
     try {
       const { user } = await signInWithPopup(auth, googleAuth);
       console.log(user);
+      const docRef = doc(db, 'users', user.uid);
+      await setDoc(docRef, {
+        id: user.uid,
+        email: user.email
+      });
       return { id: user.uid, email: user.email };
     } catch (error) {
       return rejectWithValue(error);
@@ -73,10 +77,14 @@ export const loginUserWithGoogle = createAsyncThunk(
 export const loginUserWithFacebook = createAsyncThunk(
   'user/loginUserWithFacebook',
   async ({ rejectWithValue }) => {
-    // const { email, password } = payload;
     try {
       const { user } = await signInWithPopup(auth, facebookAuth);
       console.log(user);
+      const docRef = doc(db, 'users', user.uid);
+      await setDoc(docRef, {
+        id: user.uid,
+        email: user.email
+      });
       return { id: user.uid, email: user.email };
     } catch (error) {
       return rejectWithValue(error);

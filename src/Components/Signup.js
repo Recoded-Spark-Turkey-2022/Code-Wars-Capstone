@@ -127,14 +127,22 @@ const SignupForm = () => {
           <button
             type="button"
             style={{ height: 32, width: 32 }}
-            onClick={() => dispatch(loginUserWithFacebook())}
+            onClick={(userDat) => {
+              console.log(userDat);
+              dispatch(
+                loginUserWithGoogle({ id: userDat.id, email: userDat.email })
+              );
+            }}
           >
             <img src={googleicon} alt="Google Icon" />{' '}
           </button>
           <button
             type="button"
             style={{ height: 32, width: 32 }}
-            onClick={() => dispatch(loginUserWithGoogle())}
+            onClick={(userDat) => {
+              console.log(userDat);
+              dispatch(loginUserWithFacebook({ email: userDat.email }));
+            }}
           >
             {' '}
             <img src={facebookicon} alt="facebookicon" />{' '}
