@@ -40,7 +40,7 @@ const imagesilder = BlogData.map((obj) => (
 ))
   return (
 <div className='bg-cyan-50 ' >
-  <p className='lg:ml-40 md:ml-20 py-20 text-5xl '>
+  <p className='lg:ml-40 md:ml-20 py-20 lg:text-5xl md:text-2xl	sm:text-lg '>
   RECENT BLOGS 
   </p>
   <Carousel
