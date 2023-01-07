@@ -27,7 +27,7 @@ return (
              <div className="absolute top-2 right-14">
              <div className="    flex justify-around text-sm">
              <Link to="/" className=" hover:text-orange-300 mr-4 mt-2" >Home</Link>
-             <a href="#Blogs" className=" hover:text-orange-300 mr-2  mt-2">Blogs</a>
+             <Link to="/blog/1" className=" hover:text-orange-300 mr-2  mt-2">Blogs</Link>
              <div><select value={title} onChange = { (e)=> setTitle(e.target.value) } className=" text-center bg-cyan-50 hover:text-orange-300 mr-1 mt-2 w-16 h-5">
                    <option selected value="about" >About</option>
                    <option value="about page" >About Page</option>

@@ -1,0 +1,12 @@
+.react-multiple-carousel__arrow--right {
+     
+     background-color: rgb(10, 10, 10) !important;
+     right: 0;
+}
+
+.react-multiple-carousel__arrow--left {
+    color: brown !important;
+     background-color:  rgb(10, 10, 10) !important;
+     left: 0;
+     
+}
