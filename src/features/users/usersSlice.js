@@ -65,7 +65,9 @@ export const loginUserWithGoogle = createAsyncThunk(
       const docRef = doc(db, 'users', user.uid);
       await setDoc(docRef, {
         id: user.uid,
-        email: user.email
+        email: user.email ,
+        name : user.displayName ,
+        photoURL : user.photoURL
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
