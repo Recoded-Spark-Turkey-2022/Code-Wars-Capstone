@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState  } from 'react';
 import { useDispatch } from 'react-redux';
+import {  useNavigate } from 'react-router-dom';
 import { loginUser } from '../../features/users/usersSlice';
 
 const FormCard = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+
+  const  nevigate = useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,13 +37,13 @@ const FormCard = () => {
         />
         <button
           className="md:text-xl lg:px-12 rounded-md box-border py-2  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
-          type="submit"
+          type="submit" 
         >
           Login
         </button>
         <button
           className=" hover:bg-cyan-500 text-cyan-500 font-bold py-2 lg:px-12 rounded mt-4 translate-x-4 border border-cyan-500 rounded hover:text-white"
-          type="submit"
+          type="submit" onClick={()=>{ nevigate("/signup")}} 
         >
           Sign Up
         </button>
