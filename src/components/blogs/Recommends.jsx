@@ -22,11 +22,11 @@ function Recommends ({id}){
 
 
     return(
-    <div className="ml-12 w-[75rem] h-[35rem] pt-[10rem] "   >
-            <p className=" text-3xl uppercase ">Recommended for you</p>
-            <div className="flex space-x-">
-        <button  type="submit" onClick={handleBlog1} className="pt- rounded  w-[60rem] h-[25rem]"  > <img src={blogs[0].src} alt="second"  />  </button>
-        <button type="submit" onClick={handleBlog2} className=" rounded w-[60rem] h-[25rem]"  > <img src={blogs[1].src} alt="third"/>  </button>
+    <div className="w-[75rem] h-[35rem] xl:pt-[10rem] sm:pt-[5rem] "   >
+            <p className=" 2xl:text-3xl sm:text-3xl uppercase ">Recommended for you</p>
+            <div className="xl:flex space-x-4 xl:pt-[3rem] sm:pt-[5rem]">
+        <button  type="submit" onClick={handleBlog1} className=" rounded  xl:w-[27rem] xl:h-[15rem]  sm:w-[30rem] sm:h-[13rem] "  > <img src={blogs[0].src} alt="second"  />  </button>
+        <button type="submit" onClick={handleBlog2} className=" rounded w-[27rem] h-[15rem]"  > <img src={blogs[1].src} alt="third"/>  </button>
         </div>
         </div>
     )

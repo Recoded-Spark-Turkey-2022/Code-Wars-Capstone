@@ -28,27 +28,27 @@ let imageurl ;
 
   
     
-    <div id={id } >
-<img  className=" flex justify-center rounded-xl p-10 w-[60rem] h-[35rem]"  src={imageurl} alt="article"/>
-<div className=" inline-flex flex-col space-y-9 justify-start p-3 ml-10 w-[60rem]" >
-<h1 className=" text-5xl uppercase " >{filterbyid[0].header}</h1>
-<p className="text-xl font-light leading-loose uppercase" >{filterbyid[0].paragraph}</p>
+    <div id={id} className="bg-slate-50 flex flex-col justify-center items-start">
+<img  className=" rounded-xl p-9 xl:w-[60rem] xl:h-[35rem] md:h-[35rem] md:w-[50rem] sm:h-[15rem] sm:w-[22rem] "  src={imageurl} alt="article"/>
+<div className="space-y-9  ml-10 xl:w-[55rem]" >
+<h1 className=" 2xl:text-5xl sm:text-4xl uppercase " >{filterbyid[0].header}</h1>
+<p className=" 2xl:text-l sm:text-l font-light leading-loose uppercase" >{filterbyid[0].paragraph}</p>
 <div className='pt-[2rem]'>
-<h4 className="text-2xl uppercase pb-[1rem] "  >{filterbyid[0].header1}</h4>
-<div className=" pb-[1rem] text-xl font-light leading-loose uppercase">
+<h4 className="2xl:text-5xl sm:text-4xl  uppercase pb-[1rem] "  >{filterbyid[0].header1}</h4>
+<div className=" pb-[1rem] 2xl:text-l sm:text-l font-light leading-loose uppercase">
 <p >{filterbyid[0].paragraph2}</p>
 <p >{filterbyid[0].paragraph3}</p>
 <p >{filterbyid [0].paragraph4}</p>
 </div>
 </div>
 </div>
-<div className=" ml-12 space-y-3 pt-3" style={{width: 1000, height: 100}}>
-    <p className="text-3xl uppercase ">Sign up for The Healing blog</p>
-    <p className="text-xl uppercase ">A weekly, ad-free Blog that helps you stay in the know.</p>
-</div>
+<div className="pl-[2.5rem] space-y-3 pt-3 xl:w-[40rem] sm:w-[15rem] ">
+    <p className="2xl:text-3xl sm:text-xl uppercase ">Sign up for The Healing blog</p>
+    <p className="2xl:text-xl  sm:text-l uppercase ">A weekly, ad-free Blog that helps you stay in the know.</p>
+
      <Subscribeform/>
      <Recommends id={id}/>
-
+     </div>
     
     </div>
   )

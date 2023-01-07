@@ -41,7 +41,7 @@ const SubscribeForm = () => {
    
 
   return (
-     <div className='ml-12  '>
+     <div className='pt-[2rem]    '>
     <form >
       <label htmlFor="email" >
       <input className=" w-[15rem] h-[2.5rem] text-xl leading-loose text-gray-500 bg-white border-2  border-gray-500 "
@@ -51,7 +51,7 @@ const SubscribeForm = () => {
         onChange={(event) => setEmail(event.target.value)} placeholder="Enter your e-mail"
       /> 
      
-      <button className=' mt-2 w-[3rem] h-[2.5rem] leading-loose bg-[#2DD3E3] border-2  rounded-br-md border-gray-500' type="submit" onClick={handleSubmit} > <RiSendPlaneFill className="flex-auto w-10 h-4.5" /> </button>
+      <button className='  w-[3rem] h-[2.5rem] leading-loose bg-[#2DD3E3] border-2  rounded-br-md border-gray-500' type="submit" onClick={handleSubmit} > <RiSendPlaneFill className="flex-auto w-10 h-4.5" /> </button>
       <div >{error && <p>{error}</p>}</div>
       <div />
       </label>
