@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import BlogData from "./Blogdata"
 import 'react-multi-carousel/lib/styles.css';
-import "./Slider.css"
-/* import first from "./1st.jpg"
-import second from "./2nd.jpg"
-import third from "./3rd.jpg" */
+import "./SliderBlog.css"
+
 
 
 

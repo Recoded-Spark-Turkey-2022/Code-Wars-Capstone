@@ -1,12 +1,7 @@
-
-
-import 'firebase/compat/firestore';
-import 'firebase/compat/auth';
 import React, { useState } from 'react';
-import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import {RiSendPlaneFill} from  'react-icons/ri';                      
-import db from './Firebase';
+
 
 
 const SubscribeForm = () => {
@@ -25,16 +20,8 @@ const SubscribeForm = () => {
       return;
     }
 
-    // Email is valid, add it to Firestore
-  await addDoc(collection(db, "emails"), {
-      useremail: email,    
-    });
-    setEmail('');
-    setError('');
-
-     // Redirect to thank you page
-    //  navigate.push('/thank-you');
-    navigate("/thank-you");
+      navigate('/thank-you');
+   
   } 
 
    

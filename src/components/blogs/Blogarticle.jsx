@@ -3,9 +3,9 @@ import React from 'react';
 import BlogData from "./Blogdata"
 import Subscribeform from "./Subscribe";
 import Recommends from "./Recommends";
-import first from "./1st.jpg"
-import second from "./2nd.jpg"
-import third from "./3rd.jpg"
+import first from "./Images/1st.jpg"
+import second from "./Images/2nd.jpg"
+import third from "./Images/3rd.jpg"
 
 
  function Blogarticle () {
