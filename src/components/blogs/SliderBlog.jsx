@@ -7,6 +7,10 @@ import "./SliderBlog.css"
 
 
 function ImageCarousel({Carousel}) {
+  function scrolltotop(){
+    window.scrollTo(0, 0);
+
+  }
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -26,11 +30,13 @@ function ImageCarousel({Carousel}) {
       items: 1
     }
   };
+
+  
   
 const imagesilder = BlogData.map((obj) => (
   
- <Link className='bl-10' to={`blog/${obj.id}`} key={obj.id}>
-   <img src={obj.src} alt={obj.alt} />
+ <Link className='bl-10' to={`blog/${obj.id}`} key={obj.id} >
+ <button type="submit" onClick={scrolltotop}> <img src={obj.src} alt={obj.alt}  /></button>
  </Link>
  
 ))
