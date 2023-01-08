@@ -7,6 +7,7 @@ import Signup from './Components/Signup';
 import Purchasetickets from './Components/Home/Purchasetickets/Purchasetickets';
 import ThankYouPage from './Components/blogs/Thankyoupage';
 import Blogarticle from './Components/blogs/Blogarticle';
+import UpdateUserInfo from './Components/UpdateUserInfo/UpdateUserInfo'
 
  
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/pur" element ={<Purchasetickets/>}/>
         <Route path="/blog/:id" element={<Blogarticle/>}/>
         <Route path="/Thank-you" element={<ThankYouPage />}/>
+        <Route path="/UpdateUserInfo" element={<UpdateUserInfo />}/>
       </Routes>
     </BrowserRouter>
   )
