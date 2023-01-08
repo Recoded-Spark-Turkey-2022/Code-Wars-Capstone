@@ -31,7 +31,7 @@ const SubscribeForm = () => {
      <div className='pt-[2rem] sm:w[5rem]   '>
     <form >
       <label htmlFor="email" >
-      <input className=" w-[15rem] h-[2.5rem] text-xl leading-loose text-gray-500 bg-white border-2  border-gray-500 "
+      <input className=" w-[15rem] h-[2.5rem] text-xl leading-loose text-gray-500 bg-white border-2 text-left border-gray-500 "
         type="email"
         id="email"
         value={email}
