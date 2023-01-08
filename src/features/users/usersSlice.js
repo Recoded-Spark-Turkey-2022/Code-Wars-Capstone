@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice , } from '@reduxjs/toolkit';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc , getDoc  } from 'firebase/firestore';
 import { db, auth, googleAuth, facebookAuth } from '../../firebase-config';
 
 export const signupUser = createAsyncThunk(
@@ -13,8 +13,8 @@ export const signupUser = createAsyncThunk(
     const {
       email,
       password,
-      firstName,
-      lastName,
+      /* firstName,
+      lastName, */
       birthdayDay,
       birthdayMonth,
       birthdayYear,
@@ -29,8 +29,8 @@ export const signupUser = createAsyncThunk(
       await setDoc(docRef, {
         id: user.uid,
         email,
-        firstName,
-        lastName,
+        name: `${payload.firstName} ${payload.lastName}` ,
+        photoURL : null , 
         birthdayDay,
         birthdayMonth,
         birthdayYear,
@@ -48,8 +48,10 @@ export const loginUser = createAsyncThunk(
     const { email, password } = payload;
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
-      console.log(user);
-      return { id: user.uid, email: user.email };
+      
+      const docRef = doc(db, 'users', user.uid);
+      const docSnap = await getDoc(docRef);
+      return  docSnap.data()  ;
     } catch (error) {
       return rejectWithValue(error);
     }
@@ -67,7 +69,10 @@ export const loginUserWithGoogle = createAsyncThunk(
         id: user.uid,
         email: user.email ,
         name : user.displayName ,
-        photoURL : user.photoURL
+        photoURL : user.photoURL , 
+        birthdayDay: null,
+        birthdayMonth : null,
+        birthdayYear : null,
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
@@ -98,6 +103,7 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: {
     loading: false,
+    userlogin: false,
     user: {},
     error: null,
   },
@@ -121,6 +127,7 @@ const usersSlice = createSlice({
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.loading = false;
       state.user = action.payload;
+      state.userlogin = true;
       state.error = null;
     });
     builder.addCase(loginUser.rejected, (state, action) => {

@@ -1,7 +1,11 @@
 import React from 'react';
 import profile from './Images/ProfilePhoto.svg';
 
+
 const UpdateUserInfo = () => {
+ 
+  
+
   return (
     <div className="flex flex-col font-poppins lg:items-center">
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
