@@ -19,7 +19,7 @@ function App() {
         <Route path="/signup" element ={<Signup/>}/>
         <Route path="/pur" element ={<Purchasetickets/>}/>
         <Route path="/blog/:id" element={<Blogarticle/>}/>
-        <Route path="/Thank-you" element={<ThankYouPage header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
+        <Route path="/Thank-you" element={<ThankYouPage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
       </Routes>
     </BrowserRouter>
   )
