@@ -51,7 +51,7 @@ const imagesilder = BlogData.map((obj) => (
   containerClass="carousel-container"
   responsive={responsive}
   
-  className=" lg:ml-40 md:ml-20 w-10/12 pb-40">
+  className=" lg:ml-40 md:ml-20 w-[65rem] pb-40">
 
   {imagesilder}
 
