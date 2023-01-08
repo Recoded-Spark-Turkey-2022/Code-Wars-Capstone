@@ -28,7 +28,7 @@ const SubscribeForm = () => {
    
 
   return (
-     <div className='pt-[2rem]    '>
+     <div className='pt-[2rem] sm:w[5rem]   '>
     <form >
       <label htmlFor="email" >
       <input className=" w-[15rem] h-[2.5rem] text-xl leading-loose text-gray-500 bg-white border-2  border-gray-500 "
@@ -38,7 +38,7 @@ const SubscribeForm = () => {
         onChange={(event) => setEmail(event.target.value)} placeholder="Enter your e-mail"
       /> 
      
-      <button className='  w-[3rem] h-[2.5rem] leading-loose bg-[#2DD3E3] border-2  rounded-br-md border-gray-500 translate-y-1 ' type="submit" onClick={handleSubmit} > <img src={RiSendPlaneFill} alt="sendicon" className="mx-auto" /> </button>
+      <button className='  w-[3rem] h-[2.5rem] leading-loose bg-[#2DD3E3] border-2  rounded-br-md border-gray-500 translate-y-1  hover:bg-cyan-500 hover:text-white ' type="submit" onClick={handleSubmit} > <img src={RiSendPlaneFill} alt="sendicon" className="  hover:img-white mx-auto w-[1.5rem]" /> </button>
       <div >{error && <p>{error}</p>}</div>
       <div />
       </label>
