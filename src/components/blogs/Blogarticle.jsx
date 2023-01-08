@@ -24,11 +24,8 @@ let imageurl ;
   else {
     imageurl = third ;
   }
-  return (
-
-  
-    
-    <div id={id} className=" flex flex-col justify-center items-start ml-[12rem]">
+  return ( 
+<div data-Testid="blogarticle" id={id} className=" flex flex-col justify-center items-start ml-[12rem]">
 <img  className=" rounded-xl p-9 xl:w-[60rem] xl:h-[35rem] md:h-[35rem] md:w-[50rem] sm:h-[15rem] sm:w-[22rem] "  src={imageurl} alt="article"/>
 <div className="space-y-9  ml-10 xl:w-[55rem]" >
 <h1 className=" 2xl:text-5xl sm:text-4xl uppercase " >{filterbyid[0].header}</h1>

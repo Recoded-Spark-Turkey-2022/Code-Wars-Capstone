@@ -9,7 +9,7 @@ function ContentB() {
           PROFESSIONAL, LICENSED, AND VETTED THERAPISTS THAT YOU CAN TRUST
         </h1>
         <img className=" pb-8 pl-40" src={Therapistimg} alt="therapists" />
-        <p className="pl-40 lg:text-2xl font-seri text-sm lg:w-11/12 lg:pb-20 sm:pb-16">
+        <p className="pl-40 lg:text-2xl font-seri text-sm lg:w-11/12 lg:pb-5 sm:pb-16">
           Tap into the worlds largest network of licensed, accredited, and
           experienced therapists who can help you with a range of issues
           including depression, anxiety, relationships, trauma, grief, and more.
