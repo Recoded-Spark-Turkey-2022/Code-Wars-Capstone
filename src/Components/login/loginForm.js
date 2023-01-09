@@ -1,5 +1,5 @@
 import React, {useState  } from 'react';
-import { useDispatch , useSelector } from 'react-redux';
+import { useDispatch .} from 'react-redux';
 import {  useNavigate } from 'react-router-dom';
 import { loginUser } from '../../features/users/usersSlice';
 
@@ -9,8 +9,8 @@ const FormCard = () => {
   const [password, setPassword] = useState('');
  
   const dispatch = useDispatch();
-  const {userlogin} = useSelector((state)=> state.users)
-  console.log(userlogin)
+ 
+
 
 
   const  nevigate = useNavigate()

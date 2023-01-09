@@ -1,12 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+
 import profile from './Images/ProfilePhoto.svg';
 
 
 const UpdateUserInfo = () => {
- 
+  const { register, handleSubmit , } = useForm();
   const userInfo = useSelector((state)=>state.users.user)
-  console.log(userInfo);
+  const [fullName , setfullName] = useState(userInfo.name);
+  const [Education , setEducation] = useState(userInfo.EducationLevel)
+  const [Hobbies , setHobbies] = useState(userInfo.Hobbies)
+  const [FamilySize , setFamilySize] = useState(userInfo.FamilySize)
+  const [Gender , setGender] = useState(userInfo.Gender);
+  const [Email , setEmail] = useState(userInfo.email)
+  const [day , setDay] = useState(userInfo.birthdayDay)
+  const [month, setMonth] = useState(userInfo.birthdayMonth)
+  const [year, setYear] = useState(userInfo.birthdayYear);
+  
+  
+  const onSubmit =(e) => {
+    
+    console.log(e)
+  }
+  
+  
+
 
   return (
   
@@ -39,16 +58,23 @@ const UpdateUserInfo = () => {
               <div className="flex flex-col gap-7 lg:mt-1 mt-3 ml-6 ">
                 <div>
                   <input
+                  {...register("name")  }
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
-                    id="fullname"
-                    name="fullname"
-                    type="text"
-                    value = {userInfo.name}
+                    id="name"
+                    name="name"
+                    type="text" 
+                    value={fullName}
+                    onChange={(e)=> setfullName(e.target.value)  }
+                   
                   />
                 </div>
                 <div>
                   <div className="relative w-full lg:max-w-sm">
-                    <select className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
+                    <select 
+                    {...register("EducationLevel")}
+                    value ={Education}
+                    onChange={(e)=>setEducation(e.target.value)}
+                    className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
                       <option value={userInfo.EducationLevel} selected="selected" disabled="disabled">
                         -- Select Education --
                       </option>
@@ -77,25 +103,34 @@ const UpdateUserInfo = () => {
                 </div>
                 <div>
                   <input
+                  {...register("Hobbies")}
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
-                    id="hobby"
-                    name="hobby"
+                    id="Hobbies"
+                    name="Hobbies"
                     type="text"
-                    value={userInfo.Hobbies}
+                    value={Hobbies}
+                    onChange={(e)=>setHobbies(e.target.value)}
                   />
                 </div>
                 <div className="flex flex-row">
                   <input
+                  {...register("FamilySize")}
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block w-[4em] p-0.5"
-                    id="familysize"
-                    name="familysize"
+                    id="FamilySize"
+                    name="FamilySize"
                     type="text"
-                    value = {userInfo.FamilySize}
+                    value = {FamilySize}
+                    onChange={(e)=>setFamilySize(e.target.value)}
                   />
                   <div className="self-center ml-4">Member(s)</div>
                 </div>
                 <div>
-                  <select className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
+                  <select 
+                   {...register("Gender")}
+                   value ={Gender}
+                   onChange={(e)=>setGender(e.target.value)}
+
+                  className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
                     <option value={userInfo.Gender} selected="selected" disabled="disabled">
                       -- Select Gender --
                     </option>
@@ -105,20 +140,24 @@ const UpdateUserInfo = () => {
                 </div>
                 <div className="flex flex-row">
                   <input
+                  {...register("birthdayDay")}
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[5em] w-[3em]"
-                    id="birthmonth"
-                    name="birthmonth"
-                    type="text"
-                    placeholder="MM"
-                    value = {userInfo.birthdayDay}
-                  />
-                  <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-2 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[5em] w-[3em]"
-                    id="birthday"
-                    name="birthday"
+                    id="birthdayDay"
+                    name="birthdayDay"
                     type="text"
                     placeholder="DD"
-                    value = {userInfo.birthdayMonth}
+                    value = {day}
+                    onChange={(e)=> setDay(e.target.value)  }
+                  />
+                  <input
+                   {...register("birthdayMonth")}
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-2 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[5em] w-[3em]"
+                    id="birthdbirthdayMonthay"
+                    name="birthdayMonth"
+                    type="text"
+                    placeholder="MM"
+                    value = {month}
+                    onChange = {(e)=> setMonth(e.target.value)}
                   />
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-4 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[17em] w-[8.5em]"
@@ -126,24 +165,29 @@ const UpdateUserInfo = () => {
                     name="birthyear"
                     type="text"
                     placeholder="YYYY"
-                    value = {userInfo.birthdayYear}
+                    {...register("birthdayYear")}
+                    value = {year}
+                    onChange = {(e)=> setYear(e.target.value)}
                   />
                 </div>
                 <div>
                   <input
+                  {...register("email")}
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
                     id="email"
                     name="email"
                     type="email"
-                    value = {userInfo.email}
+                    value = {Email}
+                    onChange={(e)=>setEmail(e.target.value)}
                   />
                 </div>
                 <div>
                   <input
+                   {...register("PhoneNumber")}
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
-                    id="phone"
-                    name="phone"
-                    type="text"
+                    id="PhoneNumber"
+                    name="PhoneNumber"
+                    type="tel"
                     value = {userInfo.PhoneNumber}
                   />
                 </div>
@@ -204,6 +248,7 @@ const UpdateUserInfo = () => {
           </div>
           <div className="flex flex-rows lg:gap-8 gap-3 mt-10 lg:ml-20 ml-[-12em] lg:text-base text-sm">
             <button
+            onClick={handleSubmit(onSubmit)}
               type="button"
               className="bg-[#2DD3E3] font-medium text-2xl px-10 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
             >
