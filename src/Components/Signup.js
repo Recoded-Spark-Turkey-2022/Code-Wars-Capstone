@@ -18,8 +18,7 @@ const SignupForm = () => {
   return (
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
       {/* <img src={Image} alt="Sign up" /> */}
-      <div className=" flex-1  ">
-          {' '}<img src={Sofa} alt="Sofa" /></div>
+       <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32"><img src={Sofa} alt="Sofa" /></div>
       <div className="flex flex-col">
         <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
           SIGNUP NOW
@@ -123,9 +122,9 @@ const SignupForm = () => {
         </form>
         <div className="flex justify-around my-6">
           {/* <img src={lineImage} alt="A line" /> */}
-          <p>Or</p>
           {/* <img src={lineImage} alt="A line" /> */}
         </div>
+        <div className="w-full text-center border-b-2 border-cyan-400 mt-2.5 mb-5 leading-[0.1em]"><span className="px-2 bg-white">Or</span></div>
         <div className="flex justify-center my-6 gap-x-20">
           <button
             type="button"
@@ -136,7 +135,7 @@ const SignupForm = () => {
                 loginUserWithGoogle({ id: userDat.id, email: userDat.email })
               );
             }}
-          >
+          >  
             <img src={googleicon} alt="Google Icon" />{' '}
           </button>
           <button
