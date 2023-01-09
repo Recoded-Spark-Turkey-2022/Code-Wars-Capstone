@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector ,useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-
+import {updatechange} from "../../features/users/usersSlice"
 import profile from './Images/ProfilePhoto.svg';
 
 
@@ -17,12 +17,23 @@ const UpdateUserInfo = () => {
   const [day , setDay] = useState(userInfo.birthdayDay)
   const [month, setMonth] = useState(userInfo.birthdayMonth)
   const [year, setYear] = useState(userInfo.birthdayYear);
+ 
+  const dispatch = useDispatch();
   
   
-  const onSubmit =(e) => {
+  const onSubmit =(user) => {
+    dispatch(updatechange( {
+
+      id: userInfo.id,
+      user 
+     
+    }
+      
+
+    ))
     
-    console.log(e)
   }
+  
   
   
 

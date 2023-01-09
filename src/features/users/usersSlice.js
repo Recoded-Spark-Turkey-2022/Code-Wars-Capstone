@@ -5,7 +5,7 @@ import {
   signInWithPopup,
 } from 'firebase/auth';
 
-import { doc, setDoc , getDoc  } from 'firebase/firestore';
+import { doc, setDoc , getDoc , updateDoc   } from 'firebase/firestore';
 import { db, auth, googleAuth, facebookAuth } from '../../firebase-config';
 
 export const signupUser = createAsyncThunk(
@@ -39,7 +39,7 @@ export const signupUser = createAsyncThunk(
         Hobbies : null ,
         FamilySize : null ,
         Gender : null ,
-        PhoneNumber : null ,
+        PhoneNumber : null ,  
 
       });
       return { id: user.uid, email: user.email };
@@ -111,6 +111,37 @@ export const loginUserWithFacebook = createAsyncThunk(
     }
   }
 );
+export const updatechange = createAsyncThunk("user/updatechange",
+async (payload) => {
+const {id , user} = payload;
+
+console.log(id);
+console.log(user);
+
+const docRef = doc(db, 'users', id);
+
+await updateDoc(docRef, {
+  id ,
+  email: user.email ,
+  name : user.displayName ,
+  photoURL : user.photoURL , 
+  birthdayDay: user.birthdayDay,
+  birthdayMonth : user.birthdayMonth,
+  birthdayYear : user.birthdayYear,
+  EducationLevel : user.Education ,
+  Hobbies : user.Hobbies ,
+  FamilySize : user.FamilySize ,
+  Gender : user.Gender ,
+  PhoneNumber : user.PhoneNumber ,
+  
+});
+
+
+}) ;
+
+
+
+
 
 const usersSlice = createSlice({
   name: 'users',
@@ -170,6 +201,19 @@ const usersSlice = createSlice({
       state.error = null;
     });
     builder.addCase(loginUserWithFacebook.rejected, (state, action) => {
+      state.loading = false;
+      state.user = {};
+      state.error = action.payload;
+    });
+    builder.addCase(updatechange.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(updatechange.fulfilled, (state, action) => {
+      state.loading = false;
+      state.user = action.payload;
+      state.error = null;
+    });
+    builder.addCase(updatechange.rejected, (state, action) => {
       state.loading = false;
       state.user = {};
       state.error = action.payload;
