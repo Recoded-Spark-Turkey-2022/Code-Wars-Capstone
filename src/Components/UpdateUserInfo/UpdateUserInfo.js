@@ -25,15 +25,20 @@ const UpdateUserInfo = () => {
     dispatch(updatechange( {
 
       id: userInfo.id,
-      user 
+      email: user.email ,
+      name : user.name ,
+      photoURL : null ,  
+      birthdayDay: user.birthdayDay,
+      birthdayMonth : user.birthdayMonth,
+      birthdayYear : user.birthdayYear,
+      EducationLevel : user.EducationLevel ,
+      Hobbies : user.Hobbies ,
+      FamilySize : user.FamilySize ,
+      Gender : user.Gender ,
+      PhoneNumber : user.PhoneNumber ,
      
-    }
-      
+    }))}
 
-    ))
-    
-  }
-  
   
   
 

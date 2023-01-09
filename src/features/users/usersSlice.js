@@ -112,31 +112,37 @@ export const loginUserWithFacebook = createAsyncThunk(
   }
 );
 export const updatechange = createAsyncThunk("user/updatechange",
-async (payload) => {
-const {id , user} = payload;
+async (payload , { rejectWithValue } ) => {
+  try {
 
-console.log(id);
-console.log(user);
-
-const docRef = doc(db, 'users', id);
-
-await updateDoc(docRef, {
-  id ,
-  email: user.email ,
-  name : user.displayName ,
-  photoURL : user.photoURL , 
-  birthdayDay: user.birthdayDay,
-  birthdayMonth : user.birthdayMonth,
-  birthdayYear : user.birthdayYear,
-  EducationLevel : user.Education ,
-  Hobbies : user.Hobbies ,
-  FamilySize : user.FamilySize ,
-  Gender : user.Gender ,
-  PhoneNumber : user.PhoneNumber ,
   
-});
+const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize ,Gender , PhoneNumber  } = payload;
+const docRef = doc(db, 'users', id);
+  
+  await updateDoc(docRef, {
+  id ,
+  email,
+   name ,
+   photoURL,
+    birthdayDay,
+    birthdayMonth,
+    birthdayYear ,
+    EducationLevel ,
+      Hobbies,
+      FamilySize ,
+      Gender ,
+       PhoneNumber 
 
+}
+)
+const docSnap = await getDoc(docRef);
+  
+return  docSnap.data() ;
+}
 
+catch(error){
+  return rejectWithValue(error);
+}
 }) ;
 
 
@@ -212,6 +218,7 @@ const usersSlice = createSlice({
       state.loading = false;
       state.user = action.payload;
       state.error = null;
+      console.log(action.payload);
     });
     builder.addCase(updatechange.rejected, (state, action) => {
       state.loading = false;
