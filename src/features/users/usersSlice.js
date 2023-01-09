@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
+
 import { doc, setDoc , getDoc  } from 'firebase/firestore';
 import { db, auth, googleAuth, facebookAuth } from '../../firebase-config';
 
@@ -34,6 +35,12 @@ export const signupUser = createAsyncThunk(
         birthdayDay,
         birthdayMonth,
         birthdayYear,
+        EducationLevel : null ,
+        Hobbies : null ,
+        FamilySize : null ,
+        Gender : null ,
+        PhoneNumber : null ,
+
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
@@ -51,6 +58,7 @@ export const loginUser = createAsyncThunk(
       
       const docRef = doc(db, 'users', user.uid);
       const docSnap = await getDoc(docRef);
+    
       return  docSnap.data()  ;
     } catch (error) {
       return rejectWithValue(error);
@@ -73,6 +81,11 @@ export const loginUserWithGoogle = createAsyncThunk(
         birthdayDay: null,
         birthdayMonth : null,
         birthdayYear : null,
+        EducationLevel : null ,
+        Hobbies : null ,
+        FamilySize : null ,
+        Gender : null ,
+        PhoneNumber : null ,
       });
       return { id: user.uid, email: user.email };
     } catch (error) {

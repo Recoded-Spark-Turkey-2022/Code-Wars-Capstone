@@ -1,12 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import profile from './Images/ProfilePhoto.svg';
 
 
 const UpdateUserInfo = () => {
  
-  
+  const userInfo = useSelector((state)=>state.users.user)
+  console.log(userInfo);
 
   return (
+  
     <div className="flex flex-col font-poppins lg:items-center">
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
         Please fill all the fields with correct and valid details to complete
@@ -40,12 +43,13 @@ const UpdateUserInfo = () => {
                     id="fullname"
                     name="fullname"
                     type="text"
+                    value = {userInfo.name}
                   />
                 </div>
                 <div>
                   <div className="relative w-full lg:max-w-sm">
                     <select className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
-                      <option value="" selected="selected" disabled="disabled">
+                      <option value={userInfo.EducationLevel} selected="selected" disabled="disabled">
                         -- Select Education --
                       </option>
                       <option value="No formal education">
@@ -77,6 +81,7 @@ const UpdateUserInfo = () => {
                     id="hobby"
                     name="hobby"
                     type="text"
+                    value={userInfo.Hobbies}
                   />
                 </div>
                 <div className="flex flex-row">
@@ -85,12 +90,13 @@ const UpdateUserInfo = () => {
                     id="familysize"
                     name="familysize"
                     type="text"
+                    value = {userInfo.FamilySize}
                   />
                   <div className="self-center ml-4">Member(s)</div>
                 </div>
                 <div>
                   <select className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
-                    <option value="" selected="selected" disabled="disabled">
+                    <option value={userInfo.Gender} selected="selected" disabled="disabled">
                       -- Select Gender --
                     </option>
                     <option value="female">Female</option>
@@ -104,6 +110,7 @@ const UpdateUserInfo = () => {
                     name="birthmonth"
                     type="text"
                     placeholder="MM"
+                    value = {userInfo.birthdayDay}
                   />
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-2 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[5em] w-[3em]"
@@ -111,6 +118,7 @@ const UpdateUserInfo = () => {
                     name="birthday"
                     type="text"
                     placeholder="DD"
+                    value = {userInfo.birthdayMonth}
                   />
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-4 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[17em] w-[8.5em]"
@@ -118,6 +126,7 @@ const UpdateUserInfo = () => {
                     name="birthyear"
                     type="text"
                     placeholder="YYYY"
+                    value = {userInfo.birthdayYear}
                   />
                 </div>
                 <div>
@@ -126,6 +135,7 @@ const UpdateUserInfo = () => {
                     id="email"
                     name="email"
                     type="email"
+                    value = {userInfo.email}
                   />
                 </div>
                 <div>
@@ -134,6 +144,7 @@ const UpdateUserInfo = () => {
                     id="phone"
                     name="phone"
                     type="text"
+                    value = {userInfo.PhoneNumber}
                   />
                 </div>
                 <div className="flex flex-row">
