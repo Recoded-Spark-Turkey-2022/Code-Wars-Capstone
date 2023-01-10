@@ -118,12 +118,13 @@ async (payload , { rejectWithValue } ) => {
   
 const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize ,Gender , PhoneNumber  } = payload;
 const docRef = doc(db, 'users', id);
+console.log(photoURL)
   
   await updateDoc(docRef, {
   id ,
   email,
    name ,
-   photoURL,
+  // photoURL,
     birthdayDay,
     birthdayMonth,
     birthdayYear ,

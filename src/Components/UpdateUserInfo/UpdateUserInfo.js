@@ -17,17 +17,21 @@ const UpdateUserInfo = () => {
   const [day , setDay] = useState(userInfo.birthdayDay)
   const [month, setMonth] = useState(userInfo.birthdayMonth)
   const [year, setYear] = useState(userInfo.birthdayYear);
+  const [filedata , setFiledata] = useState();
  
   const dispatch = useDispatch();
   
   
   const onSubmit =(user) => {
+    console.log(filedata)
+   
+    
     dispatch(updatechange( {
 
       id: userInfo.id,
       email: user.email ,
       name : user.name ,
-      photoURL : null ,  
+      photoURL : filedata ,  
       birthdayDay: user.birthdayDay,
       birthdayMonth : user.birthdayMonth,
       birthdayYear : user.birthdayYear,
@@ -209,10 +213,12 @@ const UpdateUserInfo = () => {
                 </div>
                 <div className="flex flex-row">
                   <input
+                  {...register("photoURL")}
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
                     id="uploadID"
                     name="uploadID"
-                    type="text"
+                    type="file"
+                    onChange={(e)=>setFiledata(e.target.files[0])}
                   />
                   {/* <img
                       src={plusIcon}
