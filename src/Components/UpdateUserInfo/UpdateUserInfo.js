@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useSelector ,useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import {updatechange} from "../../features/users/usersSlice"
+
 import profile from './Images/ProfilePhoto.svg';
 
 
@@ -23,7 +24,17 @@ const UpdateUserInfo = () => {
   
   
   const onSubmit =(user) => {
-      dispatch(updatechange( {
+    let newPassword = null;
+    console.log(user.Password)
+    console.log(user.confiremPassowrd)
+    if(user.Password === user.confiremPassowrd) { 
+        newPassword = user.Password ;
+    }
+    else {
+      alert(" password and confirm password not match ")
+    }
+     
+ dispatch(updatechange( {
 
       id: userInfo.id,
       email: user.email ,
@@ -38,6 +49,9 @@ const UpdateUserInfo = () => {
       Gender : user.Gender ,
       PhoneNumber : user.PhoneNumber ,
       Idimage : filedata ,
+      Password : newPassword,
+      
+
      
     }))}
 
@@ -122,7 +136,7 @@ const UpdateUserInfo = () => {
                 <div>
                   <input
                   {...register("Hobbies")}
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
+                    className=" bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
                     id="Hobbies"
                     name="Hobbies"
                     type="text"
@@ -209,10 +223,10 @@ const UpdateUserInfo = () => {
                     value = {userInfo.PhoneNumber}
                   />
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
                   <input
                   
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
+                    className=""
                     id="uploadID"
                     name="uploadID"
                     type="file"
@@ -224,6 +238,7 @@ const UpdateUserInfo = () => {
                       className="w-6 ml-[-2em]"
                     /> */}
                 </div>
+                
               </div>
             </div>
           </div>
@@ -239,22 +254,19 @@ const UpdateUserInfo = () => {
               <div className="flex flex-col gap-7 mt-1 lg:ml-0 ml-4">
                 <div className="flex flex-row">
                   <input
+                  {...register("Password")}
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
-                    id="password"
-                    name="password"
+                    id="Password"
+                    name="Password"
                     type="text"
                   />
-                  {/* <img
-                      src={passwordIcon}
-                      alt="passwordIcon"
-                      className="w-6 ml-[-2em]"
-                    /> */}
                 </div>
                 <div className="flex flex-row">
                   <input
+                  {...register("confiremPassowrd")}
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block  lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
-                    id="confirmpassword"
-                    name="confirmpassword"
+                    id="confiremPassowrd"
+                    name="confiremPassowrd"
                     type="text"
                   />
                   {/* <img

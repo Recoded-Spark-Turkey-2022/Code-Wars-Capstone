@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice , } from '@reduxjs/toolkit';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithPopup,
+  signInWithPopup ,  updatePassword , updateEmail , getAuth
 } from 'firebase/auth';
 
 import { doc, setDoc , getDoc , updateDoc   } from 'firebase/firestore';
@@ -116,22 +116,48 @@ export const loginUserWithFacebook = createAsyncThunk(
   }
 );
 
+
+
+
+
+
 // this funciton to update the user profile information 
 export const updatechange = createAsyncThunk("user/updatechange",
 async (payload , { rejectWithValue } ) => {
   try {
 
   
-const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize ,Gender , PhoneNumber ,Idimage  } = payload;
+const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize 
+  ,Gender , PhoneNumber ,Idimage , Password  } = payload;
+
+
+  const authpassword = getAuth();
+  const authemail = getAuth();
+
+  const userpassword = authpassword.currentUser;
+  const useremail  =authemail.currentUser ;
+  
+  
+  updatePassword(userpassword, Password).then(() => {
+    
+  }).catch((error) => {
+    rejectWithValue(error.message);
+  });
+
+  updateEmail(useremail.currentUser, email).then(() => {
+    
+  }).catch((error) => {
+    rejectWithValue(error.message);
+  });
+
+  // sending photo to firestorage 
 const imagesRef = ref(storage, id);
 const uploadTask = uploadBytesResumable(imagesRef, Idimage);
  const downloadURL = await  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
 return download ;
 });
-
+  // sending data to firestore 
 const docRef = doc(db, 'users', id);
-
-  
   await updateDoc(docRef, {
   id ,
   email,
