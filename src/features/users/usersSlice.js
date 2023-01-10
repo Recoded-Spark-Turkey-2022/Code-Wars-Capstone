@@ -6,7 +6,8 @@ import {
 } from 'firebase/auth';
 
 import { doc, setDoc , getDoc , updateDoc   } from 'firebase/firestore';
-import { db, auth, googleAuth, facebookAuth } from '../../firebase-config';
+import {ref , uploadBytesResumable , getDownloadURL} from "firebase/storage";
+import { db, auth, googleAuth, facebookAuth , storage } from '../../firebase-config';
 
 export const signupUser = createAsyncThunk(
   'user/signupUser',
@@ -39,7 +40,8 @@ export const signupUser = createAsyncThunk(
         Hobbies : null ,
         FamilySize : null ,
         Gender : null ,
-        PhoneNumber : null ,  
+        PhoneNumber : null ,
+        Idimage : null   
 
       });
       return { id: user.uid, email: user.email };
@@ -86,6 +88,8 @@ export const loginUserWithGoogle = createAsyncThunk(
         FamilySize : null ,
         Gender : null ,
         PhoneNumber : null ,
+        Idimage : null
+        
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
@@ -111,20 +115,28 @@ export const loginUserWithFacebook = createAsyncThunk(
     }
   }
 );
+
+// this funciton to update the user profile information 
 export const updatechange = createAsyncThunk("user/updatechange",
 async (payload , { rejectWithValue } ) => {
   try {
 
   
-const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize ,Gender , PhoneNumber  } = payload;
+const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize ,Gender , PhoneNumber ,Idimage  } = payload;
+const imagesRef = ref(storage, id);
+const uploadTask = uploadBytesResumable(imagesRef, Idimage);
+ const downloadURL = await  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
+return download ;
+});
+
 const docRef = doc(db, 'users', id);
-console.log(photoURL)
+
   
   await updateDoc(docRef, {
   id ,
   email,
    name ,
-  // photoURL,
+   photoURL ,
     birthdayDay,
     birthdayMonth,
     birthdayYear ,
@@ -132,7 +144,8 @@ console.log(photoURL)
       Hobbies,
       FamilySize ,
       Gender ,
-       PhoneNumber 
+       PhoneNumber ,
+       Idimage :downloadURL 
 
 }
 )

@@ -23,15 +23,12 @@ const UpdateUserInfo = () => {
   
   
   const onSubmit =(user) => {
-    console.log(filedata)
-   
-    
-    dispatch(updatechange( {
+      dispatch(updatechange( {
 
       id: userInfo.id,
       email: user.email ,
       name : user.name ,
-      photoURL : filedata ,  
+      photoURL : null ,  
       birthdayDay: user.birthdayDay,
       birthdayMonth : user.birthdayMonth,
       birthdayYear : user.birthdayYear,
@@ -40,6 +37,7 @@ const UpdateUserInfo = () => {
       FamilySize : user.FamilySize ,
       Gender : user.Gender ,
       PhoneNumber : user.PhoneNumber ,
+      Idimage : filedata ,
      
     }))}
 
@@ -213,7 +211,7 @@ const UpdateUserInfo = () => {
                 </div>
                 <div className="flex flex-row">
                   <input
-                  {...register("photoURL")}
+                  
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
                     id="uploadID"
                     name="uploadID"
