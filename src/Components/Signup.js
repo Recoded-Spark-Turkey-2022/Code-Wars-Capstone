@@ -20,7 +20,7 @@ const SignupForm = () => {
       {/* <img src={Image} alt="Sign up" /> */}
        <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32"><img src={Sofa} alt="Sofa" /></div>
       <div className="flex flex-col">
-        <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
+        <h2 className='text-5xl font-["Poppins"] font-normal mb-32  max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
           SIGNUP NOW
         </h2>
         <form
@@ -44,40 +44,40 @@ const SignupForm = () => {
             <input
               {...register('firstName')}
               type="text"
-              placeholder="First Name"
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              placeholder="First Name" 
+              className="h-14 w-56 broder-solid border-2 p-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
             />
             <input
               {...register('lastName')}
               type="text"
-              placeholder="Last Name"
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              placeholder=" Last Name"
+              className="h-14 w-56 broder-solid border-2  p-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
             />
           </div>
           <input
             {...register('email')}
             type="text"
             placeholder="Your Email"
-            className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+            className="h-14 broder-solid border-2  p-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
           />
           <input
             {...register('emailConfirmation')}
             type="text"
             placeholder="Confirm email"
-            className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+            className="h-14 broder-solid border-2  p-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
           />
           <div className="flex gap-x-7">
             <input
               {...register('password')}
               type="password"
               placeholder="Password"
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-56 broder-solid border-2  p-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
             />
             <input
               {...register('passwordConfirmation')}
               type="password"
               placeholder="Confirm password"
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-56 broder-solid border-2  p-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
             />
           </div>
           <div className="flex items-center justify-between">
@@ -86,19 +86,19 @@ const SignupForm = () => {
               {...register('birthdayDay')}
               type="text"
               placeholder="DD"
-              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-12 broder-solid border-2  p-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
             />
             <input
               {...register('birthdayMonth')}
               type="text"
               placeholder="MM"
-              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-12 broder-solid border-2  p-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
             />
             <input
               {...register('birthdayYear')}
               type="text"
               placeholder="YYYY"
-              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300"
+              className="h-14 w-12 broder-solid border-2  p-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300"
             />
           </div>
           <div className="flex justify-around py-3 gap-8">
