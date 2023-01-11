@@ -2,9 +2,7 @@ import { createAsyncThunk, createSlice , } from '@reduxjs/toolkit';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithPopup ,  updatePassword , updateEmail , getAuth
-} from 'firebase/auth';
-
+  signInWithPopup ,  updatePassword , updateEmail ,} from 'firebase/auth';
 import { doc, setDoc , getDoc , updateDoc   } from 'firebase/firestore';
 import {ref , uploadBytesResumable , getDownloadURL} from "firebase/storage";
 import { db, auth, googleAuth, facebookAuth , storage } from '../../firebase-config';
@@ -125,37 +123,31 @@ export const loginUserWithFacebook = createAsyncThunk(
 export const updatechange = createAsyncThunk("user/updatechange",
 async (payload , { rejectWithValue } ) => {
   try {
-
-  
 const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize 
   ,Gender , PhoneNumber ,Idimage , Password  } = payload;
+ 
 
-
-  const authpassword = getAuth();
-  const authemail = getAuth();
-
-  const userpassword = authpassword.currentUser;
-  const useremail  =authemail.currentUser ;
-  
-  
-  updatePassword(userpassword, Password).then(() => {
-    
-  }).catch((error) => {
+ 
+  updatePassword(auth.currentUser, Password).then((passowrdd) => {console.log( `${passowrdd}password` )}).catch((error) => {
     rejectWithValue(error.message);
   });
 
-  updateEmail(useremail.currentUser, email).then(() => {
-    
-  }).catch((error) => {
+  updateEmail(auth.currentUser, email).then((eemail) => {
+    console.log(`${eemail}email`)}).catch((error) => {
     rejectWithValue(error.message);
   });
 
-  // sending photo to firestorage 
-const imagesRef = ref(storage, id);
+  let downloadURL ;
+  if(Idimage !== undefined){
+    const imagesRef = ref(storage, id);
 const uploadTask = uploadBytesResumable(imagesRef, Idimage);
- const downloadURL = await  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
+  downloadURL = await  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
 return download ;
 });
+  }
+  // sending photo to firestorage 
+
+
   // sending data to firestore 
 const docRef = doc(db, 'users', id);
   await updateDoc(docRef, {
@@ -171,7 +163,7 @@ const docRef = doc(db, 'users', id);
       FamilySize ,
       Gender ,
        PhoneNumber ,
-       Idimage :downloadURL 
+       Idimag :downloadURL 
 
 }
 )
@@ -182,8 +174,7 @@ return  docSnap.data() ;
 
 catch(error){
   return rejectWithValue(error);
-}
-}) ;
+}}) ;
 
 
 
