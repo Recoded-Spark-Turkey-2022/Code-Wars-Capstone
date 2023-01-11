@@ -9,10 +9,10 @@ import sena from "./sena.jpg"
 function Team (){
 
     return(
-      <div>
-        <h1 className="lg:text-5xl md:text-3xl p-[6rem]">WE ARE HEALING, NICE TO MEET YOU!</h1>
+      <div >
+        <h1 className="lg:text-5xl md:text-3xl p-[4rem] pl-[5rem] pb-[8rem]">WE ARE HEALING, NICE TO MEET YOU!</h1>
         <div className=" ">
-       <h4 className="pl-[6rem] pb-[2rem]  lg:text-3xl leading-10 md:text-xl text-gray-700">Meet the Team!</h4> 
+       <h4 className="pl-[5rem] pb-[3rem]  lg:text-3xl leading-10 md:text-xl text-gray-700">Meet the Team!</h4> 
     <div className=" pl-[5rem] pb-[5rem] pr-[5rem] grid lg:grid-cols-5 md:grid-cols-3 .grid-cols-5 gap-3">
       <TeamCard image={mohammed} name="Muhammed Mustafa" position="Front-end Developer" />
       <TeamCard image={naji} name="Naji AlHusami" position="Front-End Developer" />
