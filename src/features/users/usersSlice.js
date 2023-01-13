@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice , } from '@reduxjs/toolkit';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithPopup ,  updatePassword , updateEmail ,} from 'firebase/auth';
-import { doc, setDoc , getDoc , updateDoc   } from 'firebase/firestore';
+  signInWithPopup ,  updatePassword , updateEmail , deleteUser} from 'firebase/auth';
+import { doc, setDoc , getDoc , updateDoc , deleteDoc  } from 'firebase/firestore';
 import {ref , uploadBytesResumable , getDownloadURL} from "firebase/storage";
 import { db, auth, googleAuth, facebookAuth , storage } from '../../firebase-config';
 
@@ -121,23 +121,22 @@ export const loginUserWithFacebook = createAsyncThunk(
 
 // this funciton to update the user profile information 
 export const updatechange = createAsyncThunk("user/updatechange",
-async (payload , { rejectWithValue } ) => {
+async (payload , { rejectWithValue , getState } ) => {
   try {
+    const state = getState();
 const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize 
   ,Gender , PhoneNumber ,Idimage , Password  } = payload;
- 
-
- 
-  updatePassword(auth.currentUser, Password).then((passowrdd) => {console.log( `${passowrdd}password` )}).catch((error) => {
+   updatePassword(auth.currentUser, Password).then().catch((error) => {
     rejectWithValue(error.message);
   });
 
-  updateEmail(auth.currentUser, email).then((eemail) => {
-    console.log(`${eemail}email`)}).catch((error) => {
+    updateEmail(auth.currentUser, email).then(
+
+ ).catch((error) => {
     rejectWithValue(error.message);
   });
-
-  let downloadURL ;
+   // sending photo to firestorage 
+  let downloadURL = state.users.user.Idimage ;
   if(Idimage !== undefined){
     const imagesRef = ref(storage, id);
 const uploadTask = uploadBytesResumable(imagesRef, Idimage);
@@ -145,40 +144,50 @@ const uploadTask = uploadBytesResumable(imagesRef, Idimage);
 return download ;
 });
   }
-  // sending photo to firestorage 
-
-
   // sending data to firestore 
-const docRef = doc(db, 'users', id);
+const   docRef =   doc(db, 'users', id);
   await updateDoc(docRef, {
   id ,
   email,
-   name ,
-   photoURL ,
-    birthdayDay,
-    birthdayMonth,
-    birthdayYear ,
-    EducationLevel ,
-      Hobbies,
-      FamilySize ,
-      Gender ,
-       PhoneNumber ,
-       Idimag :downloadURL 
+  name ,
+  photoURL ,
+  birthdayDay,
+  birthdayMonth,
+  birthdayYear ,
+  EducationLevel ,
+  Hobbies,
+  FamilySize ,
+  Gender ,
+  PhoneNumber ,
+  Idimage :downloadURL 
 
 }
+
 )
+
 const docSnap = await getDoc(docRef);
-  
 return  docSnap.data() ;
 }
-
 catch(error){
   return rejectWithValue(error);
 }}) ;
 
 
+// delete user 
+export const DeleteAccount = createAsyncThunk("user/deleteUser", async ( userid,   {rejectWithValue}) =>{
+    const user = auth.currentUser;
+  await deleteUser(user).then(() => {
+    console.log("user deleted")
+  }).catch((error) => {
+    rejectWithValue(error.message)
+  });
+
+    
+  await deleteDoc(doc(db, "users", userid.id));
+}
 
 
+)
 
 const usersSlice = createSlice({
   name: 'users',

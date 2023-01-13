@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import { useSelector ,useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import {updatechange} from "../../features/users/usersSlice"
+
+import {updatechange , DeleteAccount} from "../../features/users/usersSlice"
 
 import profile from './Images/ProfilePhoto.svg';
 
@@ -18,9 +19,11 @@ const UpdateUserInfo = () => {
   const [day , setDay] = useState(userInfo.birthdayDay)
   const [month, setMonth] = useState(userInfo.birthdayMonth)
   const [year, setYear] = useState(userInfo.birthdayYear);
+  const [PhoneNumber , setPhoneNumber] = useState(userInfo.PhoneNumber)
   const [filedata , setFiledata] = useState();
  
   const dispatch = useDispatch();
+
   
   
   const onSubmit =(user) => {
@@ -50,10 +53,24 @@ const UpdateUserInfo = () => {
       PhoneNumber : user.PhoneNumber ,
       Idimage : filedata ,
       Password : newPassword,
-      
+    }))} ;
 
-     
-    }))}
+  const HandelDelete = ()=>{
+    dispatch(DeleteAccount({ id: userInfo.id}));
+
+  }
+  const handleDelete = ()=>{
+    setfullName(userInfo.name)
+    setEducation(userInfo.education);
+    setHobbies(userInfo.Hobbies);
+    setFamilySize(userInfo.FamilySize);
+    setGender(userInfo.Gender);
+    setEmail(userInfo.email)
+    setDay(userInfo.birthdayDay)
+    setYear(userInfo.birthdayYear);
+    setPhoneNumber(userInfo.PhoneNumber)
+    setMonth(userInfo.birthdayMonth);
+  }
 
   
   
@@ -220,7 +237,8 @@ const UpdateUserInfo = () => {
                     id="PhoneNumber"
                     name="PhoneNumber"
                     type="tel"
-                    value = {userInfo.PhoneNumber}
+                    value = {PhoneNumber}
+                    onChange = {(event) => {setPhoneNumber(event.target.value)}}
                   />
                 </div>
                 <div className="flex flex-row bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
@@ -232,11 +250,7 @@ const UpdateUserInfo = () => {
                     type="file"
                     onChange={(e)=>setFiledata(e.target.files[0])}
                   />
-                  {/* <img
-                      src={plusIcon}
-                      alt="plusIcon"
-                      className="w-6 ml-[-2em]"
-                    /> */}
+             
                 </div>
                 
               </div>
@@ -258,7 +272,7 @@ const UpdateUserInfo = () => {
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
                     id="Password"
                     name="Password"
-                    type="text"
+                    type="password"
                   />
                 </div>
                 <div className="flex flex-row">
@@ -267,13 +281,9 @@ const UpdateUserInfo = () => {
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block  lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
                     id="confiremPassowrd"
                     name="confiremPassowrd"
-                    type="text"
+                    type="password"
                   />
-                  {/* <img
-                      src={passwordIcon}
-                      alt="passwordIcon"
-                      className="w-6 ml-[-2em]"
-                    /> */}
+                 
                 </div>
               </div>
             </div>
@@ -289,12 +299,15 @@ const UpdateUserInfo = () => {
             <button
               type="button"
               className="bg-[#2DD3E3] font-medium text-2xl px-10 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+              onClick={()=>HandelDelete()}
             >
               DELETE ACCOUNT
             </button>
             <button
               type="button"
               className="bg-[#2DD3E3] font-medium text-2xl px-10 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+              onClick={handleDelete}
+              
             >
               CANCEL
             </button>
