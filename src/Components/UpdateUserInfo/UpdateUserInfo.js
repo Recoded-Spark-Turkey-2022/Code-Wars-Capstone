@@ -124,7 +124,7 @@ const UpdateUserInfo = () => {
                     value ={Education}
                     onChange={(e)=>setEducation(e.target.value)}
                     className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
-                      <option value={userInfo.EducationLevel} selected="selected" disabled="disabled">
+                      <option  selected="selected" disabled="disabled">
                         -- Select Education --
                       </option>
                       <option value="No formal education">
@@ -176,11 +176,10 @@ const UpdateUserInfo = () => {
                 <div>
                   <select 
                    {...register("Gender")}
-                   value ={Gender}
+                   value={Gender}
                    onChange={(e)=>setGender(e.target.value)}
-
                   className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
-                    <option value={userInfo.Gender} selected="selected" disabled="disabled">
+                    <option  selected="selected" disabled="disabled">
                       -- Select Gender --
                     </option>
                     <option value="female">Female</option>
