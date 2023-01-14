@@ -23,6 +23,10 @@ const onclicklogo = ()=>{
     "/")
 }
 
+const navigatetoteampage = ()=>{
+  return Navigate("/Team")
+}
+
 return (
      <nav style={{fontFamily: 'Poppins, sans-serif'}} className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded  z-10 ">
         
@@ -36,7 +40,7 @@ return (
              <div ><select value={title} onChange = { (e)=> setTitle(e.target.value) } className=" text-center bg-cyan-50 hover:text-orange-300 mr-1 mt-2 w-16 h-5">
                    <option selected value="about" >About</option>
                    <option value="about page" >About Page</option>
-                   <option value="team page">Team Page</option>
+                    <option value="team page" onClick={navigatetoteampage}>Team Page</option>
                    <option value="carees page">Carees Page</option>
                </select></div>
              <a href="#Contact Us" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</a>

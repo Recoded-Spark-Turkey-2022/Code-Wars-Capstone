@@ -20,7 +20,7 @@ const SubscribeForm = () => {
       return;
     }
 
-      navigate('/thank-you');
+      navigate('/Thank-you');
    
   } 
 
@@ -48,13 +48,6 @@ const SubscribeForm = () => {
 
   );
 };
-
-
-
-
-
-
-
 
 
 
