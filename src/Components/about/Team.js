@@ -17,8 +17,8 @@ function Team (){
       <TeamCard image={mohammed} name="Muhammed Mustafa" position="Front-end Developer" />
       <TeamCard image={naji} name="Naji AlHusami" position="Front-End Developer" />
       <TeamCard image={nour} name="Nour Al Maleh" position="Front-End Developer"/>
-      <TeamCard image={sena} name="Furkan Akkaya" position="Front-End Developer"/>
-      <TeamCard image={furkan} name="Sena Sezer" position="Front-End Developer"/>
+      <TeamCard image={sena} name="Sena Sezer" position="Front-End Developer"/>
+      <TeamCard image={furkan} name="Furkan Akkaya" position="Front-End Developer"/>
       </div>
       </div>
       </div>

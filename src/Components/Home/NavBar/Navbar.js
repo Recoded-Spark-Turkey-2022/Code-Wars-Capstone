@@ -1,5 +1,5 @@
 
-import { useState ,React  } from "react";
+import { React  } from "react";
 import { useNavigate , Link } from "react-router-dom";
 
 
@@ -9,7 +9,7 @@ import Image from "./Logo.svg"
 
 
  function Navebar (){
-const [title , setTitle] = useState('');
+
 const Navigate = useNavigate();
 
 const HandleLogin = (e)=>{
@@ -33,11 +33,11 @@ return (
              <div className="    flex justify-around text-l space-x-10">
              <Link to="/" className=" hover:text-orange-300 mr-4 mt-2" >Home</Link>
              <Link to="/blog/1" className=" hover:text-orange-300 mr-2  mt-2">Blogs</Link>
-             <div ><select value={title} onChange = { (e)=> setTitle(e.target.value) } className=" text-center bg-cyan-50 hover:text-orange-300 mr-1 mt-2 w-16 h-5">
-                   <option selected value="about" >About</option>
-                   <option value="about page" >About Page</option>
-                   <option value="team page">Team Page</option>
-                   <option value="carees page">Carees Page</option>
+             <div ><select onChange={(e) => Navigate(e.target.value)} className=" text-center bg-cyan-50 hover:text-orange-300 mr-1 mt-2 w-16 h-5">
+                   <option selected value="/about" >About</option>
+                   <option value="/aboutpage" >About Page</option>
+                   <option value="/team">Team Page</option>
+                   <option value="/carees">Carees Page</option>
                </select></div>
              <a href="#Contact Us" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</a>
              <button type="submit" onClick={HandleLogin} className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ">Login</button>
