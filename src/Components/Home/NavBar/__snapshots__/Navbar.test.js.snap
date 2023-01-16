@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<nav
+  className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded  z-10 "
+  style={
+    Object {
+      "fontFamily": "Poppins, sans-serif",
+    }
+  }
+>
+  <button
+    onClick={[Function]}
+    type="submit"
+  >
+     
+    <img
+      alt="logo"
+      className=" h-9 w-9 mt-2 ml-6"
+      src="Logo.svg"
+    />
+  </button>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+     
+    <h1
+      className="absolute top-4 left-[5.5rem]  text-3xl"
+    >
+      Healing
+    </h1>
+     
+  </a>
+  <div
+    className="absolute top-3.5 right-14 "
+  >
+    <div
+      className="    flex justify-around text-l space-x-10"
+    >
+      <a
+        className=" hover:text-orange-300 mr-4 mt-2"
+        href="/"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+      <a
+        className=" hover:text-orange-300 mr-2  mt-2"
+        href="/blog/1"
+        onClick={[Function]}
+      >
+        Blogs
+      </a>
+      <div>
+        <select
+          className=" text-center bg-cyan-50 hover:text-orange-300 mr-1 mt-2 w-16 h-5"
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            selected={true}
+            value="about"
+          >
+            About
+          </option>
+          <option
+            value="about page"
+          >
+            About Page
+          </option>
+          <option
+            onClick={[Function]}
+            value="team page"
+          >
+            Team Page
+          </option>
+          <option
+            value="carees page"
+          >
+            Carees Page
+          </option>
+        </select>
+      </div>
+      <a
+        className=" hover:text-orange-300 ml-2 mt-2"
+        href="#Contact Us"
+      >
+        Contact Us
+      </a>
+      <button
+        className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white "
+        onClick={[Function]}
+        type="submit"
+      >
+        Login
+      </button>
+    </div>
+  </div>
+</nav>
+`;

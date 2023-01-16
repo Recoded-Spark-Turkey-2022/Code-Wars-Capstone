@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <p
+    className="text-4xl my-20 ml-40  "
+    style={
+      Object {
+        "fontFamily": "Poppins, sans-serif",
+      }
+    }
+  >
+    WE CAN COMMUNICATE THROUGH
+  </p>,
+  <div
+    className="flex gap-8  mb-20 mx-40    "
+  >
+    <div
+      className="bg-white rounded-lg drop-shadow-xl p-6 w-10/12"
+      style={
+        Object {
+          "fontFamily": "Poppins, sans-serif",
+        }
+      }
+    >
+      <img
+        alt="cardsphoto"
+        className="h-20 w-15 rounded-full mx-auto mb-4"
+        src="phonecall.svg"
+      />
+      <h2
+        className="text-2xl font-bold text-center mb-2"
+      >
+        Voice Call
+      </h2>
+      <p
+        className="text-gray-700 text-center"
+      >
+        Feeling ready to start a conversation? Give your therapist a voice call and talk your heart out!
+      </p>
+    </div>
+    <div
+      className="bg-white rounded-lg drop-shadow-xl p-6 w-10/12"
+      style={
+        Object {
+          "fontFamily": "Poppins, sans-serif",
+        }
+      }
+    >
+      <img
+        alt="cardsphoto"
+        className="h-20 w-15 rounded-full mx-auto mb-4"
+        src="chat.svg"
+      />
+      <h2
+        className="text-2xl font-bold text-center mb-2"
+      >
+        Chat
+      </h2>
+      <p
+        className="text-gray-700 text-center"
+      >
+        Need to talk to someone? Come have a chat with your therapist!
+      </p>
+    </div>
+    <div
+      className="bg-white rounded-lg drop-shadow-xl p-6 w-10/12"
+      style={
+        Object {
+          "fontFamily": "Poppins, sans-serif",
+        }
+      }
+    >
+      <img
+        alt="cardsphoto"
+        className="h-20 w-15 rounded-full mx-auto mb-4"
+        src="video.svg"
+      />
+      <h2
+        className="text-2xl font-bold text-center mb-2"
+      >
+        Video Call
+      </h2>
+      <p
+        className="text-gray-700 text-center"
+      >
+        For better experience therapists recommend video calls, but always remember that its a choice!
+      </p>
+    </div>
+  </div>,
+]
+`;

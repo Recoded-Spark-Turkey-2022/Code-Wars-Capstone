@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recommends renders correctly 1`] = `
+<div
+  className="xl:w-[75rem] xl:h-[35rem] sm:w-[40rem] sm:h-[20rem] xl:pt-[10rem] sm:pt-[5rem] "
+>
+  <p
+    className=" 2xl:text-3xl sm:text-3xl uppercase "
+  >
+    Recommended for you
+  </p>
+  <div
+    className="xl:flex space-x-4 xl:pt-[3rem]"
+  >
+    <button
+      className=" rounded  xl:w-[27rem] xl:h-[15rem] sm:w-[20rem] sm:h-[15rem] "
+      onClick={[Function]}
+      type="submit"
+    >
+       
+      <img
+        alt="second"
+        src="1st.jpg"
+      />
+        
+    </button>
+    <button
+      className=" rounded xl:w-[27rem] xl:h-[15rem]  sm:w-[20rem] sm:h-[15rem]"
+      onClick={[Function]}
+      type="submit"
+    >
+       
+      <img
+        alt="third"
+        src="2nd.jpg"
+      />
+        
+    </button>
+  </div>
+</div>
+`;
