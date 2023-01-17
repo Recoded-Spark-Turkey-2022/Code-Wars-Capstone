@@ -142,7 +142,7 @@ const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,Educat
   let downloadURL = state.users.user.Idimage ;
   if(Idimage !== undefined){
     const imagesRef = ref(storage, id);
-const uploadTask = await  uploadBytesResumable(imagesRef, Idimage);
+const uploadTask =  uploadBytesResumable(imagesRef, Idimage);
   downloadURL = await  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
 return download ;
 });
@@ -150,7 +150,7 @@ return download ;
   let downloadprofilepic = state.users.user.Idimage ;
   if(photoURL !== undefined){
     const imagesRef = ref(storage, name);
-const uploadTask = await uploadBytesResumable(imagesRef, photoURL);
+const uploadTask =  uploadBytesResumable(imagesRef, photoURL);
 downloadprofilepic = await  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
 return download ;
 });
