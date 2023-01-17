@@ -30,7 +30,7 @@ export const signupUser = createAsyncThunk(
         id: user.uid,
         email,
         name: `${payload.firstName} ${payload.lastName}` ,
-        photoURL : null , 
+        photoURL : "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" , 
         birthdayDay,
         birthdayMonth,
         birthdayYear,
@@ -144,13 +144,22 @@ const uploadTask = uploadBytesResumable(imagesRef, Idimage);
 return download ;
 });
   }
+  let downloadprofilepic = state.users.user.Idimage ;
+  if(photoURL !== undefined){
+    const imagesRef = ref(storage, id);
+const uploadTask = uploadBytesResumable(imagesRef, photoURL);
+downloadprofilepic = await  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
+return download ;
+});
+  }
+
   // sending data to firestore 
 const   docRef =   doc(db, 'users', id);
   await updateDoc(docRef, {
   id ,
   email,
   name ,
-  photoURL ,
+  photoURL : downloadprofilepic,
   birthdayDay,
   birthdayMonth,
   birthdayYear ,

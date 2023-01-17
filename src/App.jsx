@@ -8,6 +8,7 @@ import Purchasetickets from './Components/Home/Purchasetickets/Purchasetickets';
 import ThankYouPage from './Components/blogs/Thankyoupage';
 import Blogarticle from './Components/blogs/Blogarticle';
 import UpdateUserInfo from './Components/UpdateUserInfo/UpdateUserInfo'
+import Profilepic from "./Components/UpdateUserInfo/Profilepic"
 
  
 function App() {
@@ -22,6 +23,8 @@ function App() {
         <Route path="/blog/:id" element={<Blogarticle/>}/>
         <Route path="/Thank-you" element={<ThankYouPage />}/>
         <Route path="/UpdateUserInfo" element={<UpdateUserInfo />}/>
+        <Route path="/Profilepic" element={<Profilepic />}/>
+
       </Routes>
     </BrowserRouter>
   )

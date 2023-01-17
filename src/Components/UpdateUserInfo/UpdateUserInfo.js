@@ -3,8 +3,7 @@ import { useSelector ,useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
 import {updatechange , DeleteAccount} from "../../features/users/usersSlice"
-
-import profile from './Images/ProfilePhoto.svg';
+import Profilepic from './Profilepic';
 
 
 const UpdateUserInfo = () => {
@@ -21,6 +20,8 @@ const UpdateUserInfo = () => {
   const [year, setYear] = useState(userInfo.birthdayYear);
   const [PhoneNumber , setPhoneNumber] = useState(userInfo.PhoneNumber)
   const [filedata , setFiledata] = useState();
+  const [profilepic , setprofilepic] = useState(userInfo.photoURL)
+
  
   const dispatch = useDispatch();
 
@@ -42,7 +43,7 @@ const UpdateUserInfo = () => {
       id: userInfo.id,
       email: user.email ,
       name : user.name ,
-      photoURL : null ,  
+      photoURL : profilepic ,  
       birthdayDay: user.birthdayDay,
       birthdayMonth : user.birthdayMonth,
       birthdayYear : user.birthdayYear,
@@ -85,7 +86,7 @@ const UpdateUserInfo = () => {
       </div>
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
-          <img src={profile} alt="profile" className="self-center ml-28" />
+          <Profilepic setprofilepic={setprofilepic} profilepic={userInfo.photoURL}  className="self-center ml-28" />
         </div>
         <div className="flex flex-col lg:ml-16 ml-44">
           <div className=" lg:ml-20 ml-[-15em] lg:self-start lg:mr-44 mt-6 mb-15 ">
@@ -247,6 +248,7 @@ const UpdateUserInfo = () => {
                     id="uploadID"
                     name="uploadID"
                     type="file"
+                    accept="image/*"
                     onChange={(e)=>setFiledata(e.target.files[0])}
                   />
              
