@@ -76,6 +76,26 @@ export const loginUserWithGoogle = createAsyncThunk(
   }
 );
 
+
+// export const Booking = createAsyncThunk(
+//   'user/Booking',
+//   async ({ rejectWithValue }) => {
+//     try {
+//       const docRef = doc(db, 'questionnaire', user.uid);
+//       await setDoc(docRef, {
+//         id: user.uid,
+//         question,
+//         choice,
+//       });
+//       return { id: user.uid};
+//     } catch (error) {
+//       return rejectWithValue(error);
+//     }
+//   }
+// );
+
+
+
 export const loginUserWithFacebook = createAsyncThunk(
   'user/loginUserWithFacebook',
   async ({ rejectWithValue }) => {

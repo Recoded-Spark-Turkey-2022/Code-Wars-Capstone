@@ -7,7 +7,7 @@ import Signup from './Components/Signup';
 import Purchasetickets from './Components/Home/Purchasetickets/Purchasetickets';
 import ThankYouPage from './Components/blogs/Thankyoupage';
 import Blogarticle from './Components/blogs/Blogarticle';
-
+import Booking from './Components/booking/Booking';
  
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Route path="/pur" element ={<Purchasetickets/>}/>
         <Route path="/blog/:id" element={<Blogarticle/>}/>
         <Route path="/Thank-you" element={<ThankYouPage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
+        <Route path="/booking/:id" element={<Booking/>}/>
       </Routes>
     </BrowserRouter>
   )

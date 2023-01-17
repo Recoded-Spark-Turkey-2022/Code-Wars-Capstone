@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { collection, addDoc } from "firebase/firestore";
 import RiSendPlaneFill from  "./Images/Style.png";                      
-
+import { db } from '../../firebase-config';
 
 
 const SubscribeForm = () => {
@@ -19,8 +20,14 @@ const SubscribeForm = () => {
       setError('Please enter an email address');
       return;
     }
+ // Email is valid, add it to Firestore
 
-      navigate('/thank-you');
+ await addDoc(collection(db, "emails"), {
+  useremail: email,    
+});
+    setEmail('');
+    setError('');
+    navigate('/thank-you');
    
   } 
 
