@@ -7,8 +7,11 @@ import Signup from './Components/Signup';
 import Purchasetickets from './Components/Home/Purchasetickets/Purchasetickets';
 import ThankYouPage from './Components/blogs/Thankyoupage';
 import Blogarticle from './Components/blogs/Blogarticle';
-import Booking from './Components/booking/Booking';
- 
+import Bookingtem from './Components/booking/Bookingtem';
+import Bookingradio from './Components/booking/Bookingradio';
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -20,7 +23,12 @@ function App() {
         <Route path="/pur" element ={<Purchasetickets/>}/>
         <Route path="/blog/:id" element={<Blogarticle/>}/>
         <Route path="/Thank-you" element={<ThankYouPage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
-        <Route path="/booking/:id" element={<Booking/>}/>
+        <Route path="/booking/1" element={<Bookingtem question="What type of coumseling are you looking for?" choices={[
+        "Individual counseling","Teen counseling (for my child)",
+    ]} />}/>
+      <Route path="/booking/4" element={<Bookingradio question="What is your relationship status?" choices={[
+        "Single","Married","Divorced"
+    ]} />}/>
       </Routes>
     </BrowserRouter>
   )
