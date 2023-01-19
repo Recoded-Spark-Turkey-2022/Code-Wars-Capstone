@@ -31,7 +31,7 @@ return (
           placeholder='Write Something Here...'
         />
       </InputTrigger>
-      <button type="submit" className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white ml-20 mt-10"> Next    </button>
+      <button type="submit" className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 px-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white ml-20 mt-10"> Next    </button>
     </div>
 )
 }

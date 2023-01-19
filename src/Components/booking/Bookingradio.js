@@ -28,7 +28,9 @@ const Bookingradio = () => {
     if(id === "1"){
       navigate('/booking2/2')
     }
-    
+    else{
+      navigate("/bookingnote")
+    }
   
   }
   
