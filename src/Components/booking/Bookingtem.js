@@ -1,10 +1,14 @@
 import React from 'react';
-import 'firebase/database';
+import {  useParams , useNavigate} from 'react-router-dom';
+import {MutipleChoose} from "./bookingData" ;
 // import { useDispatch } from 'react-redux';
 // import Booking from './Booking';
 
 
-const Bookingtem = ({ question, choices}) => {
+const Bookingtem = (  ) => {
+  const {id} = useParams();
+  const navigate = useNavigate();
+  
   // const dispatch = useDispatch();
   // const handleSubmit = () =>  {
   //   dispatch(
@@ -16,19 +20,52 @@ const Bookingtem = ({ question, choices}) => {
   //     })
   //   );
   // }
+   
+  const handleClick = () => { 
+    const nextId = parseInt(id, 10) +1 ;
+    if(nextId <=3) {
 
+      navigate(`/booking1/${nextId}`)
+    }
+    else (
+      navigate('/booking2/1')
+    )
+    
+ 
+   
+  }
+   
+   const QustionPages = MutipleChoose.filter((obj)=> obj.id === id)
+   const answersarray = QustionPages[0].answer ;  
+ 
+
+
+    const answers=answersarray.map( (obj) => {
+
+        return (
+
+              <button type='submit' className='pl-[1rem] text-xl text-center capitalize flex items-center lg:w-[30rem] space-x-2 h-[4rem] bg-white border rounded-md border-gray-300  hover:bg-cyan-500 translate-y-1' >{obj}</button>
+
+          
+        )
+
+      }
+    
+    )
+ 
   return (
     <div >
-      <div className='pl-[3rem] pt-[3rem] pb-[3rem]'><h1 className="text-5xl uppercase" > let&apos;s match you with the right therapist </h1>
+      <div className='pl-[3rem] pt-[3rem] pb-[3rem]'><h1 className="text-5xl uppercase" >  let’s match you with the right therapist</h1>
   <p className=' text-2xl text-justify text-black text-opacity-50 lg:w-[65rem]'>Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you&apos;d like to deal with in online therapy. It would help us match you 
   <br/>with the most suitable therapist for you.</p></div>
   <div className=' grid justify-items-center'>
   <div className=' flex-col space-y-8 grid justify-items-start px-10 pt-8 pb-[10rem] bg-white shadow rounded'>
-      <h1 className='text-3xl capitalize'>{question}</h1>
-      <div>{choices.map((choice) => (
-        <button type='submit' className='pl-[1rem] text-xl text-center capitalize flex items-center lg:w-[30rem] space-x-2 h-[4rem] bg-white border rounded-md border-gray-300  hover:bg-cyan-500 translate-y-1' >{choice}</button>
-      ))}</div>
-      <button className='inline-block align-bottom uppercase md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ' type='submit'>next</button>
+      <h1 className='text-3xl capitalize'>{QustionPages[0].Qustion}</h1>
+      <div> 
+
+        {answers}
+      </div>
+      <button  onClick={handleClick} className='inline-block align-bottom uppercase md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ' type='submit'>next</button>
       </div>
       </div>
       </div>

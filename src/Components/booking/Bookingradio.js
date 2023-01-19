@@ -1,9 +1,9 @@
 import React from 'react';
-import 'firebase/database';
+import {RadioQustion} from "./bookingData" ;
 // import { useDispatch } from 'react-redux';
 // import Booking from './Booking';
 
-const Bookingradio = ({ question, choices }) => {
+const Bookingradio = ({  choices }) => {
   // const dispatch = useDispatch();
 
   // const handleSubmit = () =>  {
@@ -17,6 +17,20 @@ const Bookingradio = ({ question, choices }) => {
   //   );
   // }
 
+  
+  const answers=RadioQustion[0].answer.map( (obj) => {
+
+    return (
+
+              obj
+      
+    )
+
+  }
+ 
+  )
+  
+  console.log(answers);
   return (
     <div >
       <div className='pl-[3rem] pt-[3rem] pb-[3rem]'><h1 className="text-5xl uppercase" > let&apos;s match you with the right therapist </h1>
@@ -24,7 +38,7 @@ const Bookingradio = ({ question, choices }) => {
   <br/>with the most suitable therapist for you.</p></div>
   <div className=' grid justify-items-center'>
   <div className=' flex-col space-y-8 px-10 pt-8 pb-[1rem] bg-white shadow-lg rounded'>
-      <h1 className='text-3xl capitalize'>{question}</h1>
+      <h1 className='text-3xl capitalize'>{RadioQustion[0].Qustion}</h1>
       <div className=' grid justify-items-LEFT space-y-3 '>{choices.map((choice) => (
         <label> <input type='radio' className='text-3xl text-black text-opacity-90 capitalize mr-3 shadow-lg' value={choice}/>{choice}</label>
       ))}</div>

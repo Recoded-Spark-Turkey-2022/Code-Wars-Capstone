@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 import bacgroundImg from "./Images/BackGround.png"
 import Mainimg from "./Images/Towperson.svg"
 import "./bookAppointment.css"
@@ -17,7 +18,7 @@ function BookAppointment(){
          <div className=" absolute top-28  left-40">
             <p className="paragraph">We Are Here To</p>
             <p className="paragrapHelp">Help</p>
-            <a href="#Loge In" className="text-xl md:text-lg  lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white ">BOOK AN APPOINTMENT</a>
+            <Link to="booking1/1" className="text-xl md:text-lg  lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white ">BOOK AN APPOINTMENT</Link>
          </div>
         
          

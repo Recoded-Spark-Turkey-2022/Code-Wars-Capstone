@@ -23,10 +23,8 @@ function App() {
         <Route path="/pur" element ={<Purchasetickets/>}/>
         <Route path="/blog/:id" element={<Blogarticle/>}/>
         <Route path="/Thank-you" element={<ThankYouPage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
-        <Route path="/booking/1" element={<Bookingtem question="What type of coumseling are you looking for?" choices={[
-        "Individual counseling","Teen counseling (for my child)",
-    ]} />}/>
-      <Route path="/booking/4" element={<Bookingradio question="What is your relationship status?" choices={[
+        <Route path="/booking1/:id" element={<Bookingtem />}/>
+      <Route path="/booking2/:id" element={<Bookingradio question="What is your relationship status?" choices={[
         "Single","Married","Divorced"
     ]} />}/>
       </Routes>
