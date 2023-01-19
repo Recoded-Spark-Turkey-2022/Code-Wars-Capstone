@@ -56,7 +56,8 @@ const Bookingtem = (  ) => {
  
   return (
     <div >
-       <HeaderBooking/>
+        <HeaderBooking Header =" let&apos;s match you with the right therapist" par="Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you&apos;d like to deal with in online therapy. It would help us match you 
+        with the most suitable therapist for you."/>
   <div className=' grid justify-items-center'>
   <div className=' flex-col  space-y-8 grid justify-items-start px-10 pt-8 pb-[10rem] bg-white shadow rounded'>
       <h1 className='text-3xl capitalize'>{QustionPages[0].Qustion}</h1>
