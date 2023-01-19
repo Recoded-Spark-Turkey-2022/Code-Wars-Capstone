@@ -1,5 +1,6 @@
 import React from 'react';
 import {  useParams , useNavigate} from 'react-router-dom';
+import HeaderBooking  from './HeaderBooking';
 import {MutipleChoose} from "./bookingData" ;
 // import { useDispatch } from 'react-redux';
 // import Booking from './Booking';
@@ -55,9 +56,7 @@ const Bookingtem = (  ) => {
  
   return (
     <div >
-      <div className='pl-[3rem] pt-[3rem] pb-[3rem]'><h1 className="text-5xl uppercase" >  let’s match you with the right therapist</h1>
-  <p className=' text-2xl text-justify text-black text-opacity-50 lg:w-[65rem]'>Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you&apos;d like to deal with in online therapy. It would help us match you 
-  <br/>with the most suitable therapist for you.</p></div>
+       <HeaderBooking/>
   <div className=' grid justify-items-center'>
   <div className=' flex-col space-y-8 grid justify-items-start px-10 pt-8 pb-[10rem] bg-white shadow rounded'>
       <h1 className='text-3xl capitalize'>{QustionPages[0].Qustion}</h1>
