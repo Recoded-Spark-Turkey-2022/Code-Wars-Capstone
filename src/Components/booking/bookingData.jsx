@@ -21,7 +21,7 @@ export const RadioQustion = [
     {
         id:"1",
         Qustion : "Are there any specific qualities that you'd like in a counselor?" , 
-        answer : ["I prefer a male counselor" ," I prefer a female counselor" , "I prefer an older counselor (45+)" , " I prefer a non-religious counselor" , " I prefer an older counselor (45+)" ]
+        answer : [" I prefer a male counselor" ," I prefer a female counselor" , " I prefer an older counselor (45+)" , " I prefer a non-religious counselor" ,  ]
     },
     {
         id:"2",
