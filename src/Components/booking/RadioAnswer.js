@@ -3,7 +3,7 @@ import React, { useState  } from 'react';
 
 const RadioAnswer = ({choices}) => {
   const [selectedValue, setSelectedValue] = useState('');
-  console.log(choices)
+
 
   const handleCheckboxChange = (event) => {
     console.log(event.target.name)
