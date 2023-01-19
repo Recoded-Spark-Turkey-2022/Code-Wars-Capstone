@@ -58,7 +58,7 @@ const Bookingtem = (  ) => {
     <div >
        <HeaderBooking/>
   <div className=' grid justify-items-center'>
-  <div className=' flex-col space-y-8 grid justify-items-start px-10 pt-8 pb-[10rem] bg-white shadow rounded'>
+  <div className=' flex-col  space-y-8 grid justify-items-start px-10 pt-8 pb-[10rem] bg-white shadow rounded'>
       <h1 className='text-3xl capitalize'>{QustionPages[0].Qustion}</h1>
       <div> 
 
