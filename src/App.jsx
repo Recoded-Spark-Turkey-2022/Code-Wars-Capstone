@@ -9,6 +9,7 @@ import ThankYouPage from './Components/blogs/Thankyoupage';
 import Blogarticle from './Components/blogs/Blogarticle';
 import Bookingtem from './Components/booking/Bookingtem';
 import Bookingradio from './Components/booking/Bookingradio';
+import Note from "./Components/booking/Note"
 
 
 
@@ -24,9 +25,8 @@ function App() {
         <Route path="/blog/:id" element={<Blogarticle/>}/>
         <Route path="/Thank-you" element={<ThankYouPage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
         <Route path="/booking1/:id" element={<Bookingtem />}/>
-      <Route path="/booking2/:id" element={<Bookingradio question="What is your relationship status?" choices={[
-        "Single","Married","Divorced"
-    ]} />}/>
+      <Route path="/booking2/:id" element={<Bookingradio />}/>
+      <Route path="/bookingnote" element={<Note />} />
       </Routes>
     </BrowserRouter>
   )
