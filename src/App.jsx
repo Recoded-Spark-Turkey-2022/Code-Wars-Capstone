@@ -10,8 +10,8 @@ import Blogarticle from './Components/blogs/Blogarticle';
 import Bookingtem from './Components/booking/Bookingtem';
 import Bookingradio from './Components/booking/Bookingradio';
 import Note from "./Components/booking/Note"
-
-
+import Submit from './Components/booking/Submit';
+import Requestsubmit from './Components/booking/RequestSubmit';
 
 function App() {
   return (
@@ -27,6 +27,8 @@ function App() {
         <Route path="/booking1/:id" element={<Bookingtem />}/>
       <Route path="/booking2/:id" element={<Bookingradio />}/>
       <Route path="/bookingnote" element={<Note />} />
+      <Route path="/bookingsubmit" element={<Submit />} />
+      <Route path="/Requestsubmit" element={<Requestsubmit />} />
       </Routes>
     </BrowserRouter>
   )
