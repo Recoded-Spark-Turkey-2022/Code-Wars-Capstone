@@ -11,6 +11,9 @@ const Node =()=>{
         }
       }, []);
       const navigate = useNavigate();
+      const handleSubmite = (e)=>{
+        e.preventDefault();
+        navigate("/bookingsubmit")}
 
 return (
     <div  >
@@ -38,7 +41,7 @@ return (
           placeholder='Write Something Here...'
         />
       </InputTrigger>
-      <button type="submit" onClick={()=>{navigate("/bookingsubmit")}} className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 px-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white ml-40 mt-10"> Next    </button>
+      <button type="submit" onClick={handleSubmite} className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 px-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white ml-40 mt-10"> Next    </button>
     </div>
 )
 }
