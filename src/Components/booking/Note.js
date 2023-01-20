@@ -14,7 +14,6 @@ const Node =()=>{
       const handleSubmite = (e)=>{
         e.preventDefault();
         navigate("/bookingsubmit")}
-
 return (
     <div  >
     

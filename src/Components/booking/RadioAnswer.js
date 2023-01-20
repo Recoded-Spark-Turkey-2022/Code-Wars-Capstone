@@ -20,7 +20,6 @@ const RadioAnswer = ({choices}) => {
                 <>
               <label   >
               <input
-                className=' '
                 type="Radio"
                 name= {obj}
                 key = {obj}

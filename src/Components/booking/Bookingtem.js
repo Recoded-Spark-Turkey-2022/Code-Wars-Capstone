@@ -1,36 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import HeaderBooking from './HeaderBooking';
 import { MutipleChoose } from './bookingData';
 
-// import { useDispatch } from 'react-redux';
-// import Booking from './Booking';
 
 const Bookingtem = () => {
   const { id } = useParams();
-  const [selectedValue, setSelectedValue] = useState('');
-  const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
+  
+  const QustionPages = MutipleChoose.filter((obj) => obj.id === id);
+  const answersarray = QustionPages[0].answer;
+  const [selected, setSelected] = useState(null);
+  const [answer, setanswer] =useState();
+  
+  const handlegettingvalue = (e, index) => {
+    setSelected(index);
+    setanswer(e.target.value);
+  
+};
 
-  // const dispatch = useDispatch();
-  // const handleSubmit = () =>  {
-  //   dispatch(
-  //     Booking({
-  //       id: user.uid,
-  //       question,
-  //       choice,
+console.log(answer)
 
-  //     })
-  //   );
-  // }
-  const handlegettingvalue = (e) => {
-    setSelectedValue(e.target.value);
-    setIsClicked(!isClicked);
-
-  };
-  useEffect(() => {
-  }, [selectedValue]);
-  console.log(selectedValue);
 
   const handleClick = () => {
     const nextId = parseInt(id, 10) + 1;
@@ -39,16 +29,15 @@ const Bookingtem = () => {
     } else navigate('/booking2/1');
   };
 
-  const QustionPages = MutipleChoose.filter((obj) => obj.id === id);
-  const answersarray = QustionPages[0].answer;
 
-  const answers = answersarray.map((obj) => {
+  const answers = answersarray.map((obj, index) => {
     return (
       <button
-        onClick={handlegettingvalue}
+        onClick={(e) => handlegettingvalue(e , index)}
         value={obj}
+        name={obj}
         type="submit"
-        className={`pl-[1rem] text-xl p-1 text-center capitalize flex items-center lg:w-[30rem] md:w-[20rem] sm:w-[10rem] h-[3.5rem] transition-all duration-500 hover:bg-cyan-500 bg-white border-2 rounded-md border-gray-150   ${isClicked ? 'bg-cyan-500' :''}`}
+        className={`pl-[1rem] text-xl p-1 text-center capitalize flex items-center lg:w-[30rem] md:w-[20rem] sm:w-[10rem] h-[3.5rem] transition-all duration-500 hover:bg-cyan-500 bg-white border-2 rounded-md border-gray-150   ${selected === index ? 'bg-cyan-500' :''}`}
       >
         {obj}
       </button>
