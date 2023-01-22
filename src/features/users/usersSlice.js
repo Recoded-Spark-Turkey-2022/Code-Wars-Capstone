@@ -4,7 +4,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { db, auth, googleAuth, facebookAuth } from '../../firebase-config';
 
 export const signupUser = createAsyncThunk(
@@ -77,22 +77,8 @@ export const loginUserWithGoogle = createAsyncThunk(
 );
 
 
-// export const Booking = createAsyncThunk(
-//   'user/Booking',
-//   async ({ rejectWithValue }) => {
-//     try {
-//       const docRef = doc(db, 'questionnaire', user.uid);
-//       await setDoc(docRef, {
-//         id: user.uid,
-//         question,
-//         choice,
-//       });
-//       return { id: user.uid};
-//     } catch (error) {
-//       return rejectWithValue(error);
-//     }
-//   }
-// );
+
+
 
 
 
@@ -114,14 +100,37 @@ export const loginUserWithFacebook = createAsyncThunk(
   }
 );
 
+export const BookingInfo = createAsyncThunk(
+  'answers/booking',
+  async ( payload , { rejectWithValue  }) => {
+    try {
+     const docRef =  doc(db, 'Answer' , "12346");
+      await setDoc(docRef, {
+      Answer : payload
+      });
+      const docSnap = await getDoc(docRef);
+      return  docSnap.data() ;
+      }
+      catch(error){
+        return rejectWithValue(error);
+      }
+      }
+);
+
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
     loading: false,
     user: {},
     error: null,
+    SurveyAnswer :[]
   },
+  reducers : {
+    AddAnswer: (state, action) => {
+    state.SurveyAnswer.push(action.payload)}},
   
+
+
   extraReducers: (builder) => {
     builder.addCase(signupUser.pending, (state) => {
       state.loading = true;
@@ -175,7 +184,17 @@ const usersSlice = createSlice({
       state.user = {};
       state.error = action.payload;
     });
+    builder.addCase(BookingInfo.pending, () => {
+     
+    });
+    builder.addCase(BookingInfo.fulfilled, (state, action) => {
+       console.log(action.payload);
+    });
+    builder.addCase(BookingInfo.rejected, () => {
+      console.log("rejecting pending")
+    });
   },
-});
+}); 
 
 export default usersSlice.reducer;
+export const {AddAnswer} = usersSlice.actions ;

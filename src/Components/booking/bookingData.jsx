@@ -11,7 +11,7 @@
     } , 
     {
         id:"3",
-        Qustion : "What is your relationship status?" , 
+        Qustion : "Have you ever been in therspy before?" , 
         answer : ["Yes" , " No"   ]
     }
 ]
@@ -26,7 +26,7 @@ export const RadioQustion = [
     {
         id:"2",
         Qustion : "Are there any issues you'd like to focus on? " , 
-        answer : ["Depression" ," Stress and Anxiety" , "Relationship issues" , "Family conflicts" , "Trauma and abuse" , "Eating disorders" ]
+        answer : [" Depression" ," Stress and Anxiety" , " Relationship issues" , " Family conflicts" , " Trauma and abuse" , " Eating disorders" ]
     },
 
 

@@ -1,9 +1,16 @@
 import InputTrigger from 'react-input-trigger';
-import React, { useCallback } from "react";
+import React, { useCallback , useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import HeaderBooking from "./HeaderBooking";
+import {AddAnswer} from "../../features/users/usersSlice"
+
+
 
 const Node =()=>{
+  const [inputvalue , setinputValue] = useState();
+  const dispatch = useDispatch();
+
     
     const emailInput = useCallback((inputElement) => {
         if (inputElement) {
@@ -13,7 +20,10 @@ const Node =()=>{
       const navigate = useNavigate();
       const handleSubmite = (e)=>{
         e.preventDefault();
-        navigate("/bookingsubmit")}
+        navigate("/bookingsubmit")
+        dispatch(AddAnswer(inputvalue))
+      }
+       
 return (
     <div  >
     
@@ -35,6 +45,7 @@ return (
             boxShadow: "rgba(0, 0, 0, 0.4) 0px 1px 4px",
          
           }}
+          onChange={(e)=>{setinputValue(e.target.value)}}
           className="   focus:outline-none lg:w-[75rem] md:w-[40rem] sm:w-[20rem]  " 
           ref={emailInput}
           placeholder='Write Something Here...'

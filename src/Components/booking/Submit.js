@@ -1,10 +1,17 @@
 import { useNavigate } from "react-router-dom";
+import { useSelector , useDispatch} from "react-redux";
 import HeaderBooking  from "./HeaderBooking";
+import {BookingInfo} from "../../features/users/usersSlice"
 
 const Submit = () => { 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const answers = useSelector((state)=> state.users.SurveyAnswer);
     const handlesubmit = (e)=>{
-        e.preventDefault(); navigate("/Requestsubmit")}
+         e.preventDefault(); 
+         dispatch(BookingInfo(answers))
+         navigate("/Requestsubmit")}
+        
     return(
         <>
         <HeaderBooking Header="Submit your appointment" par="Click Submit if you are sure of all your choices."/>
