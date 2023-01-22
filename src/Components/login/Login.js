@@ -20,7 +20,7 @@ function Login() {
         </div>
       </div>
 
-      <LoginwithGoogle />
+      <LoginwithGoogle /> 
     </div>
   );
 }

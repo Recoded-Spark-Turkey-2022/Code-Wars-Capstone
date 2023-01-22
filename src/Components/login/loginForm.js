@@ -1,12 +1,17 @@
-import React, { useState  } from 'react';
-import { useDispatch } from 'react-redux';
+import React, {useState  } from 'react';
+import { useDispatch  } from 'react-redux';
 import {  useNavigate } from 'react-router-dom';
 import { loginUser } from '../../features/users/usersSlice';
+
 
 const FormCard = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+ 
   const dispatch = useDispatch();
+ 
+
+
 
   const  nevigate = useNavigate()
 
@@ -14,7 +19,15 @@ const FormCard = () => {
     event.preventDefault();
     // perform some action with the email and password values
     dispatch(loginUser({ email, password }));
+    
   };
+  
+
+
+
+  
+  
+  
 
   return (
     <div className="max-w-sm rounded-lg shadow-lg p-8 ">
