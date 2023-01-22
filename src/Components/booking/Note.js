@@ -1,4 +1,4 @@
-import InputTrigger from 'react-input-trigger';
+import InputTrigger from "react-input-trigger";
 import React, { useCallback , useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
