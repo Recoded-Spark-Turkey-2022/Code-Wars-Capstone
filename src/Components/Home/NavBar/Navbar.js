@@ -34,8 +34,8 @@ return (
              <Link to="/" className=" hover:text-orange-300 mr-4 mt-2" >Home</Link>
              <Link to="/blog/1" className=" hover:text-orange-300 mr-2  mt-2">Blogs</Link>
              <div ><select onChange={(e) => Navigate(e.target.value)} className=" text-center bg-cyan-50 hover:text-orange-300 mr-1 mt-2 w-16 h-5">
-                   <option selected value="/about" >About</option>
-                   <option value="/aboutpage" >About Page</option>
+                  
+                   <option value="/about" >About</option>
                    <option value="/team">Team Page</option>
                    <option value="/carees">Carees Page</option>
                </select></div>

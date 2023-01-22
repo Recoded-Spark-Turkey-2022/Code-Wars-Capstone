@@ -8,7 +8,10 @@ import Purchasetickets from './Components/Home/Purchasetickets/Purchasetickets';
 import ThankYouPage from './Components/blogs/Thankyoupage';
 import Blogarticle from './Components/blogs/Blogarticle';
 import Team from './Components/about/Team';
- 
+import About from './Components/about/About';
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +24,7 @@ function App() {
         <Route path="/blog/:id" element={<Blogarticle/>}/>
         <Route path="/Thank-you" element={<ThankYouPage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
         <Route path='/team' element={<Team />}/>
+        <Route path='/about' element={<About />}/>
       </Routes>
     </BrowserRouter>
   )
