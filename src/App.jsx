@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navebar from './Components/Home/NavBar/Navbar';
+import Footer from "./Components/Home/footer/footer";
 import Login from "./Components/login/Login";
 import Home from "./Components/Home/Home";
 import Signup from './Components/Signup';
@@ -40,6 +41,7 @@ function App() {
       <Route path="/Requestsubmit" element={<Requestsubmit />} />
 
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 
