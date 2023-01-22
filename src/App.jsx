@@ -37,7 +37,9 @@ function App() {
        <Route path="/bookingsubmit" element={<Submit />} />
        <Route path="/Requestsubmit" element={<Requestsubmit />} />        
       </Routes>
+
       <Fotter/> 
+
     </BrowserRouter>
   )
 
