@@ -13,7 +13,7 @@ const Bookingradio = () => {
   const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('');
   const QustionPages = RadioQustion.filter((obj)=> obj.id === id)
-
+  const Question = QustionPages[0].Qustion
   const handleclick = async () => { 
     if(id === "1"){
       navigate('/booking2/2')
@@ -21,7 +21,7 @@ const Bookingradio = () => {
     else{
       navigate("/bookingnote")
     }
-    dispatch(AddAnswer(selectedValue))
+    dispatch(AddAnswer({[Question]:selectedValue}))
   }
   
   return (

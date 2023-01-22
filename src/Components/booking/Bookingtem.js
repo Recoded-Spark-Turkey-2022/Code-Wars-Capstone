@@ -15,7 +15,7 @@ const Bookingtem = () => {
   const answersarray = QustionPages[0].answer;
   const [selected, setSelected] = useState(null);
   const [answer, setanswer] =useState();
-  
+  const Question = QustionPages[0].Qustion
   const handlegettingvalue = (e, index) => {
     setSelected(index);
     setanswer(e.target.value);
@@ -27,7 +27,7 @@ const Bookingtem = () => {
       navigate(`/booking1/${nextId}`);
     } else navigate('/booking2/1');
     setSelected(null)
-    dispatch(AddAnswer(answer))
+    dispatch(AddAnswer({[Question]:answer}))
     
   };
 
