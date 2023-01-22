@@ -1,9 +1,7 @@
 import { React  } from "react";
 import {Link} from "react-router-dom"
 import Subscribe from "../blogs/Subscribe"
-/* import Facebookicon from "./image/facebook-f.svg"
-import Googleicon from "./image/google.svg"
-import Twitter from "./image/twitter.svg" */
+
 
 
 function Footer (){
@@ -55,6 +53,6 @@ return (
 
     </div>
 
-);
+)
 }
 export default Footer;
