@@ -8,7 +8,7 @@ function Footer (){
 
 return (
 
- <div className="footer-basic bg-yellow-200">
+ <div className="footer-basic bg-amber-200">
        <footer className="p-4 bg-white rounded-lg  md:flex md:items-center justify-between md:p-6 bg-transparent mx-20 ">
         <div className="m-4">
     <h1 className="font-bold lg:text-4xl md:text-2xl sm:text-sm">Subscribe
