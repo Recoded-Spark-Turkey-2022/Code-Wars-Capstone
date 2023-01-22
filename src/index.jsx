@@ -11,7 +11,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App  />
+      <App style={{fontFamily: 'Poppins, sans-serif'}} />
     </Provider>
   </React.StrictMode>
 );
