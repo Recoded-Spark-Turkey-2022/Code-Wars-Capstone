@@ -7,6 +7,7 @@ import { doc, setDoc , getDoc , updateDoc , deleteDoc  } from 'firebase/firestor
 import {ref , uploadBytesResumable , getDownloadURL} from "firebase/storage";
 import { db, auth, googleAuth, facebookAuth , storage } from '../../firebase-config';
 
+
 export const signupUser = createAsyncThunk(
   'user/signupUser',
   async (payload, { rejectWithValue }) => {
@@ -97,6 +98,12 @@ export const loginUserWithGoogle = createAsyncThunk(
   }
 );
 
+
+
+
+
+
+
 export const loginUserWithFacebook = createAsyncThunk(
   'user/loginUserWithFacebook',
   async ({ rejectWithValue }) => {
@@ -114,6 +121,7 @@ export const loginUserWithFacebook = createAsyncThunk(
     }
   }
 );
+
 
 
 
@@ -201,6 +209,24 @@ export const DeleteAccount = createAsyncThunk("user/deleteUser", async ( userid,
 
 )
 
+export const BookingInfo = createAsyncThunk(
+  'answers/booking',
+  async ( payload , { rejectWithValue  }) => {
+    try {
+     const docRef =  doc(db, 'Answer' , "12346");
+      await setDoc(docRef, {
+      Answer : payload
+      });
+      const docSnap = await getDoc(docRef);
+      return  docSnap.data() ;
+      }
+      catch(error){
+        return rejectWithValue(error);
+      }
+      }
+);
+
+
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
@@ -208,7 +234,14 @@ const usersSlice = createSlice({
     userlogin: false,
     user: {},
     error: null,
+    SurveyAnswer :[]
   },
+  reducers : {
+    AddAnswer: (state, action) => {
+    state.SurveyAnswer.push(action.payload)}},
+  
+
+
   extraReducers: (builder) => {
     builder.addCase(signupUser.pending, (state) => {
       state.loading = true;
@@ -277,7 +310,17 @@ const usersSlice = createSlice({
       state.user = {};
       state.error = action.payload;
     });
+    builder.addCase(BookingInfo.pending, () => {
+     
+    });
+    builder.addCase(BookingInfo.fulfilled, (state, action) => {
+       console.log(action.payload);
+    });
+    builder.addCase(BookingInfo.rejected, () => {
+      console.log("rejecting pending")
+    });
   },
-});
+}); 
 
 export default usersSlice.reducer;
+export const {AddAnswer} = usersSlice.actions ;
