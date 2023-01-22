@@ -1,6 +1,7 @@
 
 import { useState ,React  } from "react";
 import { useNavigate , Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 
 
@@ -11,12 +12,20 @@ import Image from "./Logo.svg"
  function Navebar (){
 const [title , setTitle] = useState('');
 const Navigate = useNavigate();
+const {userlogin} = useSelector((state)=> state.users)
 
 const HandleLogin = (e)=>{
   e.preventDefault();
   return Navigate(
     "/login")
 }
+const HandleProfile =(e)=>{
+  e.preventDefault();
+    return Navigate(
+      "/UpdateUserInfo")
+  
+}
+
 
 const onclicklogo = ()=>{
   return Navigate(
@@ -40,7 +49,15 @@ return (
                    <option value="carees page">Carees Page</option>
                </select></div>
              <a href="#Contact Us" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</a>
-             <button type="submit" onClick={HandleLogin} className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ">Login</button>
+             {
+              !userlogin && <button type="submit" onClick={HandleLogin} className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ">login</button> 
+              
+             }
+              {
+              userlogin && <button type="submit" onClick={HandleProfile} className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ">profile</button> 
+              
+             }
+             {/* <button type="submit" onClick={HandleLogin} className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ">{userlogin ? userInfo.name :"login" }</button> */}
              
 
              
