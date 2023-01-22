@@ -1,4 +1,4 @@
-// import LoginwithGoogle from './loginwithGoogle';
+import LoginwithGoogle from './loginwithGoogle';
 import LoginForm from './loginForm';
 import Sofa from './Images/Towperson.svg';
 
@@ -20,7 +20,7 @@ function Login() {
         </div>
       </div>
 
-      {/* <LoginwithGoogle /> */}
+      <LoginwithGoogle /> 
     </div>
   );
 }
