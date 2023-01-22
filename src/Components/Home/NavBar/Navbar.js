@@ -39,7 +39,7 @@ return (
              <div className="text-center bg-cyan-50  mr-1 mt-2 w-16 h-5">
       <button type="button" className="hover:text-orange-300" onMouseEnter={() => setIsListOpen(true)} >About</button>
       {isListOpen && (
-        <ul className="left-5" onMouseLeave={() => setIsListOpen(false)}>
+        <ul onMouseLeave={() => setIsListOpen(false)}>
         <li  >
           <button type="button" className= "hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600" onClick={() => Navigate("/about")}>About Us</button>
         </li>
