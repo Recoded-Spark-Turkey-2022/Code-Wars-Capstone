@@ -1,5 +1,5 @@
 
-import { useState ,React  } from "react";
+import { React, useState  } from "react";
 import { useNavigate , Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
@@ -10,9 +10,14 @@ import Image from "./Logo.svg"
 
 
  function Navebar (){
-const [title , setTitle] = useState('');
+
 const Navigate = useNavigate();
+
 const {userlogin} = useSelector((state)=> state.users)
+
+const [isListOpen, setIsListOpen] = useState(false);
+
+
 
 const HandleLogin = (e)=>{
   e.preventDefault();
@@ -42,12 +47,22 @@ return (
              <div className="    flex justify-around text-l space-x-10">
              <Link to="/" className=" hover:text-orange-300 mr-4 mt-2" >Home</Link>
              <Link to="/blog/1" className=" hover:text-orange-300 mr-2  mt-2">Blogs</Link>
-             <div ><select value={title} onChange = { (e)=> setTitle(e.target.value) } className=" text-center bg-cyan-50 hover:text-orange-300 mr-1 mt-2 w-16 h-5">
-                   <option selected value="about" >About</option>
-                   <option value="about page" >About Page</option>
-                   <option value="team page">Team Page</option>
-                   <option value="carees page">Carees Page</option>
-               </select></div>
+             <div className="text-center bg-cyan-50  mr-1 mt-2 w-16 h-5">
+      <button type="button" className="hover:text-orange-300" onMouseEnter={() => setIsListOpen(true)} >About</button>
+      {isListOpen && (
+        <ul onMouseLeave={() => setIsListOpen(false)}>
+        <li  >
+          <button type="button" className= "hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600" onClick={() => Navigate("/about")}>About Us</button>
+        </li>
+        <li>
+          <button type="button" className="hover:text-orange-300 w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600"  onClick={() => Navigate("/team")}>Our Team </button>
+        </li>
+        <li>
+          <button type="button" className="hover:text-orange-300 w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600"  onClick={() => Navigate("/careers")}>Careers </button>
+        </li>
+      </ul>
+      )}
+    </div>
              <a href="#Contact Us" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</a>
              {
               !userlogin && <button type="submit" onClick={HandleLogin} className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ">login</button> 
