@@ -3,7 +3,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup ,  updatePassword , updateEmail , deleteUser} from 'firebase/auth';
-import { doc, setDoc , getDoc , updateDoc , deleteDoc  } from 'firebase/firestore';
+import { doc, setDoc , getDoc  , deleteDoc  } from 'firebase/firestore';
 import {ref , uploadBytesResumable , getDownloadURL} from "firebase/storage";
 import { db, auth, googleAuth, facebookAuth , storage } from '../../firebase-config';
 
@@ -41,7 +41,7 @@ export const signupUser = createAsyncThunk(
         FamilySize : null ,
         Gender : null ,
         PhoneNumber : null ,
-        Idimage : null   
+        Idimage : " " ,  
 
       });
       return { id: user.uid, email: user.email };
@@ -88,8 +88,7 @@ export const loginUserWithGoogle = createAsyncThunk(
         FamilySize : null ,
         Gender : null ,
         PhoneNumber : null ,
-        Idimage : null
-        
+        Idimage :" "
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
@@ -166,7 +165,7 @@ return download ;
 
   // sending data to firestore 
 const   docRef =   doc(db, 'users', id);
-  await updateDoc(docRef, {
+  await setDoc(docRef, {
   id ,
   email,
   name ,
@@ -185,8 +184,19 @@ const   docRef =   doc(db, 'users', id);
 
 )
 
-const docSnap = await getDoc(docRef);
-return  docSnap.data() ;
+return {  id ,
+  email,
+  name ,
+  photoURL : downloadprofilepic,
+  birthdayDay,
+  birthdayMonth,
+  birthdayYear ,
+  EducationLevel ,
+  Hobbies,
+  FamilySize ,
+  Gender ,
+  PhoneNumber ,
+  Idimage :downloadURL }
 }
 catch(error){
   return rejectWithValue(error);
