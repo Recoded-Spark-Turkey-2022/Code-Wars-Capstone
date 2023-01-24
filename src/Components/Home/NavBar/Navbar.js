@@ -63,7 +63,7 @@ return (
       </ul>
       )}
     </div>
-             <a href="#Contact Us" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</a>
+    <Link to="/contactus" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</Link>
              {
               !userlogin && <button type="submit" onClick={HandleLogin} className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ">login</button> 
               

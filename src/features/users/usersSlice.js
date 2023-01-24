@@ -238,6 +238,32 @@ export const BookingInfo = createAsyncThunk(
       }
 );
 
+export const contactForm = createAsyncThunk(
+  'answers/contactForm',
+  async ( payload , { rejectWithValue  }) => {
+    try {
+      const docRef =  doc(db, 'contactForm'  );
+      const {formData} = payload
+     
+      await setDoc(docRef, {
+        payload : formData
+      });
+      return { formData };
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+
+
+
+
+
+
+
+
+
 
 const usersSlice = createSlice({
   name: 'users',
@@ -247,12 +273,14 @@ const usersSlice = createSlice({
     user: {},
     error: null,
     SurveyAnswer :[]
+
   },
   reducers : {
     AddAnswer: (state, action) => {
     state.SurveyAnswer.push(action.payload)}},
   
-
+  
+   
 
   extraReducers: (builder) => {
     builder.addCase(signupUser.pending, (state) => {
@@ -336,3 +364,5 @@ const usersSlice = createSlice({
 
 export default usersSlice.reducer;
 export const {AddAnswer} = usersSlice.actions ;
+
+
