@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[` CommuncicationCard renders correctly 1`] = `
 Array [
   <p
     className="text-4xl my-20 ml-40  "

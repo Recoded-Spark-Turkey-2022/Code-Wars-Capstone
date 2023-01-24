@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import SubscribeForm from './Subscribe';
 import { MemoryRouter } from "react-router-dom";
 
-it("Blogarticle renders correctly", () => {
+it("SubscribeForm renders correctly", () => {
     const test = renderer
         .create(
             <MemoryRouter>

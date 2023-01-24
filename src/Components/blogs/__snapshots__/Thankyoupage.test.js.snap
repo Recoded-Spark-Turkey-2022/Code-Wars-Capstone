@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`ThankYouPage renders correctly 1`] = `
 <div
   className="pl-[5rem] mt-[3rem] "
 >

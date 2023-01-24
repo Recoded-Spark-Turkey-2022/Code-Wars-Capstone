@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import { MemoryRouter } from "react-router-dom";
 import ThankYouPage from './Thankyoupage';
 
-it("renders correctly", () => {
+it("ThankYouPage renders correctly", () => {
     const test = renderer
         .create(
             <MemoryRouter>

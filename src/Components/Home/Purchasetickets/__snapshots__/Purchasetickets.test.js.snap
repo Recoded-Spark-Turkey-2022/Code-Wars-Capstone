@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Purchasetickets renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "fontFamily": "Poppins, sans-serif",
+    }
+  }
+>
+  <p
+    className="lg:text-5xl md:text-2xl	sm:text-lg mt-10  lg:ml-40 md:ml-20"
+  >
+      Purchase tickets
+  </p>
+  <p
+    className="lg:tex-xl md:text-lg sm:text-sm lg:ml-40 mb-6 md:ml-20"
+  >
+      PURCHASE TICKETS THAT CAN BE USED TO BOOK APPOINTMENTS!
+  </p>
+  <div
+    className=" flex lg:gap-14  md:gap-8 sm:gap-4  flex-wrap  sm:felx-warp lg:ml-40 md:ml-20  lg:mb-20 md:mb-10 "
+  >
+    <div
+      className="flex flex-col shadow-lg   px-10 py-16  text-center rounded-lg w-3/12  "
+    >
+      <h1
+        className=" lg:text-5xl md:text-2xl	sm:text-sm  lg:pt-8 md:pt:6 sm:pt:4 "
+      >
+         
+        5 TICKETS
+      </h1>
+      <p
+        className="lg:text-2xl md:text-1xl	sm:text-sm text-stone-700 lg:pt-8 md:pt:6 sm:pt:4   lg:pb-6 md:pb:4 sm:pb:2 "
+      >
+         
+        10$
+      </p>
+      <button
+        className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
+        onClick={[Function]}
+        type="submit"
+      >
+         Purchase 
+      </button>
+    </div>
+    <div
+      className="flex flex-col shadow-lg   px-10 py-16  text-center rounded-lg w-3/12  "
+    >
+      <h1
+        className=" lg:text-5xl md:text-2xl	sm:text-sm  lg:pt-8 md:pt:6 sm:pt:4 "
+      >
+         
+        25 TICKETS
+      </h1>
+      <p
+        className="lg:text-2xl md:text-1xl	sm:text-sm text-stone-700 lg:pt-8 md:pt:6 sm:pt:4   lg:pb-6 md:pb:4 sm:pb:2 "
+      >
+         
+        40$
+      </p>
+      <button
+        className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
+        onClick={[Function]}
+        type="submit"
+      >
+         Purchase 
+      </button>
+    </div>
+    <div
+      className="flex flex-col shadow-lg   px-10 py-16  text-center rounded-lg w-3/12  "
+    >
+      <h1
+        className=" lg:text-5xl md:text-2xl	sm:text-sm  lg:pt-8 md:pt:6 sm:pt:4 "
+      >
+         
+        50 TICKETS
+      </h1>
+      <p
+        className="lg:text-2xl md:text-1xl	sm:text-sm text-stone-700 lg:pt-8 md:pt:6 sm:pt:4   lg:pb-6 md:pb:4 sm:pb:2 "
+      >
+         
+        70$
+      </p>
+      <button
+        className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
+        onClick={[Function]}
+        type="submit"
+      >
+         Purchase 
+      </button>
+    </div>
+  </div>
+  <div>
+    <div
+      className="flex flex-col shadow-lg  p-10  text-center rounded-lg w-9/12 lg:ml-40 md:ml-20 mb-20  "
+    >
+      <h1
+        className=" lg:text-5xl md:text-2xl	sm:text-sm  lg:pt-8 md:pt:6 sm:pt:4 "
+      >
+        Are you a counselor? 
+      </h1>
+      <p
+        className="lg:text-1xl md:text-xl	sm:text-sm text-stone-700 lg:pt-8 md:pt:6 sm:pt:4   lg:pb-6 md:pb:4 sm:pb:2 "
+      >
+        Interested in joining our mental health platform? You decide your schedule and how much you want to work, we’ll take care of the client referrals and billing details!
+      </p>
+      <button
+        className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border py-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white w-2/6 m-auto "
+        onClick={[Function]}
+        type="submit"
+      >
+         Purchase 
+      </button>
+    </div>
+  </div>
+</div>
+`;

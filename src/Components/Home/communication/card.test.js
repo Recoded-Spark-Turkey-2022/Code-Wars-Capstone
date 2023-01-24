@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import Card from "./card";
 import { MemoryRouter } from "react-router-dom";
 
-it("renders correctly", () => {
+it("card renders correctly", () => {
     const test = renderer
         .create(
             <MemoryRouter>

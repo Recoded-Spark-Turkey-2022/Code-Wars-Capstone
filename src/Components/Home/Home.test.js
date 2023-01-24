@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import Home from "./Home";
 import { MemoryRouter } from "react-router-dom";
 
-it("renders correctly", () => {
+it("Home renders correctly", () => {
     const test = renderer
         .create(
             <MemoryRouter>

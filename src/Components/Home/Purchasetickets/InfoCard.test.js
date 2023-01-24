@@ -1,14 +1,14 @@
 
 import React from "react";
 import renderer from "react-test-renderer";
-import Navebar from "./Navbar";
+import InfoCard from "./InfoCard";
 import { MemoryRouter } from "react-router-dom";
 
-it("Navebar renders correctly", () => {
+it("InfoCard renders correctly", () => {
     const test = renderer
         .create(
             <MemoryRouter>
-                <Navebar/>
+                <InfoCard/>
             </MemoryRouter>
         )
         .toJSON();

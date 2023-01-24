@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`card renders correctly 1`] = `
 <div
   className="bg-white rounded-lg drop-shadow-xl p-6 w-10/12"
   style={

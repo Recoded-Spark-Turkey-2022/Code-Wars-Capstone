@@ -1,14 +1,14 @@
 
 import React from "react";
 import renderer from "react-test-renderer";
-import Blogarticle from './Blogarticle';
+import Purchasetickets from "./Purchasetickets";
 import { MemoryRouter } from "react-router-dom";
 
-it("Blogarticle renders correctly", () => {
+it("Purchasetickets renders correctly", () => {
     const test = renderer
         .create(
             <MemoryRouter>
-                <Blogarticle />
+                <Purchasetickets/>
             </MemoryRouter>
         )
         .toJSON();

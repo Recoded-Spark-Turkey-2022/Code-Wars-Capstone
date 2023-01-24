@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Navebar renders correctly 1`] = `
 <nav
   className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded  z-10 "
   style={

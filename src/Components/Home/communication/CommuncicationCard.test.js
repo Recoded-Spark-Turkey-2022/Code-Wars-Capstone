@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import CommuncicationCard from "./CommuncicationCard";
 import { MemoryRouter } from "react-router-dom";
 
-it("renders correctly", () => {
+it(" CommuncicationCard renders correctly", () => {
     const test = renderer
         .create(
             <MemoryRouter>
