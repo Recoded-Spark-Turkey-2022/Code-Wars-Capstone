@@ -221,9 +221,11 @@ export const DeleteAccount = createAsyncThunk("user/deleteUser", async ( userid,
 
 export const BookingInfo = createAsyncThunk(
   'answers/booking',
-  async ( payload , { rejectWithValue  }) => {
+  async ( payload , { rejectWithValue , getState  }) => {
+    const userid = getState().users.user.id
+    console.log(userid);  
     try {
-     const docRef =  doc(db, 'Answer' , "12346");
+     const docRef =  doc(db, 'Answer' , userid);
       await setDoc(docRef, {
       Answer : payload
       });
