@@ -14,13 +14,12 @@ const UpdateUserInfo = () => {
   const [Hobbies , setHobbies] = useState(userInfo.Hobbies)
   const [FamilySize , setFamilySize] = useState(userInfo.FamilySize)
   const [Gender , setGender] = useState(userInfo.Gender);
-  const [Email , setEmail] = useState(userInfo.email)
   const [day , setDay] = useState(userInfo.birthdayDay)
   const [month, setMonth] = useState(userInfo.birthdayMonth)
   const [year, setYear] = useState(userInfo.birthdayYear);
   const [PhoneNumber , setPhoneNumber] = useState(userInfo.PhoneNumber)
   const [filedata , setFiledata] = useState();
-  const [profilepic , setprofilepic] = useState(userInfo.photoURL)
+  const [profilepic , setprofilepic] = useState(userInfo.photoURL.payload)
 
  
   const dispatch = useDispatch();
@@ -28,9 +27,8 @@ const UpdateUserInfo = () => {
   
   
   const onSubmit =(user) => {
-    let newPassword = null;
-    console.log(user.Password)
-    console.log(user.confiremPassowrd)
+    let newPassword = "";
+  
     if(user.Password === user.confiremPassowrd) { 
         newPassword = user.Password ;
     }
@@ -41,7 +39,6 @@ const UpdateUserInfo = () => {
  dispatch(updatechange( {
 
       id: userInfo.id,
-      email: user.email ,
       name : user.name ,
       photoURL : profilepic ,  
       birthdayDay: user.birthdayDay,
@@ -66,7 +63,6 @@ const UpdateUserInfo = () => {
     setHobbies(userInfo.Hobbies);
     setFamilySize(userInfo.FamilySize);
     setGender(userInfo.Gender);
-    setEmail(userInfo.email)
     setDay(userInfo.birthdayDay)
     setYear(userInfo.birthdayYear);
     setPhoneNumber(userInfo.PhoneNumber)
@@ -222,12 +218,13 @@ const UpdateUserInfo = () => {
                 <div>
                   <input
                   {...register("email")}
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
+                    className="bg-gray-50 border border-SubTexts bg-gray-500 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
                     id="email"
                     name="email"
                     type="email"
-                    value = {Email}
-                    onChange={(e)=>setEmail(e.target.value)}
+                    disabled  
+                    value = {userInfo.email}
+                    
                   />
                 </div>
                 <div>

@@ -22,16 +22,17 @@ function BookAppointment(){
       else {
          showalertitm(true);
         
-         setTimeout( ()=>  navigate("/login") , 7000) ;
+         setTimeout( ()=>  navigate("/login") , 5000) ;
          
       }
    }
 
     return(
+      <div className="z-20" > 
     <div className="relative h-screen " style={{fontFamily: 'Poppins, sans-serif'}}>
      { alertitem &&  <Alert severity="info">You should log in First to Book an Appointment  </Alert> }
-      <p> </p>
-        <img src ={bacgroundImg} alt="BackGround" className="absolute top-0 left-0 z-0 bg-cover   " /> 
+    
+        <img src ={bacgroundImg} alt="BackGround" className="absolute top-0 left-0 z-0 bg-cover   " />
          <div className="z-10 w-6/12 translate-y-1/3  translate-x-2/3 "  >
             <img src ={Mainimg} alt="iltration" className="imgsofa" />
          </div>
@@ -45,7 +46,7 @@ function BookAppointment(){
 
 
     </div>
-      
+    </div>
 
 
     )

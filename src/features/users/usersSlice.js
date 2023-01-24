@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice , } from '@reduxjs/toolkit';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithPopup ,  updatePassword , updateEmail , deleteUser} from 'firebase/auth';
+  signInWithPopup ,  updatePassword  , deleteUser} from 'firebase/auth';
 import { doc, setDoc , getDoc  , deleteDoc  } from 'firebase/firestore';
 import {ref , uploadBytesResumable , getDownloadURL} from "firebase/storage";
 import { db, auth, googleAuth, facebookAuth , storage } from '../../firebase-config';
@@ -32,7 +32,7 @@ export const signupUser = createAsyncThunk(
         id: user.uid,
         email,
         name: `${payload.firstName} ${payload.lastName}` ,
-        photoURL : "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" , 
+        photoURL :{ playload :"https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" } , 
         birthdayDay,
         birthdayMonth,
         birthdayYear,
@@ -41,7 +41,7 @@ export const signupUser = createAsyncThunk(
         FamilySize : null ,
         Gender : null ,
         PhoneNumber : null ,
-        Idimage : " " ,  
+        Idimage : {playload : "https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6295fa7e592c4_8488ld0__700.jpg"} ,  
 
       });
       return { id: user.uid, email: user.email };
@@ -88,7 +88,7 @@ export const loginUserWithGoogle = createAsyncThunk(
         FamilySize : null ,
         Gender : null ,
         PhoneNumber : null ,
-        Idimage :" "
+        Idimage : {playload : "https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6295fa7e592c4_8488ld0__700.jpg"} ,  
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
@@ -123,53 +123,69 @@ export const loginUserWithFacebook = createAsyncThunk(
 
 
 
+const updateUserPassword  = createAsyncThunk("user/updateUserPsswordorEmail", async ( playload , {rejectWithValue})=>{
+  const {password } = playload ;
 
+ await updatePassword(auth.currentUser, password).then(
+    console.log("password changed")
+  ).catch((error) => {
+    rejectWithValue(error.message);
+  });
 
+   
+
+})
+
+const UrlImageid = createAsyncThunk("user/UrlPhoto" , async(playload , )=>{
+  const {Idimage ,   id} = playload
+
+    const imagesRef = ref(storage, id);
+  const uploadTask =  uploadBytesResumable(imagesRef, Idimage);
+  const url = await getDownloadURL(uploadTask.snapshot.ref).then((download) => {
+    return download ; 
+  })
+  return  url})
+
+  const UrlIProfilePic = createAsyncThunk("user/UrlPhoto" , async(playload , )=>{
+    const {photoURL ,   name} = playload
+  
+    const imagesRef = ref(storage, name);
+    const uploadTask =  uploadBytesResumable(imagesRef, photoURL);
+    const url =  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
+      return download ; 
+    })
+    return  url})
 
 
 // this funciton to update the user profile information 
 export const updatechange = createAsyncThunk("user/updatechange",
 
-async (payload , { rejectWithValue , getState } ) => {
-  console.log(payload);
+async (payload , { rejectWithValue , getState , dispatch } ) => {
   try {
     const state = getState();
-const {id ,email, name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize 
+const {id , name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLevel , Hobbies,FamilySize 
   ,Gender , PhoneNumber ,Idimage , Password  } = payload;
-   updatePassword(auth.currentUser, Password).then().catch((error) => {
-    rejectWithValue(error.message);
-  });
-
-    updateEmail(auth.currentUser, email).then(
-
- ).catch((error) => {
-    rejectWithValue(error.message);
-  });
+  if(Password.length !== 0){
+   await dispatch(updateUserPassword(Password ))
+  } 
    // sending photo to firestorage 
   let downloadURL = state.users.user.Idimage ;
   if(Idimage !== undefined){
-    const imagesRef = ref(storage, id);
-const uploadTask =  uploadBytesResumable(imagesRef, Idimage);
-  downloadURL = await  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
-return download ;
-});
+    downloadURL = await dispatch(UrlImageid({Idimage  , id})) 
+    console.log(downloadURL.payload);
   }
   let downloadprofilepic = state.users.user.Idimage ;
   if(photoURL !== undefined){
-    const imagesRef = ref(storage, name);
-const uploadTask =  uploadBytesResumable(imagesRef, photoURL);
-downloadprofilepic = await  getDownloadURL(uploadTask.snapshot.ref).then((download) => {
-return download ;
-});
-  }
+   
+    downloadprofilepic = await dispatch(UrlIProfilePic({photoURL  , name})) 
+    console.log(downloadprofilepic.payload)
+};
 
-  // sending data to firestore 
-const   docRef =   doc(db, 'users', id);
-  await setDoc(docRef, {
-  id ,
-  email,
-  name ,
-  photoURL : downloadprofilepic,
+
+  
+console.table(id ,
+   name ,
+  downloadprofilepic.payload, 
   birthdayDay,
   birthdayMonth,
   birthdayYear ,
@@ -178,25 +194,29 @@ const   docRef =   doc(db, 'users', id);
   FamilySize ,
   Gender ,
   PhoneNumber ,
-  Idimage :downloadURL 
+  downloadURL.payload ) 
+  // sending data to firestore 
+const   docRef =   doc(db,  'users', id);
+  await setDoc(docRef, {
+  id ,
+  name ,
+  photoURL : downloadprofilepic.payload,
+  birthdayDay,
+  birthdayMonth,
+  birthdayYear ,
+  EducationLevel ,
+  Hobbies,
+  FamilySize ,
+  Gender ,
+  PhoneNumber ,
+  Idimage :downloadURL.payload  
 
 }
 
 )
 
-return {  id ,
-  email,
-  name ,
-  photoURL : downloadprofilepic,
-  birthdayDay,
-  birthdayMonth,
-  birthdayYear ,
-  EducationLevel ,
-  Hobbies,
-  FamilySize ,
-  Gender ,
-  PhoneNumber ,
-  Idimage :downloadURL }
+const docSnap = await getDoc(docRef);
+return  docSnap.data() ;
 }
 catch(error){
   return rejectWithValue(error);
@@ -317,10 +337,9 @@ const usersSlice = createSlice({
       state.error = null;
       console.log(action.payload);
     });
-    builder.addCase(updatechange.rejected, (state, action) => {
-      state.loading = false;
-      state.user = {};
-      state.error = action.payload;
+    builder.addCase(updatechange.rejected, () => {
+      console.log("reject Updatechange")
+      
     });
     builder.addCase(BookingInfo.pending, () => {
      
@@ -331,6 +350,21 @@ const usersSlice = createSlice({
     builder.addCase(BookingInfo.rejected, () => {
       console.log("rejecting pending")
     });
+    
+    builder.addCase(updateUserPassword.fulfilled, () => {
+      console.log("Password")
+    });
+    builder.addCase(updateUserPassword.rejected, () => {
+      console.log("rejecting change password")
+    });
+   
+    builder.addCase(UrlImageid.fulfilled, () => {
+      console.log("urlmageid seuccfull ")
+    });
+    builder.addCase(UrlImageid.rejected, () => {
+      console.log("rejecting upload UrlImageid")
+    });
+    
   },
 }); 
 

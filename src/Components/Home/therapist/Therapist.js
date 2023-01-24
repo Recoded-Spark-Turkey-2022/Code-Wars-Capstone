@@ -1,7 +1,7 @@
 import React from 'react';
 import Therapistimg from './Therapistimg.svg';
 
-function ContentB() {
+function Therapist() {
   return (
     <div className='h-screen'>
       <div className="bg-amber-200 h-screen "  style={{fontFamily: 'Poppins, sans-serif'}} >
@@ -29,7 +29,7 @@ function ContentB() {
   );
 }
 
-export default ContentB;
+export default Therapist;
 
 
 
