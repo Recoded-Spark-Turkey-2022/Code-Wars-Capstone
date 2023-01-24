@@ -9186,6 +9186,11 @@ react-hook-form@^7.41.3:
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.41.5.tgz"
   integrity sha512-DAKjSJ7X9f16oQrP3TW2/eD9N6HOgrmIahP4LOdFphEWVfGZ2LulFd6f6AQ/YS/0cx/5oc4j8a1PXxuaurWp/Q==
 
+react-id-generator@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/react-id-generator/-/react-id-generator-3.0.2.tgz"
+  integrity sha512-d0rqWzZ6g0P9agHtA7wX/ErQ4iV/657/0Oz+SX3kid7nR4d0YwaWjjOTIrgYHv2lICZKrxIH4BaKppKrM8fRfw==
+
 react-input-trigger@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/react-input-trigger/-/react-input-trigger-1.1.2.tgz"

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { useId } from "react-id-generator";
 import { useDispatch } from "react-redux";
 import { contactForm } from "../../features/users/usersSlice";
 
@@ -29,7 +30,8 @@ const handleOptionChange = (option) => {
     e.preventDefault();
 
     dispatch(contactForm(formData));
-    console.log(formData)
+    // navigate("/Formsubmittionthanks")}
+    // console.log(formData)
   };
   return (
     <form onSubmit={handleSubmit} >

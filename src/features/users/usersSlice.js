@@ -3,10 +3,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup ,  updatePassword , updateEmail , deleteUser} from 'firebase/auth';
-import { doc, setDoc , getDoc  , deleteDoc  } from 'firebase/firestore';
+import { doc, setDoc , getDoc , deleteDoc  } from 'firebase/firestore';
 import {ref , uploadBytesResumable , getDownloadURL} from "firebase/storage";
 import { db, auth, googleAuth, facebookAuth , storage } from '../../firebase-config';
-
 
 export const signupUser = createAsyncThunk(
   'user/signupUser',
@@ -238,21 +237,23 @@ export const BookingInfo = createAsyncThunk(
       }
 );
 
+
 export const contactForm = createAsyncThunk(
-  'answers/contactForm',
+  'contactForm/form',
   async ( payload , { rejectWithValue  }) => {
+    const {details,email,fullName,selectedOption } = payload
+    console.log(payload)
     try {
-      const docRef =  doc(db, 'contactForm'  );
-      const {formData} = payload
-     
+      const docRef =  doc(db, 'form', "formdata");
       await setDoc(docRef, {
-        payload : formData
+        details,email,fullName,selectedOption
       });
-      return { formData };
-    } catch (error) {
-      return rejectWithValue(error);
-    }
-  }
+      return 0;
+      }
+      catch(error){
+        return rejectWithValue(error);
+      }
+      }
 );
 
 
