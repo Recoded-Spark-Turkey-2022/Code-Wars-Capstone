@@ -3,8 +3,11 @@ import Therapistimg from './Therapistimg.svg';
 
 function Therapist() {
   return (
-    <div className='h-screen'>
-      <div className="bg-amber-200 h-screen "  style={{fontFamily: 'Poppins, sans-serif'}} >
+    <div className="h-screen">
+      <div
+        className="bg-amber-200 h-screen "
+        style={{ fontFamily: 'Poppins, sans-serif' }}
+      >
         <h1 className=" lg:text-5xl text-lg font-bold lg:w-10/12 sm:p-8  sm:pl-40  ">
           PROFESSIONAL, LICENSED, AND VETTED THERAPISTS THAT YOU CAN TRUST
         </h1>
@@ -30,9 +33,6 @@ function Therapist() {
 }
 
 export default Therapist;
-
-
-
 
 /* import Therapistimg from "./Therapistimg.svg"
 
