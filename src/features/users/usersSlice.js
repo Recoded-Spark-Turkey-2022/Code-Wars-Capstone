@@ -236,15 +236,24 @@ export const BookingInfo = createAsyncThunk(
       }
       }
 );
-
+function generateRandomString() {
+  let result           = '';
+  const characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  for ( let i = 0; i < 28; i+=1 ) {
+     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
 
 export const contactForm = createAsyncThunk(
   'contactForm/form',
-  async ( payload , { rejectWithValue  }) => {
+  async ( payload , { rejectWithValue  }) => { 
+    const randomid = generateRandomString();
     const {details,email,fullName,selectedOption } = payload
-    console.log(payload)
+    
     try {
-      const docRef =  doc(db, 'form', "formdata");
+      const docRef =  doc(db, 'form', randomid);
       await setDoc(docRef, {
         details,email,fullName,selectedOption
       });
