@@ -19,9 +19,9 @@ function TherapistAccount() {
             setError('');
       };
 
-
+    }
   return (
-     <form >
+     <form onSubmit={handleSubmit}>
       <label>
         Name:
         <input
@@ -86,9 +86,9 @@ function TherapistAccount() {
       </label>
       <br />
       {error && <div style={{ color: 'red' }}>{error}</div>}
-      <button type="submit"  >Create</button>
+      <button type="submit" onSubmit={handleSubmit} >Create</button>
     </form>
   )
-}}
+}
 
 export default TherapistAccount
