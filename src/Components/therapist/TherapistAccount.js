@@ -21,7 +21,7 @@ function TherapistAccount() {
 
 
   return (
-     <form onSubmit={handleSubmit}>
+     <form >
       <label>
         Name:
         <input
@@ -86,7 +86,7 @@ function TherapistAccount() {
       </label>
       <br />
       {error && <div style={{ color: 'red' }}>{error}</div>}
-      <button type="submit" onSubmit={handleSubmit} >Create</button>
+      <button type="submit"  >Create</button>
     </form>
   )
 }}
