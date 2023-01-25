@@ -98,11 +98,6 @@ export const loginUserWithGoogle = createAsyncThunk(
 );
 
 
-
-
-
-
-
 export const loginUserWithFacebook = createAsyncThunk(
   'user/loginUserWithFacebook',
   async ({ rejectWithValue }) => {
@@ -293,7 +288,37 @@ export const contactForm = createAsyncThunk(
 );
 
 
-
+export const createTherapistProfile = createAsyncThunk(
+  'user/signupUser',
+  async (payload, { rejectWithValue }) => {
+    const {
+      Username,
+      Email,
+      City,
+      Licensenumber,
+      Password,
+    } = payload;
+    console.log(payload)
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        Email,
+        Password
+      );
+      const docRef = doc(db, 'Therapistusers', "00");
+      await setDoc(docRef, {
+        id: user.uid,
+        Email,
+        City,
+        Username ,
+        Licensenumber,
+      });
+      return { id: user.uid, Email: user.email };
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
 
 
 
@@ -309,9 +334,8 @@ const usersSlice = createSlice({
     userlogin: false,
     user: {},
     error: null,
-    SurveyAnswer :[]
-
   },
+
   reducers : {
     AddAnswer: (state, action) => {
     state.SurveyAnswer.push(action.payload)}},
