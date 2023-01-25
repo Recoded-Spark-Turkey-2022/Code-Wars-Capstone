@@ -32,7 +32,7 @@ export const signupUser = createAsyncThunk(
         id: user.uid,
         email,
         name: `${payload.firstName} ${payload.lastName}` ,
-        photoURL :{ playload :"https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" } , 
+        photoURL :"https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg"  , 
         birthdayDay,
         birthdayMonth,
         birthdayYear,
@@ -41,7 +41,7 @@ export const signupUser = createAsyncThunk(
         FamilySize : null ,
         Gender : null ,
         PhoneNumber : null ,
-        Idimage : {playload : "https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6295fa7e592c4_8488ld0__700.jpg"} ,  
+        Idimage : "https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6295fa7e592c4_8488ld0__700.jpg",  
 
       });
       return { id: user.uid, email: user.email };
@@ -88,7 +88,7 @@ export const loginUserWithGoogle = createAsyncThunk(
         FamilySize : null ,
         Gender : null ,
         PhoneNumber : null ,
-        Idimage : {playload : "https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6295fa7e592c4_8488ld0__700.jpg"} ,  
+        Idimage : "https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6295fa7e592c4_8488ld0__700.jpg" ,  
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
@@ -171,21 +171,27 @@ const {id , name ,photoURL, birthdayDay,birthdayMonth,birthdayYear ,EducationLev
    // sending photo to firestorage 
   let downloadURL = state.users.user.Idimage ;
   if(Idimage !== undefined){
-    downloadURL = await dispatch(UrlImageid({Idimage  , id})) 
-    console.log(downloadURL.payload);
+    const url = await dispatch(UrlImageid({Idimage  , id})) 
+    downloadURL = url.payload ;
+
+    console.log(downloadURL);
   }
-  let downloadprofilepic = state.users.user.Idimage ;
-  if(photoURL !== undefined){
-   
-    downloadprofilepic = await dispatch(UrlIProfilePic({photoURL  , name})) 
-    console.log(downloadprofilepic.payload)
+
+  let downloadprofilepic = state.users.user.photoURL ;
+  console.log(downloadprofilepic);
+  
+  console.log(photoURL);
+  if(photoURL !== downloadprofilepic){
+    const url = await dispatch(UrlIProfilePic({photoURL  , name})) 
+     downloadprofilepic = url.payload
+    console.log(downloadprofilepic)
 };
 
 
   
 console.table(id ,
    name ,
-  downloadprofilepic.payload, 
+  downloadprofilepic, 
   birthdayDay,
   birthdayMonth,
   birthdayYear ,
@@ -194,13 +200,13 @@ console.table(id ,
   FamilySize ,
   Gender ,
   PhoneNumber ,
-  downloadURL.payload ) 
+  downloadURL ) 
   // sending data to firestore 
 const   docRef =   doc(db,  'users', id);
   await setDoc(docRef, {
   id ,
   name ,
-  photoURL : downloadprofilepic.payload,
+  photoURL : downloadprofilepic,
   birthdayDay,
   birthdayMonth,
   birthdayYear ,
@@ -209,7 +215,7 @@ const   docRef =   doc(db,  'users', id);
   FamilySize ,
   Gender ,
   PhoneNumber ,
-  Idimage :downloadURL.payload  
+  Idimage :downloadURL  
 
 }
 

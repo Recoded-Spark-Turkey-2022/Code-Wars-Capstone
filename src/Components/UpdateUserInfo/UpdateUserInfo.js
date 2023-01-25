@@ -19,7 +19,7 @@ const UpdateUserInfo = () => {
   const [year, setYear] = useState(userInfo.birthdayYear);
   const [PhoneNumber , setPhoneNumber] = useState(userInfo.PhoneNumber)
   const [filedata , setFiledata] = useState();
-  const [profilepic , setprofilepic] = useState(userInfo.photoURL.payload)
+  const [profilepic , setprofilepic] = useState(userInfo.photoURL)
 
  
   const dispatch = useDispatch();
