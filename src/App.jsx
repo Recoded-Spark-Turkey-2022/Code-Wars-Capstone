@@ -18,6 +18,7 @@ import Team from './Components/about/Team';
 import About from './Components/about/About';
 import ContactUs from './Components/contactus/Contact';
 import TherapistAccount from './Components/therapist/TherapistAccount';
+import Requirement from "./Components/therapist/requirement"
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
         <Route path='/about' element={<About />}/>
         <Route path='/contactus' element={<ContactUs />}/>
         <Route path='/TherapistAccount' element={<TherapistAccount />}/>
+        <Route path='/Requirement' element={<Requirement />}/>
+        
       </Routes>
 
       <Fotter/> 
