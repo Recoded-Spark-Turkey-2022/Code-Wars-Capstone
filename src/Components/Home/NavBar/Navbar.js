@@ -38,7 +38,7 @@ const onclicklogo = ()=>{
 }
 
 return (
-     <nav style={{fontFamily: 'Poppins, sans-serif'}} className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded  z-10 ">
+     <nav style={{fontFamily: 'Poppins, sans-serif'}} className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded   ">
         
         <button type="submit" onClick={onclicklogo}> <img src={Image} alt="logo" className=" h-9 w-9 mt-2 ml-6"  /></button>
         <Link to="/"> <h1 className="absolute top-4 left-[5.5rem]  text-3xl" >Healing</h1> </Link>
@@ -63,7 +63,7 @@ return (
       </ul>
       )}
     </div>
-             <a href="#Contact Us" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</a>
+    <Link to="/contactus" className=" hover:text-orange-300 ml-2 mt-2">Contact Us</Link>
              {
               !userlogin && <button type="submit" onClick={HandleLogin} className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white ">login</button> 
               
