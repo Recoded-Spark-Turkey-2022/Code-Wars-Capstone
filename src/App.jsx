@@ -8,7 +8,6 @@ import ThankYouPage from './Components/blogs/Thankyoupage';
 import Blogarticle from './Components/blogs/Blogarticle';
 import UpdateUserInfo from './Components/UpdateUserInfo/UpdateUserInfo'
 import Profilepic from "./Components/UpdateUserInfo/Profilepic"
-
 import Bookingtem from './Components/booking/Bookingtem';
 import Bookingradio from './Components/booking/Bookingradio';
 import Note from "./Components/booking/Note"
