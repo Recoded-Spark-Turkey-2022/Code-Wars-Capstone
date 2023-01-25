@@ -4,9 +4,9 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup ,  updatePassword  , deleteUser} from 'firebase/auth';
 import { doc, setDoc , getDoc  , deleteDoc  } from 'firebase/firestore';
+
 import {ref , uploadBytesResumable , getDownloadURL} from "firebase/storage";
 import { db, auth, googleAuth, facebookAuth , storage } from '../../firebase-config';
-
 
 export const signupUser = createAsyncThunk(
   'user/signupUser',
@@ -263,6 +263,43 @@ export const BookingInfo = createAsyncThunk(
       }
       }
 );
+function generateRandomString() {
+  let result           = '';
+  const characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  for ( let i = 0; i < 28; i+=1 ) {
+     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
+export const contactForm = createAsyncThunk(
+  'contactForm/form',
+  async ( payload , { rejectWithValue  }) => { 
+    const randomid = generateRandomString();
+    const {details,email,fullName,selectedOption } = payload
+    
+    try {
+      const docRef =  doc(db, 'form', randomid);
+      await setDoc(docRef, {
+        details,email,fullName,selectedOption
+      });
+      return 0;
+      }
+      catch(error){
+        return rejectWithValue(error);
+      }
+      }
+);
+
+
+
+
+
+
+
+
+
 
 
 const usersSlice = createSlice({
@@ -273,12 +310,14 @@ const usersSlice = createSlice({
     user: {},
     error: null,
     SurveyAnswer :[]
+
   },
   reducers : {
     AddAnswer: (state, action) => {
     state.SurveyAnswer.push(action.payload)}},
   
-
+  
+   
 
   extraReducers: (builder) => {
     builder.addCase(signupUser.pending, (state) => {
@@ -376,3 +415,5 @@ const usersSlice = createSlice({
 
 export default usersSlice.reducer;
 export const {AddAnswer} = usersSlice.actions ;
+
+
