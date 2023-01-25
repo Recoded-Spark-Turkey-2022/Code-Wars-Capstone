@@ -4,7 +4,7 @@ import { createTherapistProfile } from '../../features/users/usersSlice';
 
 
 function TherapistAccount() {
-    const [formData, setFormData] = useState({
+    const [userData, setuserData] = useState({
         Username: "",
         Email: "",
         City: "",
@@ -17,7 +17,7 @@ function TherapistAccount() {
 
 
     const handleChange = e => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setuserData({ ...userData, [e.target.name]: e.target.value });
       
       };
 
@@ -29,8 +29,8 @@ function TherapistAccount() {
           } else {
             setError('');
       };
-      console.log(formData)
-      dispatch(createTherapistProfile({formData,Password}));
+      console.log(userData)
+      dispatch(createTherapistProfile({userData,Password}));
     }
   return (
      <form onSubmit={handleSubmit}>
@@ -39,7 +39,7 @@ function TherapistAccount() {
         <input
           type="text"
           name='Username'
-          value={formData.Username}
+          value={userData.Username}
           onChange={handleChange}
         />
       </label>
@@ -49,7 +49,7 @@ function TherapistAccount() {
         <input
           type="text"
           name='Email'
-          value={formData.Email}
+          value={userData.Email}
           onChange={handleChange}
         />
       </label>
@@ -59,7 +59,7 @@ function TherapistAccount() {
         <input
           type="text"
           name='City'
-          value={formData.City}
+          value={userData.City}
           onChange={handleChange}
         />
       </label>
@@ -69,7 +69,7 @@ function TherapistAccount() {
         <input
           type="text"
           name="Licensenumber"
-          value={formData.Licensenumber}
+          value={userData.Licensenumber}
           onChange={handleChange}
         />
       </label>
