@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 export default function InfoCard() { 
+    const navigate = useNavigate();
 const buttonHanler = (e)=>{
     e.preventDefault();
+    navigate("/Requirement")
 }
 
     return (

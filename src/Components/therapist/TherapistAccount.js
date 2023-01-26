@@ -1,6 +1,7 @@
-import React , { useState } from 'react'
+import React , { useState, useEffect , useRef } from 'react'
 import { useDispatch } from 'react-redux';
 import { createTherapistProfile } from '../../features/users/usersSlice';
+import HeaderBooking from '../booking/HeaderBooking';
 
 
 function TherapistAccount() {
@@ -20,6 +21,10 @@ function TherapistAccount() {
         setuserData({ ...userData, [e.target.name]: e.target.value });
       
       };
+      const inputRef = useRef(null);
+      useEffect(() => {
+        inputRef.current.focus();
+    }, []);
 
 
     const handleSubmit = (event) => {
@@ -33,7 +38,9 @@ function TherapistAccount() {
       dispatch(createTherapistProfile({userData,Password}));
     }
   return (
-     <form onSubmit={handleSubmit}>
+    <> 
+    <HeaderBooking Header="CREATE AN ACCOUNT"/>
+     <form onSubmit={handleSubmit} className="ml-20 w-6/12 text-slate-500">
       <label>
         User Name:
         <input
@@ -41,6 +48,9 @@ function TherapistAccount() {
           name='Username'
           value={userData.Username}
           onChange={handleChange}
+          ref={inputRef}
+          className="input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts  " 
+
         />
       </label>
       <br />
@@ -51,6 +61,7 @@ function TherapistAccount() {
           name='Email'
           value={userData.Email}
           onChange={handleChange}
+          className="input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts  " 
         />
       </label>
       <br />
@@ -61,6 +72,8 @@ function TherapistAccount() {
           name='City'
           value={userData.City}
           onChange={handleChange}
+          
+          className="input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts  " 
         />
       </label>
       <br />
@@ -71,6 +84,7 @@ function TherapistAccount() {
           name="Licensenumber"
           value={userData.Licensenumber}
           onChange={handleChange}
+          className="input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts  " 
         />
       </label>
       <br />
@@ -81,6 +95,7 @@ function TherapistAccount() {
           name='Password'
           value={Password}
           onChange={(e) => setPassword(e.target.value)}
+          className="input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts  " 
         />
       </label>
       <br />
@@ -90,12 +105,14 @@ function TherapistAccount() {
           type="text"
           value={confirmPassword}
           onChange={(e) => setconfirmPassword(e.target.value)}
+          className=" input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts   " 
         />
       </label>
       <br />
       {error && <div style={{ color: 'red' }}>{error}</div>}
-      <button  type="submit" onSubmit={handleSubmit}  className="bg-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]">Create</button>
+      <button  type="submit" onSubmit={handleSubmit}  className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border py-2 lg:px-10 md:px-4 sm:px-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white text-black mt-10">Create</button>
     </form>
+    </>
   )
 }
 
