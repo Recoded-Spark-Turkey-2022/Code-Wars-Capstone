@@ -436,7 +436,19 @@ const usersSlice = createSlice({
     builder.addCase(UrlImageid.rejected, () => {
       console.log("rejecting upload UrlImageid")
     });
-    
+    builder.addCase(createTherapistProfile.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(createTherapistProfile.fulfilled, (state, action) => {
+      state.loading = false;
+      state.user = action.payload;
+      state.error = null;
+    });
+    builder.addCase(createTherapistProfile.rejected, (state, action) => {
+      state.loading = false;
+      state.user = {};
+      state.error = action.payload;
+    });
   },
 }); 
 
