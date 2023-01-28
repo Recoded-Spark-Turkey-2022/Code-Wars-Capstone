@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { contactForm } from '../../features/users/usersSlice';
 import Header from '../booking/HeaderBooking';
 import Image from "./Images/tow.png"
@@ -16,8 +17,7 @@ const Options = [
 
 const ContactUs = () => {
 
-  
-
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -25,6 +25,7 @@ const ContactUs = () => {
     selectedOption: '',
   });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleOptionChange = (option) => {
     setFormData({ ...formData, selectedOption: option });
@@ -38,7 +39,12 @@ const ContactUs = () => {
     e.preventDefault();
     
     dispatch(contactForm(formData ));
-  
+    if (formData.fullName === "" || formData.email === "" || formData.details === ""  || formData.selectedOption === "" ) {
+      setError('All fields are required');}
+    else {
+      setError("")
+      navigate('/contact-thanks');}
+ 
   };
   return (
     <div>
@@ -106,7 +112,7 @@ const ContactUs = () => {
             >
               Submit
             </button>
-          
+            {error && <div style={{ color: 'red' }}>{error}</div>}
         </form>
         <div className='flex-1' >
           <img src={Image} alt="two poeple" className='w-8/12'/>
@@ -122,6 +128,7 @@ const ContactUs = () => {
             <p className='text-slate-500'>No:1 </p>
             <p className='text-slate-500'> 34122</p>
             </div>
+            
           </div>
 
 
