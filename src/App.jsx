@@ -43,7 +43,7 @@ function App() {
         <Route path='/contactus' element={<ContactUs />}/>
         <Route path='/TherapistAccount' element={<TherapistAccount />}/>
         <Route path='/Requirement' element={<Requirement />}/>
-        
+        <Route path="/therapist-thanks" element={<ThankYouPage path="/therapist-thanks" header="Thank you!" text="Thank you for your interest in working with Healing, we have recieved your application.You will receive an email guiding you for the next steps soon after your information is reviewed."/>}/>
       </Routes>
 
       <Fotter/> 

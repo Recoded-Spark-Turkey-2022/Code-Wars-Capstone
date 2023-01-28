@@ -1,8 +1,8 @@
 import React , { useState, useEffect , useRef } from 'react'
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { createTherapistProfile } from '../../features/users/usersSlice';
 import HeaderBooking from '../booking/HeaderBooking';
-
 
 function TherapistAccount() {
   const [Username, setUsername] = useState("");
@@ -12,8 +12,9 @@ function TherapistAccount() {
     const [Licensenumber, setLicensenumber] = useState("");
     const [confirmPassword, setconfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [emptyinputerror, setemptyInputerror] = useState('');
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
 
   
       const inputRef = useRef(null);
@@ -28,7 +29,13 @@ function TherapistAccount() {
             setError('Passwords do not match');
           } else {
             setError('');
-      };
+          };
+          if (Username === "" || Password === "" || City === ""  || Licensenumber === "" || Password.length <= 6) {
+            setemptyInputerror("All fields are required");
+            setError('Your password must be at least 6 characters');}
+          else {
+            setemptyInputerror("")
+          navigate('/therapist-thanks');}
     
       dispatch(createTherapistProfile({Licensenumber,City,Username,Email,Password}));
     }
@@ -41,7 +48,6 @@ function TherapistAccount() {
         <input
           type="text"
           name='Username'
-          
           onChange={(e) => setUsername(e.target.value)}
           ref={inputRef}
           
@@ -106,6 +112,7 @@ function TherapistAccount() {
       </label>
       <br />
       {error && <div style={{ color: 'red' }}>{error}</div>}
+      {emptyinputerror && <div style={{ color: 'red' }}>{emptyinputerror}</div>}
       <button  type="submit" onSubmit={handleSubmit}  className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border py-2 lg:px-10 md:px-4 sm:px-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white text-black mt-10">Create</button>
     </form>
     </>
