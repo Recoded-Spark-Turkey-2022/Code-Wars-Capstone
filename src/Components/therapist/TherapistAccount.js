@@ -1,5 +1,5 @@
-import React , { useState, useEffect , useRef } from 'react'
-import { useDispatch } from 'react-redux';
+import React , { useState, useEffect , useRef } from 'react'  
+import { useDispatch ,useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createTherapistProfile } from '../../features/users/usersSlice';
 import HeaderBooking from '../booking/HeaderBooking';
@@ -15,8 +15,8 @@ function TherapistAccount() {
     const [emptyinputerror, setemptyInputerror] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-  
+    const firebaseerror = useSelector(state => state.users.error);
+  console.log(firebaseerror)
       const inputRef = useRef(null);
       useEffect(() => {
         inputRef.current.focus();
@@ -111,6 +111,7 @@ function TherapistAccount() {
         />
       </label>
       <br />
+      {/* {firebaseerror && <p className="error-message">{firebaseerror.message}</p>} */}
       {error && <div style={{ color: 'red' }}>{error}</div>}
       {emptyinputerror && <div style={{ color: 'red' }}>{emptyinputerror}</div>}
       <button  type="submit" onSubmit={handleSubmit}  className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border py-2 lg:px-10 md:px-4 sm:px-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white text-black mt-10">Create</button>
