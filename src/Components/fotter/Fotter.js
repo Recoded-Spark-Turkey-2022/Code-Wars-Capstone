@@ -30,7 +30,7 @@ return (
             <Link to="/about" onClick={()=>{  window.scrollTo(0, 0);}} className="mr-4 hover:underline md:mr-6">About</Link>
         </li>
         <li>
-            <Link to="/" className="hover:underline">Contact</Link>
+            <Link to="/contactus" className="hover:underline">Contact</Link>
         </li>
     </ul>
     </div>
