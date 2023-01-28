@@ -5,22 +5,17 @@ import HeaderBooking from '../booking/HeaderBooking';
 
 
 function TherapistAccount() {
-    const [userData, setuserData] = useState({
-        Username: "",
-        Email: "",
-        City: "",
-        Licensenumber: ""
-      });
+  const [Username, setUsername] = useState("");
+    const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState('');
+    const [City, setCity] = useState("");
+    const [Licensenumber, setLicensenumber] = useState("");
     const [confirmPassword, setconfirmPassword] = useState('');
     const [error, setError] = useState('');
     const dispatch = useDispatch();
 
 
-    const handleChange = e => {
-        setuserData({ ...userData, [e.target.name]: e.target.value });
-      
-      };
+  
       const inputRef = useRef(null);
       useEffect(() => {
         inputRef.current.focus();
@@ -34,8 +29,8 @@ function TherapistAccount() {
           } else {
             setError('');
       };
-      console.log(userData)
-      dispatch(createTherapistProfile({userData,Password}));
+    
+      dispatch(createTherapistProfile({Licensenumber,City,Username,Email,Password}));
     }
   return (
     <> 
@@ -46,9 +41,10 @@ function TherapistAccount() {
         <input
           type="text"
           name='Username'
-          value={userData.Username}
-          onChange={handleChange}
+          
+          onChange={(e) => setUsername(e.target.value)}
           ref={inputRef}
+          
           className="input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts  " 
 
         />
@@ -59,8 +55,8 @@ function TherapistAccount() {
         <input
           type="text"
           name='Email'
-          value={userData.Email}
-          onChange={handleChange}
+          
+          onChange={(e) => setEmail(e.target.value)}
           className="input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts  " 
         />
       </label>
@@ -70,8 +66,8 @@ function TherapistAccount() {
         <input
           type="text"
           name='City'
-          value={userData.City}
-          onChange={handleChange}
+          onChange={(e) => setCity(e.target.value)}
+          
           
           className="input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts  " 
         />
@@ -82,8 +78,8 @@ function TherapistAccount() {
         <input
           type="text"
           name="Licensenumber"
-          value={userData.Licensenumber}
-          onChange={handleChange}
+          onChange={(e) => setLicensenumber(e.target.value)}
+         
           className="input input-bordered input-accent w-7/12  block  rounded-lg p-2 border border-SubTexts  " 
         />
       </label>

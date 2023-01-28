@@ -289,29 +289,32 @@ export const contactForm = createAsyncThunk(
 
 
 export const createTherapistProfile = createAsyncThunk(
-  'user/signupUser',
+  'therapist/signuptherapistUser',
   async (payload, { rejectWithValue }) => {
     const {
       Username,
       Email,
       City,
       Licensenumber,
-      Password,
+      Password
     } = payload;
-    console.log(payload)
+ 
     try {
       const { user } = await createUserWithEmailAndPassword(
         auth,
-        Email,
+        Email ,
         Password
-      );
-      const docRef = doc(db, 'Therapistusers', "00");
+        );
+     
+
+      const docRef = doc(db, "Therapists", user.uid);
       await setDoc(docRef, {
         id: user.uid,
+        Username,
         Email,
         City,
-        Username ,
         Licensenumber,
+     
       });
       return { id: user.uid, Email: user.email };
     } catch (error) {
