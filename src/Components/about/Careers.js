@@ -68,7 +68,7 @@ export default function Careers() {
     <p className=" text-xl text-gray-700" >Application Development</p>
     </div>
 </div>
-{/* <div className='bg-gray-500 h-[0.1rem]'/> */}
+<div className='bg-gray-500 h-[0.1rem]'/>
 
 </div>
 
