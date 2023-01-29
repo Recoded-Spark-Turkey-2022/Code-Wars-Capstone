@@ -71,17 +71,16 @@ export default function Therapistprofile() {
         <div className=" ml-44">
           <div className=" lg:ml-20 ml-[-15em] lg:self-start lg:mr-44 mt-6 mb-15 ">
             <h1 className="lg:text-5xl text-2xl lg:ml-0 ml-20 mb-10">
-              <b>PROFILE INFO</b>
+              <b>THERAPIST PROFILE</b>
             </h1>
-            <div className="flex flex-rows">
-              <div className="flex flex-col mt-4 lg:text-xl text-sm gap-9 lg:self-start lg:ml-0 ml-20">
+            <div className="flex flex-rows mt-6">
+              <div className="flex flex-col mt-4 lg:text-xl text-base gap-9 self-start">
                 <div>Full Name</div>
-                <div>Birth Date</div>
+                <div >Birth Date</div>
                 <div className="mt-2">Email</div>
                 <div>Phone Number</div>
                 <div className="mt-2">Upload ID</div>
-              </div>
-              <div className="gap-7 lg:mt-1 mt-3 ml-6 ">
+                <div className="gap-7 lg:mt-1 mt-3 ml-6 ">
                 <div>
                   <input
                     {...register('name')}
@@ -98,7 +97,7 @@ export default function Therapistprofile() {
               <div className="flex flex-row">
                 <input
                   {...register('birthdayDay')}
-                  className="bg-gray-50 h-[5rem] border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-60 block lg:p-2 p-1 lg:w-[5em] w-[3em]"
+                  className="bg-gray-50 h-[3rem] border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-60 block lg:p-2 p-1 lg:w-[5em] w-[3em]"
                   id="birthdayDay"
                   name="birthdayDay"
                   type="text"
@@ -164,6 +163,8 @@ export default function Therapistprofile() {
             </div>
           </div>
         </div>
+              </div>
+              
         <div className="lg:ml-20 ml-[-10em]">
           <div className="lg:text-5xl text-2xl mt-12">
             <b>Security</b>
