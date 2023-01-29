@@ -19,7 +19,7 @@ import About from './Components/about/About';
 import ContactUs from './Components/contactus/Contact';
 import TherapistAccount from './Components/therapist/TherapistAccount';
 import Requirement from "./Components/therapist/requirement"
-
+import Therapistprofile from './Components/therapist/Therapistprofile';
 
 function App() {
   return (
@@ -45,6 +45,7 @@ function App() {
         <Route path='/Requirement' element={<Requirement />}/>
         <Route path="/therapist-thanks" element={<ThankYouPage path="/therapist-thanks" header="Thank you!" text="Thank you for your interest in working with Healing, we have recieved your application.You will receive an email guiding you for the next steps soon after your information is reviewed."/>}/>
         <Route path="/contact-thanks" element={<ThankYouPage path="/contact-thanks" header="Thank you!" text="Your request has been sent, a member of the support team will get in contact with you through the email you provided as soon as possible."/>}/>
+        <Route path="/viewprofile" element={<Therapistprofile/> }/>
       </Routes>
 
       <Fotter/> 
