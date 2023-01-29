@@ -1,54 +1,19 @@
-import React, { useState } from 'react';
-import { IntlProvider, FormattedMessage} from 'react-intl';
-import {Link} from "react-router-dom";
-import Subscribe from "../blogs/Subscribe";
+import { React  } from "react";
+import {Link} from "react-router-dom"
+import Subscribe from "../blogs/Subscribe"
 
-const multilanguage = {
-    tr: {
-        subs: "Abone Ol",
-        Message: "Emailiniz paylaşılmayacak ve spamlanmayacaktır.",
-        home: "Ana Sayafa",
-        blogs: "Bloglar",
-        about: "Hakkında",
-        contact: "İletişim"
-    },
 
-    eng: {
-        subs: "Subscribe",
-        Message: "Well never to spam you or share your email",
-        home: "Home",
-        blogs: "Blogs",
-        about: "About",
-        contact: "Contact"
-    }
-};
 
 function Footer (){
 
-const [locale, setLocale] = useState('en');
-
-const handleChange = (e) => {
-      setLocale(e.target.value);
-    };
-
 return (
-<IntlProvider locale={locale} messages={multilanguage[locale]}>
+
  <div className="footer-basic bg-amber-200 mt-40">
        <footer className="p-4 bg-white rounded-lg  md:flex md:items-center justify-between md:p-6 bg-transparent mx-20 ">
         <div className="m-4">
-    <h1 className="font-bold lg:text-4xl md:text-2xl sm:text-sm">
-        <FormattedMessage
-            id="subs"
-            defaultMessage="Subscribe"
-            values={{ locale }}
-          />
+    <h1 className="font-bold lg:text-4xl md:text-2xl sm:text-sm">Subscribe
     </h1>
-    <h1 className="lg:text-lg md:text-sm  sm:text-center dark:text-gray-400"> 
-        <FormattedMessage
-            id="Message"
-            defaultMessage="Well never to spam you or share your email"
-            values={{ locale }}
-          />
+    <h1 className="lg:text-lg md:text-sm  sm:text-center dark:text-gray-400"> Well never to spam you or share your email
     </h1>
     <Subscribe  />
     </div> 
@@ -56,43 +21,16 @@ return (
         <div>
     <ul className="flex flex-wrap items-center mt-3 lg:text-lg md:text-sm text-gray-500 dark:text-gray-400 sm:mt-0 ">
         <li>
-            <Link to="/"  onClick={()=>{  window.scrollTo(0, 0);}} className="mr-4 hover:underline md:mr-6 ">
-                <FormattedMessage
-            id="home"
-            defaultMessage="Home"
-            values={{ locale }}
-          /></Link>
+            <Link to="/"  onClick={()=>{  window.scrollTo(0, 0);}} className="mr-4 hover:underline md:mr-6 ">Home</Link>
         </li>
         <li>
-            <Link to="/blog/1" onClick={()=>{  window.scrollTo(0, 0);}} className="mr-4 hover:underline md:mr-6">
-                <FormattedMessage
-            id="blogs"
-            defaultMessage="Blogs"
-            values={{ locale }}
-          /></Link>
+            <Link to="/blog/1" onClick={()=>{  window.scrollTo(0, 0);}} className="mr-4 hover:underline md:mr-6">Blogs</Link>
         </li>
         <li>
-            <Link to="/about" onClick={()=>{  window.scrollTo(0, 0);}} className="mr-4 hover:underline md:mr-6">
-                <FormattedMessage
-            id="about"
-            defaultMessage="About"
-            values={{ locale }}
-          /></Link>
+            <Link to="/about" onClick={()=>{  window.scrollTo(0, 0);}} className="mr-4 hover:underline md:mr-6">About</Link>
         </li>
         <li>
-            <Link to="/" className="hover:underline">
-                <FormattedMessage
-            id="contact"
-            defaultMessage="Contact"
-            values={{ locale }}
-          /></Link>
-        </li>
-        <li>
-        <select onChange={handleChange} defaultValue={locale}>
-        {['en', 'tr'].map((x) => (
-          <option key={x}>{x}</option>
-        ))}
-      </select>
+            <Link to="/contactus" className="hover:underline">Contact</Link>
         </li>
     </ul>
     </div>
@@ -114,7 +52,7 @@ return (
 </footer>
 
     </div>
-    </IntlProvider>
+
 )
 }
 export default Footer;
