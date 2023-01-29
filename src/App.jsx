@@ -17,7 +17,7 @@ import Fotter from "./Components/fotter/Fotter"
 import Team from './Components/about/Team';
 import About from './Components/about/About';
 import ContactUs from './Components/contactus/Contact';
-
+import Careers from './Components/about/Careers';
 
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
         <Route path='/team' element={<Team />}/>
         <Route path='/about' element={<About />}/>
         <Route path='/contactus' element={<ContactUs />}/>
+        <Route path='/careers' element={<Careers />}/>
       </Routes>
 
       <Fotter/> 

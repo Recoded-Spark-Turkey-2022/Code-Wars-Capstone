@@ -3,7 +3,7 @@ import about from "./Rectangle.jpg"
 
 function About() {
   return (
-    <div className='pt-[4rem]  pb-[8rem] '>
+    <div className='pt-[4rem]'>
     <p className="text-5xl pl-[8rem]">HEALING!</p>
     <p className="text-2xl pl-[8rem] font-light leading-relaxed text-black text-opacity-50"  style={{fontFamily: 'Poppins, sans-serif'}}> some cool one liner !</p>
     <p className=" pb-[10rem] pl-[8rem] pt-[4rem] text-xl leading-relaxed text-gray-700 lg:w-[75rem]  md:w-[60rem] sm:w-[30rem] first-letter:"style={{fontFamily: 'Poppins, sans-serif'}} >At Healing, we believe there is a better way to do things. A more valuable way where customers are earned rather than bought. We&apos;re obsessively passionate about it, and our mission is to help people achieve it. We focus on search engine optimization. It&apos;s one of the least understood and least transparent aspects of great marketing, and we see that as an opportunity. We&apos;re excited to simplify SEO for everyone through our software, education, and community.</p>
