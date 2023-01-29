@@ -298,7 +298,11 @@ export const createTherapistProfile = createAsyncThunk(
       Licensenumber,
       Password
     } = payload;
- 
+//  console.table(Username,
+//   Email,
+//   City,
+//   Licensenumber,
+//   Password)
     try {
       const { user } = await createUserWithEmailAndPassword(
         auth,
@@ -307,7 +311,7 @@ export const createTherapistProfile = createAsyncThunk(
         );
      
 
-      const docRef = doc(db, "Therapists", user.uid);
+      const docRef = doc(db,'therapists', user.uid);
       await setDoc(docRef, {
         id: user.uid,
         Username,

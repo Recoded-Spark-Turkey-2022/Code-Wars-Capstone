@@ -1,43 +1,56 @@
 import React , { useState, useEffect , useRef } from 'react'  
-import { useDispatch ,useSelector} from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createTherapistProfile } from '../../features/users/usersSlice';
 import HeaderBooking from '../booking/HeaderBooking';
 
 function TherapistAccount() {
+
   const [Username, setUsername] = useState("");
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState('');
     const [City, setCity] = useState("");
     const [Licensenumber, setLicensenumber] = useState("");
     const [confirmPassword, setconfirmPassword] = useState('');
+    // const [firebaseerror, setFirebaseerror] = useState('');
     const [error, setError] = useState('');
-    const [emptyinputerror, setemptyInputerror] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const firebaseerror = useSelector(state => state.users.error);
-  console.log(firebaseerror)
-      const inputRef = useRef(null);
-      useEffect(() => {
-        inputRef.current.focus();
+    const firebaseError  = useSelector(state => state.users.error);
+    // console.log(firebaseerror)
+    const inputRef = useRef(null);
+    useEffect(() => {
+      inputRef.current.focus();
     }, []);
-
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (Password !== confirmPassword) {
-            setError('Passwords do not match');
-          } else {
-            setError('');
-          };
-          if (Username === "" || Password === "" || City === ""  || Licensenumber === "" || Password.length <= 6) {
-            setemptyInputerror("All fields are required");
-            setError('Your password must be at least 6 characters');}
-          else {
-            setemptyInputerror("")
-          navigate('/therapist-thanks');}
     
+    
+    const handleSubmit = (event) => {
+      event.preventDefault();
       dispatch(createTherapistProfile({Licensenumber,City,Username,Email,Password}));
+      // setFirebaseerror (firebaseError.message)
+       // console.log(firebaseerror)
+      if (Password !== confirmPassword) {
+        setError('Passwords do not match');
+      } 
+      else if (Username === "" || Password === "" || City === ""  || Licensenumber === ""  ) {
+        setError("All fields are required");
+      }
+      else if ( Password.length <= 6 ) {
+        setError('Your password must be at least 6 characters');}
+        else if (firebaseError.message ===  "Firebase: Error (auth/invalid-email)."){
+          // setFirebaseerror ("your email is already in use")
+          // console.log(firebaseerror)
+           }
+         
+          else {
+            setError("")
+            navigate('/therapist-thanks');
+            console.table(Username,
+              Email,
+              City,
+              Licensenumber,
+              Password)
+                  }
     }
   return (
     <> 
@@ -111,9 +124,8 @@ function TherapistAccount() {
         />
       </label>
       <br />
-      {/* {firebaseerror && <p className="error-message">{firebaseerror.message}</p>} */}
+      {firebaseError &&<div style={{ color: 'red' }}>{firebaseError.message}</div>}
       {error && <div style={{ color: 'red' }}>{error}</div>}
-      {emptyinputerror && <div style={{ color: 'red' }}>{emptyinputerror}</div>}
       <button  type="submit" onSubmit={handleSubmit}  className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border py-2 lg:px-10 md:px-4 sm:px-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white text-black mt-10">Create</button>
     </form>
     </>
