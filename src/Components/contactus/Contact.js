@@ -49,7 +49,7 @@ const ContactUs = () => {
       />
       <div className='flex '>
         
-        <form className="ml-20 flex-1" onSubmit={handleSubmit}>
+        <form className="ml-20 mb-20 flex-1" onSubmit={handleSubmit}>
          <p className="font-semibold mb-4"> Type of Contact</p>
           <div className="flex flex-col gap-4">
             {Options.map((option) => (

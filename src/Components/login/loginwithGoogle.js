@@ -12,7 +12,7 @@ function LoginwithGoogle() {
 
   return (
     <>
-      <div className="absolute flex items-center pl-20">
+      <div className="absolute flex items-center pl-20 ">
         <div className="border-t-2 w-40"> </div>
         <span className="mx-4 border rounded-full px-2 text-center border-2">
           or
