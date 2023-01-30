@@ -3,7 +3,7 @@ import {  useNavigate  } from 'react-router-dom';
 
 
 
-function ThankYouPage({text,header}) {
+function Thankyoupage({text,header}) {
   const navigate = useNavigate ();
   return (
     <div className='pl-[5rem] mt-[3rem] ' >
@@ -22,7 +22,7 @@ function ThankYouPage({text,header}) {
 }
 
 
-export default ThankYouPage;
+export default Thankyoupage;
 
 
 

@@ -4,7 +4,7 @@ import Navebar from './Components/Home/NavBar/Navbar';
 import Login from "./Components/login/Login";
 import Home from "./Components/Home/Home";
 import Signup from './Components/Signup';
-import ThankYouPage from './Components/blogs/Thankyoupage';
+// import Thankyoupage from './Components/blogs/Thankyoupage';
 import Blogarticle from './Components/blogs/Blogarticle';
 import UpdateUserInfo from './Components/UpdateUserInfo/UpdateUserInfo'
 import Profilepic from "./Components/UpdateUserInfo/Profilepic"
@@ -36,7 +36,7 @@ function App() {
        <Route path="/bookingnote" element={<Note />} />
        <Route path="/bookingsubmit" element={<Submit />} />
        <Route path="/Requestsubmit" element={<Requestsubmit />} />        
-        <Route path="/Thank-you" element={<ThankYouPage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
+        {/* <Route path="/Thank-you" element={<Thankyoupage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/> */}
         <Route path='/team' element={<Team />}/>
         <Route path='/about' element={<About />}/>
         <Route path='/contactus' element={<ContactUs />}/>
