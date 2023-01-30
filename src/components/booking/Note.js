@@ -28,14 +28,14 @@ return (
     <div  >
     
 
-          <div className='ml-20 mb-20'>
+          <div className='ml-5 mb-20'>
 
          
    
    
     <HeaderBooking  className="" Header="What brings you here?" par={`Please specify (in a few sentences) why you'd like counseling. This will give your counselor a good understanding of where to start.`}  />
     </div>
-     <InputTrigger className="grid justify-items-center">
+     <InputTrigger className=" grid justify-items-center">
         <textarea
           style={{
             height: '18rem',
@@ -46,12 +46,12 @@ return (
          
           }}
           onChange={(e)=>{setinputValue(e.target.value)}}
-          className="   focus:outline-none lg:w-[75rem] md:w-[40rem] sm:w-[20rem]  " 
+          className="focus:outline-none lg:w-[75rem] md:w-[40rem] sm:w-[30rem]  " 
           ref={emailInput}
           placeholder='Write Something Here...'
         />
       </InputTrigger>
-      <button type="submit" onClick={handleSubmite} className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 px-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white ml-40 mt-10"> Next    </button>
+      <button type="submit" onClick={handleSubmite} className=" lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 px-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white ml-40 mt-10 mb-5"> Next    </button>
     </div>
 )
 }
