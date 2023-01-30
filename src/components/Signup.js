@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   signupUser,
   loginUserWithFacebook,
@@ -11,12 +11,14 @@ import facebookicon from './login/Images/facebook.svg';
 import googleicon from './login/Images/google.svg';
 
 const SignupForm = () => {
+  const userInfo = useSelector((state) => state.users);
+  const [enteredInput, setEnteredInput] = useState(false);
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
-      {/* <img src={Image} alt="Sign up" /> */}
       <div className="flex flex-col">
         <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
           SIGNUP NOW
@@ -24,7 +26,19 @@ const SignupForm = () => {
         <form
           className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
           onSubmit={handleSubmit((userData) => {
-            console.log(userData);
+            if (userData.firstName.trim() === '') {
+              return;
+            }
+            if (userData.lastName.trim() === '') {
+              return;
+            }
+            if (
+              userData.password.trim() !== userData.passwordConfirmation.trim()
+            ) {
+              return;
+            }
+            setEnteredInput(true);
+
             dispatch(
               signupUser({
                 email: userData.email,
@@ -36,6 +50,7 @@ const SignupForm = () => {
                 birthdayYear: userData.birthdayYear,
               })
             );
+            navigate('/Thank-you');
           })}
         >
           <div className="flex gap-x-7">
@@ -98,6 +113,7 @@ const SignupForm = () => {
               placeholder="YYYY"
               className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300"
             />
+            {enteredInput && <p>{userInfo.error}</p>}
           </div>
           <div className="flex justify-around py-3 gap-8">
             <Link to="/login">
@@ -108,32 +124,24 @@ const SignupForm = () => {
                 Login
               </button>
             </Link>
-
-
-              <button
-                type="submit"
-                className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md"
-              >
-                Signup
-              </button>
-
-
-
+            <button
+              type="submit"
+              className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md"
+            >
+              Signup
+            </button>
           </div>
         </form>
         <div className="flex justify-around my-6">
-          {/* <img src={lineImage} alt="A line" /> */}
           <p>Or</p>
-          {/* <img src={lineImage} alt="A line" /> */}
         </div>
         <div className="flex justify-center my-6 gap-x-20">
           <button
             type="button"
             style={{ height: 32, width: 32 }}
-            onClick={(userDat) => {
-              console.log(userDat);
+            onClick={(userData) => {
               dispatch(
-                loginUserWithGoogle({ id: userDat.id, email: userDat.email })
+                loginUserWithGoogle({ id: userData.id, email: userData.email })
               );
             }}
           >
@@ -142,9 +150,8 @@ const SignupForm = () => {
           <button
             type="button"
             style={{ height: 32, width: 32 }}
-            onClick={(userDat) => {
-              console.log(userDat);
-              dispatch(loginUserWithFacebook({ email: userDat.email }));
+            onClick={(userData) => {
+              dispatch(loginUserWithFacebook({ email: userData.email }));
             }}
           >
             {' '}
