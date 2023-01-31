@@ -11,7 +11,7 @@ export default function Careers() {
         par="Be a part of making people feel better."
       />
       <div
-        className=" inline-flex flex-col space-y-24 items-start justify-end mt-[5rem] sm:text-base lg:ml-20 mb-6 md:ml-10 w-8/12 tracking-wider      "
+        className=" inline-flex flex-col space-y-24 items-start justify-end mt-[5rem] sm:text-base ml-20  mb-6 md:ml-10 w-8/12 tracking-wider      "
         style={{ fontFamily: 'Poppins, sans-serif' }}
       >
         <p className="text-xl leading-relaxed text-gray-700 ">
@@ -40,7 +40,7 @@ export default function Careers() {
       </div>
       <div className="flex items-center justify-center px-52 py-5 bg-amber-200 text-left">
         <div className="inline-flex flex-col   p-[1rem]">
-          <p className="text-5xl text-left text-left leading-10 text-gray-700 p-[1rem]">
+          <p className="text-5xl text-left  leading-10 text-gray-700 p-[1rem]">
             OUR HIRING PHILOSOPHY
           </p>
           <p className="text-xl leading-normal text-gray-700 p-[1rem]">
@@ -57,7 +57,7 @@ export default function Careers() {
            <div className=' bg-blue'>
            <HeaderBooking     Header="CURRENT OPEN POSITIONS"
         par="Please send us an email with the application title as the subject with an attached CV in PDF format!"/>
-            <div className='flex flex-row justify-between w-[80rem] pr-[7rem] p-[1rem] '>
+            <div className='lg:flex flex-row justify-between lg:w-[80rem] sm:w-[60rem] pr-[7rem] p-[1rem] pl-20 '>
                
     <div className=" bg-gray-800 " />
     <div>
