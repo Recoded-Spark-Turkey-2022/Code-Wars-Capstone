@@ -342,6 +342,49 @@ export const contactForm = createAsyncThunk(
   }
 );
 
+
+export const createTherapistProfile = createAsyncThunk(
+  'therapist/signuptherapistUser',
+  async (payload, { rejectWithValue }) => {
+    const {
+      Username,
+      Email,
+      City,
+      Licensenumber,
+      Password
+    } = payload;
+//  console.table(Username,
+//   Email,
+//   City,
+//   Licensenumber,
+//   Password)
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        Email ,
+        Password
+        );
+     
+
+      const docRef = doc(db,'therapists', user.uid);
+      await setDoc(docRef, {
+        id: user.uid,
+        Username,
+        Email,
+        City,
+        Licensenumber,
+     
+      });
+      return { id: user.uid, Email: user.email };
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+
+
+
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
@@ -471,6 +514,21 @@ const usersSlice = createSlice({
     builder.addCase(UrlImageid.rejected, () => {
       console.log('rejecting upload UrlImageid');
     });
+
+    builder.addCase(createTherapistProfile.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(createTherapistProfile.fulfilled, (state, action) => {
+      state.loading = false;
+      state.user = action.payload;
+      state.error = null;
+    });
+    builder.addCase(createTherapistProfile.rejected, (state, action) => {
+      state.loading = false;
+      state.user = {};
+      state.error = action.payload;
+    });
+
   },
 });
 
