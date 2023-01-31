@@ -6,7 +6,7 @@ function Thankyoupage({ text, header }) {
   
   return (
     <div className="pl-[5rem] mt-[3rem] mb-5 ">
-      <h1 className="pl-15 xl:w-72 xl:text-5xl  md:w-50 md:text-4xl sm:w-30 sm:text-2xl uppercase">
+      <h1 className="pl-15 xl:w-72 text-5xl  md:w-50 md:text-4xl sm:w-30 sm:text-2xl uppercase">
         {header}
       </h1>
       <p className="xl:text-2xl xl:w-[50rem] md:w-[30rem]  sm:w-[20rem] p-[3rem] text-black text-opacity-50 ">
