@@ -19,7 +19,7 @@ const Options = [
 const ContactUs = () => {
   const navigate = useNavigate();
   
-
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -27,20 +27,27 @@ const ContactUs = () => {
     selectedOption: '',
   });
   const dispatch = useDispatch();
-
+  
   const handleOptionChange = (option) => {
     setFormData({ ...formData, selectedOption: option });
   };
-
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(contactForm(formData ));
-    navigate('/contact-thanks')
-  
+    if (formData.fullName === '' || formData.email === " " || formData.details === " " || formData.selectedOption === " "   ) {
+      setError("All fields are required");
+    }  
+
+    else {
+      setError("")
+      dispatch(contactForm(formData ));
+      navigate('/contact-thanks')
+    }
+    console.log(formData)
   };
   return (
     <div>
@@ -101,6 +108,7 @@ const ContactUs = () => {
               />
             </label>
             <br />
+            {error && <div style={{ color: 'red' }}>{error}</div>}
             <button
               type="submit"
               className="lg:text-xl md:text-l p-4 sm:text-sm rounded-md box-border py-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white  m-auto"
@@ -123,7 +131,6 @@ const ContactUs = () => {
             <p className='text-slate-500 text-xl'> 34122</p>
             </div>
           </div>
-
 
           </div>
       </div>
