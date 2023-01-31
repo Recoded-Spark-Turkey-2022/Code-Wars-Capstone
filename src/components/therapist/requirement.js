@@ -12,7 +12,7 @@ const Requirement = () => {
 
     }
   return (
-    <div className="flex ">
+    <div className="flex lg:flex-row ">
       <div className=" flex-1 ">
         <HeaderBooking Header="Why work with Healing?" />
 
@@ -64,7 +64,7 @@ const Requirement = () => {
         <button type="submit" className='lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white ml-20 mt-10' onClick={buttonHanler} > Get started </button>
 
       </div>
-      <div className="flex-1 	flex justify-center self-start pt-10 ">
+      <div className="flex-1 flex justify-center self-start pt-10 ">
         <img src={Image} alt="laptop" />
       </div>
     </div>
