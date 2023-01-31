@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-
+import { useNavigate } from 'react-router-dom';
 import { updatechange, DeleteAccount } from '../../features/users/usersSlice';
 import Profilepic from './Profilepic';
 
@@ -19,7 +19,7 @@ const UpdateUserInfo = () => {
   const [PhoneNumber, setPhoneNumber] = useState(userInfo.PhoneNumber);
   const [filedata, setFiledata] = useState();
   const [profilepic, setprofilepic] = useState(userInfo.photoURL);
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onSubmit = (user) => {
@@ -30,7 +30,7 @@ const UpdateUserInfo = () => {
     } else {
       alert(' password and confirm password not match ');
     }
-
+   
     dispatch(
       updatechange({
         id: userInfo.id,
@@ -48,6 +48,7 @@ const UpdateUserInfo = () => {
         Password: newPassword,
       })
     );
+    navigate('/edit-thanks')
   };
 
   const HandelDelete = () => {

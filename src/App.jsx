@@ -36,7 +36,10 @@ function App() {
        <Route path="/bookingnote" element={<Note />} />
        <Route path="/bookingsubmit" element={<Submit />} />
        <Route path="/Requestsubmit" element={<Requestsubmit />} />        
-        <Route path="/Thank-you" element={<Thankyoupage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
+       <Route path="/Thank-you" element={<Thankyoupage path="/Thank-you" header="Thank you!" text=" Your email has been added to the mailing list successfully!"/>}/>
+       <Route path="/signup-thanks" element={<Thankyoupage path="/signup-thanks" header="Thank you!" text=" Your Sign Up request has been received, you will soon receive a confirmation email. Please follow the steps in the email to complete and activate your account."/>}/>
+       <Route path="/contact-thanks" element={<Thankyoupage path="/contact-thanks" header="Thank you!" text=" Your request has been sent, a member of the support team will get in contact with you through the email you provided as soon as possible."/>}/>
+        <Route path="/edit-thanks" element={<Thankyoupage path="/edit-thanks" header="Thank you!" text=" Request submitted, you will soon receive an email confirming your changes after they are reviewed."/>}/>
         <Route path='/team' element={<Team />}/>
         <Route path='/about' element={<About />}/>
         <Route path='/contactus' element={<ContactUs />}/>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // import { useId } from "react-id-generator";
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { contactForm } from '../../features/users/usersSlice';
 import Header from '../booking/HeaderBooking';
 import Image from "./Images/tow.png"
@@ -16,7 +17,7 @@ const Options = [
 ];
 
 const ContactUs = () => {
-
+  const navigate = useNavigate();
   
 
   const [formData, setFormData] = useState({
@@ -37,8 +38,8 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     dispatch(contactForm(formData ));
+    navigate('/contact-thanks')
   
   };
   return (

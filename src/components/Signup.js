@@ -50,7 +50,7 @@ const SignupForm = () => {
                 birthdayYear: userData.birthdayYear,
               })
             );
-            navigate('/Thank-you');
+            navigate('/signup-thanks');
           })}
         >
           <div className="flex gap-x-7">
