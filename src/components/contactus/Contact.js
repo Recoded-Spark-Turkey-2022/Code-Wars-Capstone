@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import { useId } from "react-id-generator";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { contactForm } from '../../features/users/usersSlice';
@@ -16,8 +17,9 @@ const Options = [
 ];
 
 const ContactUs = () => {
+  const navigate = useNavigate();
+  
 
-  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -25,7 +27,6 @@ const ContactUs = () => {
     selectedOption: '',
   });
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleOptionChange = (option) => {
     setFormData({ ...formData, selectedOption: option });
@@ -37,14 +38,9 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     dispatch(contactForm(formData ));
-    if (formData.fullName === "" || formData.email === "" || formData.details === ""  || formData.selectedOption === "" ) {
-      setError('All fields are required');}
-    else {
-      setError("")
-      navigate('/contact-thanks');}
- 
+    navigate('/contact-thanks')
+  
   };
   return (
     <div>
@@ -52,9 +48,9 @@ const ContactUs = () => {
         Header="SEND US YOUR REQUEST!"
         par="Do you have a question, concern, idea, feedback, or problem?  If you need assistance, please fill out the form below and we'd be happy to help! "
       />
-      <div className='flex '>
+      <div className='lg:flex flex-row'>
         
-        <form className="ml-20 flex-1" onSubmit={handleSubmit}>
+        <form className="ml-20 mb-20 flex-1" onSubmit={handleSubmit}>
          <p className="font-semibold mb-4"> Type of Contact</p>
           <div className="flex flex-col gap-4">
             {Options.map((option) => (
@@ -80,7 +76,7 @@ const ContactUs = () => {
                value={formData.fullName}
                onChange={handleChange} 
                placeholder="Enter your full name here..." 
-               className="input input-bordered input-accent w-7/12  block drop-shadow-xl rounded-lg p-2 " />
+               className="input input-bordered input-accent lg:w-7/12  block drop-shadow-xl rounded-lg p-2 " />
             </label>
             <br />
             <label className='font-semibold mb-4'>
@@ -90,7 +86,7 @@ const ContactUs = () => {
                 value={formData.email}
                 onChange={handleChange}
                placeholder=" Enter your email address here..." 
-               className="input input-bordered input-accent w-7/12 block drop-shadow-xl rounded-lg p-2" />
+               className="input input-bordered input-accent lg:w-7/12 block drop-shadow-xl rounded-lg p-2" />
               
             </label>
             <br />
@@ -101,7 +97,7 @@ const ContactUs = () => {
                 value={formData.details}
                 onChange={handleChange}
                 placeholder = "Enter your details here..."
-                className = "w-7/12 block drop-shadow-xl rounded-lg p-2 h-32 "
+                className = "lg:w-7/12 block drop-shadow-xl rounded-lg p-2 h-32 "
               />
             </label>
             <br />
@@ -112,23 +108,20 @@ const ContactUs = () => {
             >
               Submit
             </button>
-            {error && <div style={{ color: 'red' }}>{error}</div>}
+          
         </form>
         <div className='flex-1' >
-          <img src={Image} alt="two poeple" className='w-8/12'/>
+          <img src={Image} alt="two poeple" className=' pl-5 lg:w-8/12'/>
           <div className='bg-cyan-50 w-7/12 rounded-3xl ml-6 mt-20  '>
-          
-
-
-            <div className='p-6 pb-10'> 
-            <p className='mb-4' >Find Us At: </p>
-            <p className='text-slate-500' >Fatih/İstanbul</p>
-            <p className='text-slate-500'>Sultan Ahmet </p>
-            <p className='text-slate-500'>Ayasofya Meydanı</p>
-            <p className='text-slate-500'>No:1 </p>
-            <p className='text-slate-500'> 34122</p>
+        
+            <div className=' text-l p-6 pb-10'> 
+            <p className='mb-4 text-2xl' >Find Us At: </p>
+            <p className='text-slate-500 text-xl' >Fatih/İstanbul</p>
+            <p className='text-slate-500 text-xl'>Sultan Ahmet </p>
+            <p className='text-slate-500 text-xl'>Ayasofya Meydanı</p>
+            <p className='text-slate-500 text-xl'>No:1 </p>
+            <p className='text-slate-500 text-xl'> 34122</p>
             </div>
-            
           </div>
 
 
