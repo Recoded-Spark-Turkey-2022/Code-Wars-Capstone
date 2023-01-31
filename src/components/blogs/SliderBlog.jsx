@@ -48,12 +48,11 @@ const imagesilder = BlogData.map((obj) => (
   </p>
   <Carousel
   infinite='true'  
-  keyBoardControl='fasle'
   containerClass="w-9/12"
   
   responsive={responsive}
   
-  className=" lg:ml-40 md:ml-20 w-[65rem] pb-40">
+  >
 
   {imagesilder}
 
