@@ -79,7 +79,7 @@ const UpdateUserInfo = () => {
             className="self-center ml-28"
           />
         </div>
-        <div className="flex flex-col lg:ml-16 ml-44">
+        <div className="flex flex-col lg:ml-16 ml-44 ">
           <div className=" lg:ml-20 ml-[-15em] lg:self-start lg:mr-44 mt-6 mb-15 ">
             <h1 className="lg:text-5xl text-2xl lg:ml-0 ml-20 mb-10">
               <b>PROFILE INFO</b>
@@ -100,7 +100,7 @@ const UpdateUserInfo = () => {
                 <div>
                   <input
                     {...register('name')}
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[65%] "
                     id="name"
                     name="name"
                     type="text"
@@ -114,7 +114,7 @@ const UpdateUserInfo = () => {
                       {...register('EducationLevel')}
                       value={Education}
                       onChange={(e) => setEducation(e.target.value)}
-                      className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+                      className="lg:w-[25em] w-[65%] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
                     >
                       <option selected="selected" disabled="disabled">
                         -- Select Education --
@@ -145,7 +145,7 @@ const UpdateUserInfo = () => {
                 <div>
                   <input
                     {...register('Hobbies')}
-                    className=" bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
+                    className=" bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[65%]"
                     id="Hobbies"
                     name="Hobbies"
                     type="text"
@@ -170,7 +170,7 @@ const UpdateUserInfo = () => {
                     {...register('Gender')}
                     value={Gender}
                     onChange={(e) => setGender(e.target.value)}
-                    className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts"
+                    className="lg:w-[25em] w-[65%] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts"
                   >
                     <option selected="selected" disabled="disabled">
                       -- Select Gender --
@@ -214,7 +214,7 @@ const UpdateUserInfo = () => {
                 <div>
                   <input
                     {...register('email')}
-                    className="bg-gray-50 border border-SubTexts bg-gray-500 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
+                    className="bg-gray-50 border border-SubTexts bg-gray-500 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[65%]"
                     id="email"
                     name="email"
                     type="email"
@@ -225,7 +225,7 @@ const UpdateUserInfo = () => {
                 <div>
                   <input
                     {...register('PhoneNumber')}
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[65%]"
                     id="PhoneNumber"
                     name="PhoneNumber"
                     type="tel"
@@ -235,7 +235,7 @@ const UpdateUserInfo = () => {
                     }}
                   />
                 </div>
-                <div className="flex flex-row bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
+                <div className="flex flex-row bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[65%]">
                   <input
                     className=""
                     id="uploadID"
@@ -261,7 +261,7 @@ const UpdateUserInfo = () => {
                 <div className="flex flex-row">
                   <input
                     {...register('Password')}
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28em] w-[65%]"
                     id="Password"
                     name="Password"
                     type="password"
@@ -270,7 +270,7 @@ const UpdateUserInfo = () => {
                 <div className="flex flex-row">
                   <input
                     {...register('confiremPassowrd')}
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block  lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block  lg:p-2 p-1 lg:w-[28em] w-[65%]"
                     id="confiremPassowrd"
                     name="confiremPassowrd"
                     type="password"
@@ -283,20 +283,20 @@ const UpdateUserInfo = () => {
             <button
               onClick={handleSubmit(onSubmit)}
               type="button"
-              className="bg-[#2DD3E3] font-medium text-2xl px-10 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+              className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
             >
               SAVE CHANGES
             </button>
             <button
               type="button"
-              className="bg-[#2DD3E3] font-medium text-2xl px-10 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+              className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
               onClick={() => HandelDelete()}
             >
               DELETE ACCOUNT
             </button>
             <button
               type="button"
-              className="bg-[#2DD3E3] font-medium text-2xl px-10 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+              className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
               onClick={handleDelete}
             >
               CANCEL
@@ -311,7 +311,7 @@ const UpdateUserInfo = () => {
                 <div className="lg:text-lg text-sm mb-2">3 Cards Added</div>
                 <button
                   type="button"
-                  className="bg-[#2DD3E3] font-medium text-2xl px-10 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+                  className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
                 >
                   SHOW CARDS
                 </button>
@@ -322,7 +322,7 @@ const UpdateUserInfo = () => {
                 </div>
                 <button
                   type="button"
-                  className="bg-[#2DD3E3] font-medium text-2xl px-10 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+                  className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
                 >
                   BUY TICKETS
                 </button>

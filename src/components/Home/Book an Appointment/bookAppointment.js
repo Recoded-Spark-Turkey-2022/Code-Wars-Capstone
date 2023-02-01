@@ -50,7 +50,7 @@ function BookAppointment() {
               BOOK AN APPOINTMENT
             </button>
             </div>
-          <div className="lg:mt-20 Lg:mr-40 z-10  md:mt-10 md:mr-20   sm:mt-5 sm:mr-10 lg:w-max md:w-4/12 md:ml-10  ">
+          <div className="lg:mt-20 Lg:mr-40 z-10  md:mt-10 md:mr-20   sm:mt-5 sm:mr-10 lg:w-max md:w-4/12  ">
             <img src={Mainimg} alt="iltration" className="imgsofa" />
           </div>
          
