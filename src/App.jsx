@@ -20,12 +20,15 @@ import ContactUs from './components/contactus/Contact';
 import Careers from './components/about/Careers';
 import TherapistAccount from './components/therapist/TherapistAccount';
 import Requirement from "./components/therapist/requirement"
+import Navbar from "./components/Home/NavBar/navbarresposive"
 
 function App() {
   return (
     <BrowserRouter>
      <Navebar/>
+     <Navbar />
       <Routes>
+        
         <Route path="/login" element ={<Login/>}/>
         <Route path="/" element ={<Home/>}/>
         <Route path="/signup" element ={<Signup/>}/>
