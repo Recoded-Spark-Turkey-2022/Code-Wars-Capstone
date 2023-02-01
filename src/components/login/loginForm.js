@@ -18,10 +18,11 @@ const FormCard = () => {
   };
 
   return (
-    <div className="max-w-sm rounded-lg shadow-lg p-8 ">
+    <div className="max-w-sm  rounded-lg shadow-lg p-8 lg:ml-20  " >
+      
       <form onSubmit={handleSubmit}>
         <input
-          className="shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded lg:w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="email"
           type="email"
           placeholder="Enter your email"
@@ -29,7 +30,7 @@ const FormCard = () => {
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
-          className="shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-4"
+          className="shadow appearance-none border block rounded lg:w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-4"
           id="password"
           type="password"
           placeholder="Enter your password"
@@ -53,6 +54,7 @@ const FormCard = () => {
         </button>
       </form>
     </div>
+    
   );
 };
 
