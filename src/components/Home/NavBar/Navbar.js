@@ -1,12 +1,15 @@
 import { React, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../../../features/users/usersSlice';
+import LanguageButton from './LanguageButton';
 import Image from './Logo.svg';
 
 function Navebar() {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const { userlogin } = useSelector((state) => state.users);
 
@@ -40,7 +43,7 @@ function Navebar() {
         className="hover:text-orange-300"
         onMouseEnter={() => setIsListOpen(true)}
       >
-        About
+        {t('About')}
       </button>
       {isListOpen && (
         <ul onMouseLeave={() => setIsListOpen(false)}>
@@ -50,7 +53,7 @@ function Navebar() {
               className="hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600"
               onClick={() => Navigate('/about')}
             >
-              About Us
+              {t('About Us')}
             </button>
           </li>
           <li>
@@ -59,7 +62,7 @@ function Navebar() {
               className="hover:text-orange-300 w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600"
               onClick={() => Navigate('/team')}
             >
-              Our Team{' '}
+              {t('Our Team')}{' '}
             </button>
           </li>
           <li>
@@ -68,7 +71,7 @@ function Navebar() {
               className="hover:text-orange-300 w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600"
               onClick={() => Navigate('/careers')}
             >
-              Careers{' '}
+              {t('Careers')}{' '}
             </button>
           </li>
         </ul>
@@ -78,14 +81,6 @@ function Navebar() {
 
   return (
     <div>
-  
-
-
-
-
-
-  
-
       <nav
         style={{ fontFamily: 'Poppins, sans-serif' }}
         className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded   "
@@ -104,14 +99,14 @@ function Navebar() {
         <div className="absolute top-3.5 right-14 ">
           <div className="    flex justify-around text-l space-x-10">
             <Link to="/" className=" hover:text-orange-300 mr-4 mt-2">
-              Home
+              {t('Home')}
             </Link>
             <Link to="/blog/1" className=" hover:text-orange-300 mr-2  mt-2">
-              Blogs
+              {t('Blogs')}
             </Link>
             {aboutList}
             <Link to="/contactus" className=" hover:text-orange-300 ml-2 mt-2">
-              Contact Us
+              {t('Contact Us')}
             </Link>
             {!userlogin && (
               <button
@@ -119,7 +114,7 @@ function Navebar() {
                 onClick={HandleLogin}
                 className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white "
               >
-                login
+                {t('login')}
               </button>
             )}
             {userlogin && (
@@ -130,7 +125,7 @@ function Navebar() {
                   className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white "
                   onMouseEnter={() => setProfileList(true)}
                 >
-                  Profile
+                  {t('Profile')}
                 </button>
                 {profileList && (
                   <ul onMouseLeave={() => setProfileList(false)}>
@@ -140,7 +135,7 @@ function Navebar() {
                         className="hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600"
                         onClick={HandleProfile}
                       >
-                        Profile
+                        {t('Profile')}
                       </button>
                     </li>
                     <li>
@@ -149,13 +144,14 @@ function Navebar() {
                         className="hover:text-orange-300 w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600"
                         onClick={logOut}
                       >
-                        Log Out{' '}
+                        {t('Log Out')}{' '}
                       </button>
                     </li>
                   </ul>
                 )}
               </div>
             )}
+            <LanguageButton />
           </div>
         </div>
       </nav>
