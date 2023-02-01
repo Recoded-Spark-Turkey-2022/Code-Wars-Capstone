@@ -96,6 +96,7 @@
             </Link>
             </div>
         </div>
+        <div className="lg:mr-16"> 
         <ul className={active}>
             <li className="nav__item">
             <Link to="/" className="hover:text-orange-300 ">
@@ -120,7 +121,7 @@
                 <button
                     type="submit"
                     onClick={HandleLogin}
-                    className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white "
+                    className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white  "
                 >
                     login
                 </button>
@@ -161,6 +162,7 @@
                 )}
             </li>
         </ul>
+        </div>
         <div role="button" tabIndex={0} onClick={navToggle} onKeyDown={navToggle}  className={icon}>
             <div className="line1"> </div>
             <div className="line2"> </div>
