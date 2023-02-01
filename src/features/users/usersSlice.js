@@ -5,7 +5,7 @@ import {
   signInWithPopup,
   updatePassword,
   deleteUser,
- /*  sendEmailVerification, */
+ sendEmailVerification,
   signOut,
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore';
@@ -37,7 +37,7 @@ export const signupUser = createAsyncThunk(
         email,
         password
       );
-     /*  await sendEmailVerification(auth.currentUser); */
+     await sendEmailVerification(auth.currentUser);
 
       const docRef = doc(db, 'users', user.uid);
       await setDoc(docRef, {
@@ -69,11 +69,11 @@ export const loginUser = createAsyncThunk(
   'user/loginUser',
   async (payload, { rejectWithValue }) => {
     const { email, password } = payload;
-    /*  if (user.emailVerified === false) {
-       return { error: 'Email is Not Verified' };
-     } */
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
+      if (user.emailVerified === false) {
+        return { error: 'Email is Not Verified' };
+      } 
       
       const docRef = doc(db, 'users', user.uid);
       const docSnap = await getDoc(docRef);
