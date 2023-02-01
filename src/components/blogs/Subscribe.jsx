@@ -18,7 +18,7 @@ const SubscribeForm = () => {
     if (!emailRegex.test(email)) {
      
       setError('Please enter an email address');
-      return;
+      
     }
  // Email is valid, add it to Firestore
 

@@ -388,6 +388,7 @@ const usersSlice = createSlice({
     user: {},
     error: null,
     SurveyAnswer: [],
+    signedup : false,
   },
   reducers: {
     AddAnswer: (state, action) => {
@@ -403,7 +404,7 @@ const usersSlice = createSlice({
     builder.addCase(signupUser.fulfilled, (state, action) => {
       state.loading = false;
       state.user = action.payload;
-      state.error = null;
+      state.signedup = true;
     });
     builder.addCase(signupUser.rejected, (state, action) => {
       state.loading = false;

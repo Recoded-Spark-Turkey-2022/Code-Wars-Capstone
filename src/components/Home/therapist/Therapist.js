@@ -1,11 +1,35 @@
-import React from 'react';
+import {useState} from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { Alert } from '@mui/material';
 import Therapistimg from './Therapistimg.svg';
 
 function Therapist() {
+  const [alertitem, showalertitm] = useState(false);
+  const userid = useSelector((state) => state.users.user.id);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (userid !== undefined) {
+      navigate('booking1/1');
+    } else {
+      showalertitm(true);
+
+
+      
+    }
+  };
   return (
+    
     <div className="h-screen bg-amber-200 ">
+       {alertitem && (
+          <Alert severity="info"  className='sticky top-0'>
+            You should log in First to Book an Appointment{' '}
+          </Alert>
+        )}
+
       <div
-        className=" lg:ml-40 md:ml-10  flex flex-col gap-6  "
+        className=" lg:ml-40  md:ml-10  flex flex-col gap-6  "
         style={{ fontFamily: 'Poppins, sans-serif' }}
       >
         
@@ -27,7 +51,8 @@ function Therapist() {
 
         <button
           type="button"
-          className="lg:text-xl md:text-base w-min  lg:px-6 md:px-2  rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white "
+          onClick={handleClick}
+          className="lg:text-xl md:text-base w-fit  lg:px-6 md:px-2  rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white "
         >
           BOOK AN APPOINTMENT
         </button>

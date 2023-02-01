@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState   } from 'react';
+import {  useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
+import { Alert } from '@mui/material';
 import {
   signupUser,
   loginUserWithFacebook,
@@ -12,12 +13,60 @@ import googleicon from './login/Images/google.svg';
 
 const SignupForm = () => {
   const userInfo = useSelector((state) => state.users);
-  const [enteredInput, setEnteredInput] = useState(false);
-  const { register, handleSubmit } = useForm();
+/*   const {signedup} = useSelector((state) => state.users);
+ */  const [enteredInput, setEnteredInput] = useState(false);
+  const [alertitem, showalertitm] = useState(false);
+  const [error, setError] = useState('');
+  const { register, formState: { errors }, handleSubmit } = useForm();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+/*   const navigate = useNavigate();
+ */
+
+  const onSubmitform = (userData)=>{
+    console.log(userData);
+
+   if(userData.email !== userData.emailConfirmation){
+    showalertitm(true) 
+    setError(
+      "Your Email should  matche"
+    )
+   }
+   else if (userData.password !== userData.passwordConfirmation){
+    showalertitm(true) 
+    setError(
+      "Your Password should  matche"
+    )
+   }
+        
+    setEnteredInput(true);
+
+    dispatch(
+      signupUser({
+        email: userData.email,
+        password: userData.password,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        birthdayDay: userData.birthdayDay,
+        birthdayMonth: userData.birthdayMonth,
+        birthdayYear: userData.birthdayYear,
+      })
+    );
+    
+/*      navigate('/signup-thanks');
+ */  }
+
+
 
   return (
+    <div> 
+
+{alertitem && (
+          <Alert severity="error" className=''>
+           {error}
+           
+          </Alert>
+        )}
+   
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
       <div className="flex flex-col">
         <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
@@ -25,100 +74,109 @@ const SignupForm = () => {
         </h2>
         <form
           className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
-          onSubmit={handleSubmit((userData) => {
-            if (userData.firstName.trim() === '') {
-              return;
-            }
-            if (userData.lastName.trim() === '') {
-              return;
-            }
-            if (
-              userData.password.trim() !== userData.passwordConfirmation.trim()
-            ) {
-              return;
-            }
-            setEnteredInput(true);
-
-            dispatch(
-              signupUser({
-                email: userData.email,
-                password: userData.password,
-                firstName: userData.firstName,
-                lastName: userData.lastName,
-                birthdayDay: userData.birthdayDay,
-                birthdayMonth: userData.birthdayMonth,
-                birthdayYear: userData.birthdayYear,
-              })
-            );
-            navigate('/signup-thanks');
-          })}
+          onSubmit={handleSubmit((onSubmitform))}
         >
           <div className="flex gap-x-7">
+          
             <input
-              {...register('firstName')}
+              {...register('firstName' , {  pattern: /^[A-Za-z]+$/i }  )}
               type="text"
               placeholder="First Name"
               className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              aria-invalid={errors.firstName ? "true" : "false"} 
+              required
+              
             />
             <input
-              {...register('lastName')}
+              {...register('lastName' , {  pattern: /^[A-Za-z]+$/i } )}
               type="text"
               placeholder="Last Name"
               className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              aria-invalid={errors.lastName ? "true" : "false"}
+              required
             />
           </div>
+          {errors.firstName?.type === 'pattern' && <span className='text-red-600' role="alert">The first Name must not contain numbers</span >}
+          {errors.lastName?.type === 'pattern' && <span className='text-red-600' role="alert">The Last Name must not contain numbers</span >}
+
           <input
-            {...register('email')}
+            {...register('email', {pattern : /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/})}
             type="text"
             placeholder="Your Email"
             className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+            aria-invalid={errors.lastName ? "true" : "false"}
+            required
           />
+                    {errors.email?.type === 'pattern' && <span className='text-red-600' role="alert">inter valid email please </span >}
+
           <input
-            {...register('emailConfirmation')}
+            {...register('emailConfirmation' , {pattern : /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/})}
             type="text"
             placeholder="Confirm email"
             className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+            aria-invalid={errors.lastName ? "true" : "false"}
+            required
           />
+                    {errors.emailConfirmation?.type === 'pattern' && <span className='text-red-600' role="alert">inter valid email please </span >}
+
           <div className="flex gap-x-7">
             <input
-              {...register('password')}
+              {...register('password' , {pattern : /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/})}
               type="password"
               placeholder="Password"
               className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              aria-invalid={errors.lastName ? "true" : "false"}
+              required
             />
+
             <input
-              {...register('passwordConfirmation')}
+              {...register('passwordConfirmation' , {pattern : /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/})}
               type="password"
               placeholder="Confirm password"
               className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+
+              required
             />
           </div>
+          {errors.password?.type === 'pattern' && <span className='text-red-600' role="alert">password must be eight characters including one uppercase letter, one special character, and number </span >}
+
           <div className="flex items-center justify-between">
             <p className="mr-7 ml-7 font-light text-[#9DAFBD]">Birth Date</p>
             <input
-              {...register('birthdayDay')}
+              {...register('birthdayDay' , {pattern : /^(0?[1-9]|[12][0-9]|3[01])$/})}
               type="text"
               placeholder="DD"
               className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              aria-invalid={errors.lastName ? "true" : "false"}
+              required
             />
             <input
-              {...register('birthdayMonth')}
+              {...register('birthdayMonth',  {pattern : /^(0?[1-9]|1[0-2])$/})}
               type="text"
               placeholder="MM"
               className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              aria-invalid={errors.lastName ? "true" : "false"}
+              required
             />
             <input
-              {...register('birthdayYear')}
+              {...register('birthdayYear' , {pattern: /^(1[0-9][0-9][0-9]|20[0-1][0-9]|200[0-2])$/})}
               type="text"
               placeholder="YYYY"
               className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300"
+              aria-invalid={errors.lastName ? "true" : "false"}
+              required
             />
             {enteredInput && <p>{userInfo.error}</p>}
           </div>
+          {errors.birthdayDay?.type === 'pattern' && <span className='text-red-600' role="alert">invalid Day </span >}
+
+          {errors.birthdayMonth?.type === 'pattern' && <span className='text-red-600' role="alert">invalid Month </span >}
+          {errors.birthdayYear?.type === 'pattern' && <span className='text-red-600' role="alert">invalid Year </span >}
+
           <div className="flex justify-around py-3 gap-8">
             <Link to="/login">
               <button
-                type="submit"
+                type="button"
                 className="bg-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
               >
                 Login
@@ -159,6 +217,7 @@ const SignupForm = () => {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

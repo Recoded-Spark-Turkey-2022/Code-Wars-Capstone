@@ -37,7 +37,7 @@ function Navebar() {
   };
 
   const aboutList = (
-    <div className="text-center bg-cyan-50  mr-1 mt-2 w-16 h-5">
+    <div className="text-center bg-cyan-50  mr-1 mt-2 w-16 h-5 ">
       <button
         type="button"
         className="hover:text-orange-300"
@@ -83,7 +83,7 @@ function Navebar() {
     <div>
       <nav
         style={{ fontFamily: 'Poppins, sans-serif' }}
-        className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded   "
+        className="bg-cyan-50 px-2 sm:px-4 py-2.5 rounded z-100   "
       >
         <button type="submit" onClick={onclicklogo}>
           {' '}
