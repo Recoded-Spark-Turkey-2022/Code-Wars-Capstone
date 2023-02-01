@@ -1,8 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Thankyoupage({ text, header }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   
   return (
     <div className="pl-[5rem] mt-[3rem] mb-5 ">
@@ -20,7 +22,7 @@ function Thankyoupage({ text, header }) {
             type="submit"
             onClick={() => navigate('/')}
           >
-            Back to home
+            {t('Back to home')}
           </button>
         </div>
       </div>

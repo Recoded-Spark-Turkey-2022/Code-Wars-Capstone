@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-
+import { useTranslation } from 'react-i18next';
 import { updatechange, DeleteAccount } from '../../features/users/usersSlice';
 import Profilepic from './Profilepic';
 
 const UpdateUserInfo = () => {
+  const { t } = useTranslation();
   const { register, handleSubmit } = useForm();
   const userInfo = useSelector((state) => state.users.user);
   const [fullName, setfullName] = useState(userInfo.name);
@@ -68,8 +69,7 @@ const UpdateUserInfo = () => {
   return (
     <div className="flex flex-col font-poppins lg:items-center">
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
-        Please fill all the fields with correct and valid details to complete
-        your profile.
+        {t('Please fill all the fields with correct and valid details to complete your profile.')}
       </div>
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
@@ -82,19 +82,19 @@ const UpdateUserInfo = () => {
         <div className="flex flex-col lg:ml-16 ml-44 ">
           <div className=" lg:ml-20 ml-[-15em] lg:self-start lg:mr-44 mt-6 mb-15 ">
             <h1 className="lg:text-5xl text-2xl lg:ml-0 ml-20 mb-10">
-              <b>PROFILE INFO</b>
+              <b>{t('PROFILE INFO')}</b>
             </h1>
             <div className="flex flex-rows">
               <div className="flex flex-col mt-4 lg:text-xl text-sm gap-9 lg:self-start lg:ml-0 ml-20">
-                <div>Full Name</div>
-                <div>Education Level</div>
-                <div>Hobbies</div>
-                <div>Family Size</div>
-                <div>Gender</div>
-                <div>Birth Date</div>
-                <div className="mt-2">Email</div>
-                <div>Phone Number</div>
-                <div className="mt-2">Upload ID</div>
+                <div>{t('Full Name')}</div>
+                <div>{t('Education Level')}</div>
+                <div>{t('Hobbies')}</div>
+                <div>{t('Family Size')}</div>
+                <div>{t('Gender')}</div>
+                <div>{t('Birth Date')}</div>
+                <div className="mt-2">{t('Email')}</div>
+                <div>{t('Phone Number')}</div>
+                <div className="mt-2">{t('Upload ID')}</div>
               </div>
               <div className="flex flex-col gap-7 lg:mt-1 mt-3 ml-6 ">
                 <div>
@@ -117,27 +117,27 @@ const UpdateUserInfo = () => {
                       className="lg:w-[25em] w-[65%] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
                     >
                       <option selected="selected" disabled="disabled">
-                        -- Select Education --
+                        {t('-- Select Education --')}
                       </option>
                       <option value="No formal education">
-                        No formal education
+                        {t('No formal education')}
                       </option>
                       <option value="Primary education">
-                        Primary education
+                        {t('Primary education')}
                       </option>
-                      <option value="Secondary education">High school</option>
-                      <option value="GED">GED</option>
+                      <option value="Secondary education">{t('High school')}</option>
+                      <option value="GED">{t('GED')}</option>
                       <option value="Vocational qualification">
-                        Vocational qualification
+                        {t('Vocational qualification')}
                       </option>
                       <option value="Bachelor's degree">
-                        Bachelor&apos;s degree
+                        {t(`Bachelor degree`)}
                       </option>
                       <option value="Master's degree">
-                        Master&apos;s degree
+                        {t('Master degree')}
                       </option>
                       <option value="Doctorate or higher">
-                        Doctorate or higher
+                        {t('Doctorate or higher')}
                       </option>
                     </select>
                   </div>
@@ -163,7 +163,7 @@ const UpdateUserInfo = () => {
                     value={FamilySize}
                     onChange={(e) => setFamilySize(e.target.value)}
                   />
-                  <div className="self-center ml-4">Member(s)</div>
+                  <div className="self-center ml-4">{t('Member(s)')}</div>
                 </div>
                 <div>
                   <select
@@ -173,10 +173,10 @@ const UpdateUserInfo = () => {
                     className="lg:w-[25em] w-[65%] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts"
                   >
                     <option selected="selected" disabled="disabled">
-                      -- Select Gender --
+                      {t('-- Select Gender --')}
                     </option>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
+                    <option value="female">{t('Female')}</option>
+                    <option value="male">{t('Male')}</option>
                   </select>
                 </div>
                 <div className="flex flex-row">
@@ -250,12 +250,12 @@ const UpdateUserInfo = () => {
           </div>
           <div className="lg:ml-20 ml-[-10em]">
             <div className="lg:text-5xl text-2xl mt-12">
-              <b>Security</b>
+              <b>{t('Security')}</b>
             </div>
             <div className="flex flex-rows mt-6">
               <div className="flex flex-col mt-4 lg:text-xl text-base gap-9 self-start">
-                <div>Password</div>
-                <div className="lg:mt-0 mt-[-1em]">Confirm Password</div>
+                <div>{t('Password')}</div>
+                <div className="lg:mt-0 mt-[-1em]">{t('Confirm Password')}</div>
               </div>
               <div className="flex flex-col gap-7 mt-1 lg:ml-0 ml-4">
                 <div className="flex flex-row">
@@ -285,46 +285,46 @@ const UpdateUserInfo = () => {
               type="button"
               className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
             >
-              SAVE CHANGES
+              {t('SAVE CHANGES')}
             </button>
             <button
               type="button"
               className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
               onClick={() => HandelDelete()}
             >
-              DELETE ACCOUNT
+              {t('DELETE ACCOUNT')}
             </button>
             <button
               type="button"
               className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
               onClick={handleDelete}
             >
-              CANCEL
+              {t('CANCEL')}
             </button>
           </div>
           <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] mt-16">
             <div className="lg:text-5xl text-2xl">
-              <b>Payment Methods & Tickets</b>
+              <b>{t('Payment Methods & Tickets')}</b>
             </div>
             <div className="flex flex-rows gap-10 mt-8 mb-16">
               <div className="flex flex-col ">
-                <div className="lg:text-lg text-sm mb-2">3 Cards Added</div>
+                <div className="lg:text-lg text-sm mb-2">{t('3 Cards Added')}</div>
                 <button
                   type="button"
                   className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
                 >
-                  SHOW CARDS
+                  {t('SHOW CARDS')}
                 </button>
               </div>
               <div className="flex flex-col">
                 <div className="lg:text-lg text-sm mb-2 ">
-                  10 Tickets Remaining
+                  {t('10 Tickets Remaining')}
                 </div>
                 <button
                   type="button"
                   className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
                 >
-                  BUY TICKETS
+                  {t('BUY TICKETS')}
                 </button>
               </div>
             </div>

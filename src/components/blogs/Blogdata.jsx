@@ -1,8 +1,12 @@
+// import { useTranslation } from 'react-i18next';
 import first from "./Images/1st.jpg"
 import second from "./Images/2nd.jpg"
 import third from "./Images/3rd.jpg"
 
+// const { t } = useTranslation();
+
 const BlogData = [
+    
   {
     id:"1",
     src: first,
