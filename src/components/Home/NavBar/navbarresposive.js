@@ -41,7 +41,7 @@ function Navbar() {
         onMouseEnter={() => setIsListOpen(true)}
         onMouseLeave={() => setIsListOpen(false)}
       >
-        About
+        {t('About')}
       </button>
       {isListOpen && (
         <ul
@@ -128,7 +128,7 @@ function Navbar() {
                 onClick={HandleLogin}
                 className=" md:text-lg ml-2  lg:px-6 rounded-md box-border  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 translate-y-1 hover:text-white  "
               >
-                {t('login')}
+                {t('Login')}
               </button>
             )}
             {userlogin && (

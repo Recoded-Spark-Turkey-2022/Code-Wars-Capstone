@@ -20,7 +20,6 @@ const LanguageButton = () => {
       >
         <option value="en">{t('English')}</option>
         <option value="tr">{t('Turkish')}</option>
-        <option value="tr">{t('Arabic')}</option>
       </select>
     </div>
   );
