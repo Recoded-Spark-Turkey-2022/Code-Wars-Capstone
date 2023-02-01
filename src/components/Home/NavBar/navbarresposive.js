@@ -34,7 +34,7 @@ function Navbar() {
   };
 
   const aboutList = (
-    <div className="text-center bg-cyan-50 w-16 h-5">
+    <div className="text-center bg-cyan-50 w-16 h-5 ">
       <button
         type="button"
         className="hover:text-orange-300"
@@ -51,7 +51,7 @@ function Navbar() {
           <li>
             <button
               type="button"
-              className="  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 "
+              className="  hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 "
               onClick={() => Navigate('/about')}
             >
               {t('About Us')}
@@ -60,7 +60,7 @@ function Navbar() {
           <li>
             <button
               type="button"
-              className="w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100"
+              className="hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100"
               onClick={() => Navigate('/team')}
             >
               {t('Our Team')}{' '}
@@ -69,7 +69,7 @@ function Navbar() {
           <li>
             <button
               type="button"
-              className="w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100"
+              className="hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100"
               onClick={() => Navigate('/careers')}
             >
               {t('Careers')}{' '}
@@ -132,7 +132,7 @@ function Navbar() {
               </button>
             )}
             {userlogin && (
-              <div className="text-center bg-cyan-50  mr-1 mt-2 w-16 h-5">
+              <div className="text-center bg-cyan-50   w-16 h-5">
                 <button
                   type="submit"
                   onClick={HandleProfile}
@@ -146,7 +146,7 @@ function Navbar() {
                     <li>
                       <button
                         type="button"
-                        className="hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600"
+                        className="hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 "
                         onClick={HandleProfile}
                       >
                         {t('Profile')}
@@ -155,7 +155,7 @@ function Navbar() {
                     <li>
                       <button
                         type="button"
-                        className="hover:text-orange-300 w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100 dark:hover:bg-gray-600"
+                        className="hover:text-orange-300  w-[7rem] block py-2 px-4 text-black-700 hover:bg-cyan-100"
                         onClick={logOut}
                       >
                         {t('Log Out')}{' '}

@@ -5,7 +5,7 @@ import {
   signInWithPopup,
   updatePassword,
   deleteUser,
-  sendEmailVerification,
+ /*  sendEmailVerification, */
   signOut,
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore';
@@ -26,38 +26,39 @@ export const signupUser = createAsyncThunk(
     const {
       email,
       password,
-      firstName,
-      lastName,
       birthdayDay,
       birthdayMonth,
       birthdayYear,
     } = payload;
-
+   
     try {
-      // create user to Authentication in Firebase
       const { user } = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
+     /*  await sendEmailVerification(auth.currentUser); */
 
-      // Send Email for verification in Firebase:
-      await sendEmailVerification(auth.currentUser);
-
-      // Send User Data to firestore:
       const docRef = doc(db, 'users', user.uid);
       await setDoc(docRef, {
         id: user.uid,
         email,
-        name: `${firstName} ${lastName}`,
+        name: `${payload.firstName} ${payload.lastName}` ,
+        photoURL :"https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg"  , 
         birthdayDay,
         birthdayMonth,
         birthdayYear,
+        EducationLevel : null ,
+        Hobbies : null ,
+        FamilySize : null ,
+        Gender : null ,
+        PhoneNumber : null ,
+        Idimage : "https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6295fa7e592c4_8488ld0__700.jpg",  
+
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
-      console.log(error.message);
-      return rejectWithValue(error.message);
+      return rejectWithValue(error);
     }
   }
 );
@@ -68,22 +69,16 @@ export const loginUser = createAsyncThunk(
   'user/loginUser',
   async (payload, { rejectWithValue }) => {
     const { email, password } = payload;
+    /*  if (user.emailVerified === false) {
+       return { error: 'Email is Not Verified' };
+     } */
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
-      if (user.emailVerified === false) {
-        return { error: 'Email is Not Verified' };
-      }
+      
       const docRef = doc(db, 'users', user.uid);
       const docSnap = await getDoc(docRef);
-
-      return {
-        id: user.uid,
-        email: user.email,
-        name: docSnap.data().name,
-        birthdayDay: docSnap.data().birthdayDay,
-        birthdayMonth: docSnap.data().birthdayMonth,
-        birthdayYear: docSnap.data().birthdayYear,
-      };
+    
+      return  docSnap.data()  ;
     } catch (error) {
       return rejectWithValue(error);
     }
