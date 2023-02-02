@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { collection, addDoc } from 'firebase/firestore';
+import { useTranslation } from 'react-i18next';
 import RiSendPlaneFill from './Images/Style.png';
 import { db } from '../../firebase-config';
 
 const SubscribeForm = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ const SubscribeForm = () => {
             id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            placeholder="Enter your e-mail"
+            placeholder={t("Enter your e-mail")}
           />
 
           <button

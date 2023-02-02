@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import BlogData from './Blogdata';
 import './SliderBlog.css';
 
 function ImageCarousel({ Carousel }) {
+  const { t } = useTranslation();
   function scrolltotop() {
     window.scrollTo(0, 0);
   }
@@ -39,7 +41,7 @@ function ImageCarousel({ Carousel }) {
     <div className="bg-cyan-50  ">
       <div className="lg:ml-40 md:ml-20 pb-20 ">
         <p className=" py-20 lg:text-5xl md:text-2xl	sm:text-lg ">
-          RECENT BLOGS
+          {t('RECENT BLOGS')}
         </p>
         <Carousel
           infinite="true"

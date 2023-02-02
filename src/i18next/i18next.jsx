@@ -24,7 +24,7 @@ i18next
       escapeValue: false,
     },
 
-    supportedLngs: ['en', 'ar', 'fr', 'tr'],
+    supportedLngs: ['en', 'tr'],
     debug: false,
 
     detection: {

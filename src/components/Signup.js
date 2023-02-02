@@ -34,10 +34,10 @@ const SignupForm = () => {
 
     if (userData.email !== userData.emailConfirmation) {
       showalertitm(true);
-      setError('Your Email should  matche');
+      setError('Your Email should  match');
     } else if (userData.password !== userData.passwordConfirmation) {
       showalertitm(true);
-      setError('Your Password should  matche');
+      setError('Your Password should  match');
     }
 
     setEnteredInput(true);
@@ -163,7 +163,7 @@ const SignupForm = () => {
             {errors.password?.type === 'pattern' && (
               <span className="text-red-600" role="alert">
                 password must be eight characters including one uppercase
-                letter, one special character, and number{' '}
+                letter, one lower case letter, and number{' '}
               </span>
             )}
 

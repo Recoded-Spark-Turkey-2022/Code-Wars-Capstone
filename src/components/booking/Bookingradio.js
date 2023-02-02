@@ -28,7 +28,7 @@ const Bookingradio = () => {
     <>
       <HeaderBooking
         Header={t("let's match you with the right therapist")}
-        par={t("Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you'd like to deal with in online therapy. It would help us match you with the most suitable therapist for you.")}
+        par="Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you'd like to deal with in online therapy. It would help us match you with the most suitable therapist for you."
       />
       <div className=" grid justify-items-center">
         <div className=" flex-col space-y-8 px-10 pt-8 pb-[1rem] bg-white shadow-lg roundedflex-col lg:w-[37rem] md:w-[30rem] md:w-[25rem] space-y-8 px-10 pt-8 pb-[2rem] bg-white shadow-xl rounded">
