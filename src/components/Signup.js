@@ -40,22 +40,28 @@ const SignupForm = () => {
       setError('Your Password should  match');
     }
 
-    setEnteredInput(true);
-
-     dispatch(
-      signupUser({
-        email: userData.email,
-        password: userData.password,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        birthdayDay: userData.birthdayDay,
-        birthdayMonth: userData.birthdayMonth,
-        birthdayYear: userData.birthdayYear,
-      })
-    );
-   
+    else{
+      showalertitm(false);
+      setEnteredInput(true);
     
-  };
+
+      dispatch(
+       signupUser({
+         email: userData.email,
+         password: userData.password,
+         firstName: userData.firstName,
+         lastName: userData.lastName,
+         birthdayDay: userData.birthdayDay,
+         birthdayMonth: userData.birthdayMonth,
+         birthdayYear: userData.birthdayYear,
+       })
+     );
+    
+     
+   };
+    }
+
+   
 
   useEffect(() => {
     if (signedup === true) {
@@ -71,7 +77,7 @@ const SignupForm = () => {
         </Alert>
         
       )}
-       {enteredInput && <Alert severity= "error" className=''>{userInfo.error}</Alert>}
+       {enteredInput   && <Alert severity= "error" className=''>{userInfo.error}</Alert>}
 
       <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
         <div className="flex flex-col">
@@ -129,10 +135,7 @@ const SignupForm = () => {
             )}
 
             <input
-              {...register('emailConfirmation', {
-                pattern:
-                  /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              })}
+              {...register('emailConfirmation')}
               type="text"
               placeholder={t('Confirm email')}
               className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
@@ -151,9 +154,7 @@ const SignupForm = () => {
               />
 
               <input
-                {...register('passwordConfirmation', {
-                  pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/,
-                })}
+                {...register('passwordConfirmation')}
                 type="password"
                 placeholder={t('Confirm Password')}
                 className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"

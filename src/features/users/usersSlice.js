@@ -358,7 +358,7 @@ export const createTherapistProfile = createAsyncThunk(
 //   Password)
     try {
       const { user } = await createUserWithEmailAndPassword(
-        auth,
+        auth, 
         Email ,
         Password
         );
