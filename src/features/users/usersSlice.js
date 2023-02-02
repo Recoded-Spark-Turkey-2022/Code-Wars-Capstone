@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -18,6 +19,8 @@ import {
   facebookAuth,
   storage,
 } from '../../firebase-config';
+
+
 
 // start of signup:
 export const signupUser = createAsyncThunk(
@@ -58,7 +61,7 @@ export const signupUser = createAsyncThunk(
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -112,7 +115,7 @@ export const loginUserWithGoogle = createAsyncThunk(
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -410,6 +413,7 @@ const usersSlice = createSlice({
       state.loading = false;
       state.user = {};
       state.error= action.payload;
+      console.log(action.payload)
     });
     // Login Cases:
     builder.addCase(loginUser.pending, (state) => {

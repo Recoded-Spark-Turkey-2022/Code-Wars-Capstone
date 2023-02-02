@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect    } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import { Alert } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import {
@@ -15,8 +15,9 @@ import googleicon from './login/Images/google.svg';
 const SignupForm = () => {
   const { t } = useTranslation();
   const userInfo = useSelector((state) => state.users);
-  /*   const {signedup} = useSelector((state) => state.users);
-   */ const [enteredInput, setEnteredInput] = useState(false);
+  const {signedup} = useSelector((state) => state.users);
+
+   const [enteredInput, setEnteredInput] = useState(false);
   const [alertitem, showalertitm] = useState(false);
   const [error, setError] = useState('');
   const {
@@ -25,10 +26,10 @@ const SignupForm = () => {
     handleSubmit,
   } = useForm();
   const dispatch = useDispatch();
-  /*   const navigate = useNavigate();
-   */
+    const navigate = useNavigate();
+  
 
-  const onSubmitform = (userData) => {
+  const onSubmitform = async(userData) => {
     console.log(userData);
 
     if (userData.email !== userData.emailConfirmation) {
@@ -41,7 +42,7 @@ const SignupForm = () => {
 
     setEnteredInput(true);
 
-    dispatch(
+     dispatch(
       signupUser({
         email: userData.email,
         password: userData.password,
@@ -52,10 +53,15 @@ const SignupForm = () => {
         birthdayYear: userData.birthdayYear,
       })
     );
-
-    /*      navigate('/signup-thanks');
-     */
+   
+    
   };
+
+  useEffect(() => {
+    if (signedup === true) {
+      navigate("/signup-thanks");
+    }
+  }, [signedup]);
 
   return (
     <div>
@@ -63,7 +69,9 @@ const SignupForm = () => {
         <Alert severity="error" className="">
           {error}
         </Alert>
+        
       )}
+       {enteredInput && <Alert severity= "error" className=''>{userInfo.error}</Alert>}
 
       <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
         <div className="flex flex-col">
@@ -116,7 +124,7 @@ const SignupForm = () => {
             />
             {errors.email?.type === 'pattern' && (
               <span className="text-red-600" role="alert">
-                inter valid email please{' '}
+                please enter a valid email address{' '}
               </span>
             )}
 
@@ -128,15 +136,8 @@ const SignupForm = () => {
               type="text"
               placeholder={t('Confirm email')}
               className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
-              aria-invalid={errors.lastName ? 'true' : 'false'}
               required
             />
-            {errors.emailConfirmation?.type === 'pattern' && (
-              <span className="text-red-600" role="alert">
-                inter valid email please{' '}
-              </span>
-            )}
-
             <div className="flex gap-x-7">
               <input
                 {...register('password', {
@@ -200,7 +201,7 @@ const SignupForm = () => {
                 aria-invalid={errors.lastName ? 'true' : 'false'}
                 required
               />
-              {enteredInput && <p>{userInfo.error}</p>}
+             
             </div>
             {errors.birthdayDay?.type === 'pattern' && (
               <span className="text-red-600" role="alert">
