@@ -6,8 +6,8 @@ import {
   signInWithPopup,
   updatePassword,
   deleteUser,
-/*  sendEmailVerification,
- */  signOut,
+  sendEmailVerification,
+  signOut,
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore';
 
@@ -20,44 +20,38 @@ import {
   storage,
 } from '../../firebase-config';
 
-
-
 // start of signup:
 export const signupUser = createAsyncThunk(
   'user/signupUser',
   async (payload, { rejectWithValue }) => {
-    const {
-      email,
-      password,
-      birthdayDay,
-      birthdayMonth,
-      birthdayYear,
-    } = payload;
-   
+    const { email, password, birthdayDay, birthdayMonth, birthdayYear } =
+      payload;
+
     try {
       const { user } = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-/*      await sendEmailVerification(auth.currentUser);
- */
+      await sendEmailVerification(auth.currentUser);
+
       const docRef = doc(db, 'users', user.uid);
       await setDoc(docRef, {
         id: user.uid,
         email,
-        name: `${payload.firstName} ${payload.lastName}` ,
-        photoURL :"https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg"  , 
+        name: `${payload.firstName} ${payload.lastName}`,
+        photoURL:
+          'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg',
         birthdayDay,
         birthdayMonth,
         birthdayYear,
-        EducationLevel : null ,
-        Hobbies : null ,
-        FamilySize : null ,
-        Gender : null ,
-        PhoneNumber : null ,
-        Idimage : "https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6295fa7e592c4_8488ld0__700.jpg",  
-
+        EducationLevel: null,
+        Hobbies: null,
+        FamilySize: null,
+        Gender: null,
+        PhoneNumber: null,
+        Idimage:
+          'https://www.boredpanda.com/blog/wp-content/uploads/2022/05/6295fa7e592c4_8488ld0__700.jpg',
       });
       return { id: user.uid, email: user.email };
     } catch (error) {
@@ -74,14 +68,14 @@ export const loginUser = createAsyncThunk(
     const { email, password } = payload;
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
-      /* if (user.emailVerified === false) {
+      if (user.emailVerified === false) {
         return { error: 'Email is Not Verified' };
-      }  */
-      
+      } 
+
       const docRef = doc(db, 'users', user.uid);
       const docSnap = await getDoc(docRef);
-    
-      return  docSnap.data()  ;
+
+      return docSnap.data();
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -297,7 +291,7 @@ export const BookingInfo = createAsyncThunk(
     const userid = getState().users.user.id;
     console.log(userid);
     try {
-      const docRef = doc(db, 'Answer', userid);
+      const docRef = doc(db, 'Book an Appointment', userid);
       await setDoc(docRef, {
         Answer: payload,
       });
@@ -326,7 +320,7 @@ export const contactForm = createAsyncThunk(
     const { details, email, fullName, selectedOption } = payload;
 
     try {
-      const docRef = doc(db, 'form', randomid);
+      const docRef = doc(db, 'Contact Us', randomid);
       await setDoc(docRef, {
         details,
         email,
@@ -340,38 +334,29 @@ export const contactForm = createAsyncThunk(
   }
 );
 
-
 export const createTherapistProfile = createAsyncThunk(
   'therapist/signuptherapistUser',
   async (payload, { rejectWithValue }) => {
-    const {
-      Username,
-      Email,
-      City,
-      Licensenumber,
-      Password
-    } = payload;
-//  console.table(Username,
-//   Email,
-//   City,
-//   Licensenumber,
-//   Password)
+    const { Username, Email, City, Licensenumber, Password } = payload;
+    //  console.table(Username,
+    //   Email,
+    //   City,
+    //   Licensenumber,
+    //   Password)
     try {
       const { user } = await createUserWithEmailAndPassword(
-        auth, 
-        Email ,
+        auth,
+        Email,
         Password
-        );
-     
+      );
 
-      const docRef = doc(db,'therapists', user.uid);
+      const docRef = doc(db, 'therapists', user.uid);
       await setDoc(docRef, {
         id: user.uid,
         Username,
         Email,
         City,
         Licensenumber,
-     
       });
       return { id: user.uid, Email: user.email };
     } catch (error) {
@@ -379,9 +364,6 @@ export const createTherapistProfile = createAsyncThunk(
     }
   }
 );
-
-
-
 
 const usersSlice = createSlice({
   name: 'users',
@@ -391,7 +373,7 @@ const usersSlice = createSlice({
     user: {},
     error: null,
     SurveyAnswer: [],
-    signedup : false,
+    signedup: false,
   },
   reducers: {
     AddAnswer: (state, action) => {
@@ -412,7 +394,7 @@ const usersSlice = createSlice({
     builder.addCase(signupUser.rejected, (state, action) => {
       state.loading = false;
       state.user = {};
-      state.error= action.payload;
+      state.error = action.payload;
     });
     // Login Cases:
     builder.addCase(loginUser.pending, (state) => {
@@ -474,6 +456,7 @@ const usersSlice = createSlice({
       state.user = {};
       state.error = null;
       state.userlogin = false;
+      state.signedup = false;
     });
     builder.addCase(logoutUser.rejected, (state, action) => {
       state.loading = false;
@@ -528,7 +511,6 @@ const usersSlice = createSlice({
       state.user = {};
       state.error = action.payload;
     });
-
   },
 });
 

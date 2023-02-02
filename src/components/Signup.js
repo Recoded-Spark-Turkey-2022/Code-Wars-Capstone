@@ -1,7 +1,7 @@
-import React, { useState, useEffect    } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link , useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Alert } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import {
@@ -15,9 +15,9 @@ import googleicon from './login/Images/google.svg';
 const SignupForm = () => {
   const { t } = useTranslation();
   const userInfo = useSelector((state) => state.users);
-  const {signedup} = useSelector((state) => state.users);
+  const { signedup } = useSelector((state) => state.users);
 
-   const [enteredInput, setEnteredInput] = useState(false);
+  const [enteredInput, setEnteredInput] = useState(false);
   const [alertitem, showalertitm] = useState(false);
   const [error, setError] = useState('');
   const {
@@ -26,10 +26,9 @@ const SignupForm = () => {
     handleSubmit,
   } = useForm();
   const dispatch = useDispatch();
-    const navigate = useNavigate();
-  
+  const navigate = useNavigate();
 
-  const onSubmitform = async(userData) => {
+  const onSubmitform = async (userData) => {
     console.log(userData);
 
     if (userData.email !== userData.emailConfirmation) {
@@ -38,34 +37,27 @@ const SignupForm = () => {
     } else if (userData.password !== userData.passwordConfirmation) {
       showalertitm(true);
       setError('Your Password should  match');
-    }
-
-    else{
+    } else {
       showalertitm(false);
       setEnteredInput(true);
-    
 
       dispatch(
-       signupUser({
-         email: userData.email,
-         password: userData.password,
-         firstName: userData.firstName,
-         lastName: userData.lastName,
-         birthdayDay: userData.birthdayDay,
-         birthdayMonth: userData.birthdayMonth,
-         birthdayYear: userData.birthdayYear,
-       })
-     );
-    
-     
-   };
+        signupUser({
+          email: userData.email,
+          password: userData.password,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          birthdayDay: userData.birthdayDay,
+          birthdayMonth: userData.birthdayMonth,
+          birthdayYear: userData.birthdayYear,
+        })
+      );
     }
-
-   
+  };
 
   useEffect(() => {
     if (signedup === true) {
-      navigate("/signup-thanks");
+      navigate('/signup-thanks');
     }
   }, [signedup]);
 
@@ -75,13 +67,16 @@ const SignupForm = () => {
         <Alert severity="error" className="">
           {error}
         </Alert>
-        
       )}
-       {enteredInput   && <Alert severity= "error" className=''>{userInfo.error}</Alert>}
+      {enteredInput && (
+        <Alert severity="error" className="">
+          {userInfo.error}
+        </Alert>
+      )}
 
-      <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
+      <div className="h-screen flex justify-center content-cente max-[767px]:flex-wrap gap-x-20 mb-32">
         <div className="flex flex-col">
-          <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
+          <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-10 max-[767px]:mb-10 md:mb-10'>
             {t('SIGNUP NOW')}
           </h2>
           <form
@@ -202,7 +197,6 @@ const SignupForm = () => {
                 aria-invalid={errors.lastName ? 'true' : 'false'}
                 required
               />
-             
             </div>
             {errors.birthdayDay?.type === 'pattern' && (
               <span className="text-red-600" role="alert">

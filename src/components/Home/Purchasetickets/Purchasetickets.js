@@ -17,9 +17,9 @@ function Purchasetickets() {
       </p>
 
       <div className=" lg:flex lg:flex-row  md:flex md:flex-col lg:gap-14  md:gap-8 sm:gap-4 lg:ml-40 mb-20 md:mb-10 ">
-        <Card className="flex-1" Header="5 TICKETS" Price="10$" />
-        <Card className="flex-1" Header="25 TICKETS" Price="40$" />
-        <Card className="flex-1" Header="50 TICKETS" Price="70$" />
+        <Card className="flex-1" Header={t("5 TICKETS")} Price="10$" />
+        <Card className="flex-1" Header={t("25 TICKETS")} Price="40$" />
+        <Card className="flex-1" Header={t("50 TICKETS")} Price="70$" />
       </div>
 
       <InfoCard />
