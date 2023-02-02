@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { updatechange, DeleteAccount } from '../../features/users/usersSlice';
+import {
+  updatechange,
+  DeleteAccount,
+  logoutUser,
+} from '../../features/users/usersSlice';
 import Profilepic from './Profilepic';
 
 const UpdateUserInfo = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { register, handleSubmit } = useForm();
   const userInfo = useSelector((state) => state.users.user);
@@ -49,12 +55,15 @@ const UpdateUserInfo = () => {
         Password: newPassword,
       })
     );
+    // navigate('/');
   };
 
   const HandelDelete = () => {
     dispatch(DeleteAccount({ id: userInfo.id }));
+    dispatch(logoutUser());
+    navigate('/');
   };
-  const handleDelete = () => {
+  const handleCancel = () => {
     setfullName(userInfo.name);
     setEducation(userInfo.education);
     setHobbies(userInfo.Hobbies);
@@ -69,7 +78,9 @@ const UpdateUserInfo = () => {
   return (
     <div className="flex flex-col font-poppins lg:items-center">
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
-        {t('Please fill all the fields with correct and valid details to complete your profile.')}
+        {t(
+          'Please fill all the fields with correct and valid details to complete your profile.'
+        )}
       </div>
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
@@ -125,7 +136,9 @@ const UpdateUserInfo = () => {
                       <option value="Primary education">
                         {t('Primary education')}
                       </option>
-                      <option value="Secondary education">{t('High school')}</option>
+                      <option value="Secondary education">
+                        {t('High school')}
+                      </option>
                       <option value="GED">{t('GED')}</option>
                       <option value="Vocational qualification">
                         {t('Vocational qualification')}
@@ -297,7 +310,7 @@ const UpdateUserInfo = () => {
             <button
               type="button"
               className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
-              onClick={handleDelete}
+              onClick={() => handleCancel}
             >
               {t('CANCEL')}
             </button>
@@ -308,7 +321,9 @@ const UpdateUserInfo = () => {
             </div>
             <div className="flex flex-rows gap-10 mt-8 mb-16">
               <div className="flex flex-col ">
-                <div className="lg:text-lg text-sm mb-2">{t('3 Cards Added')}</div>
+                <div className="lg:text-lg text-sm mb-2">
+                  {t('3 Cards Added')}
+                </div>
                 <button
                   type="button"
                   className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"

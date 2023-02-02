@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch  } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../features/users/usersSlice';
- 
-const FormCard = ({setErrorshow , error}) => {
+
+const FormCard = ({ setErrorshow }) => {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
 
   const dispatch = useDispatch();
 
@@ -16,25 +15,22 @@ const FormCard = ({setErrorshow , error}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     // perform some action with the email and password values
     dispatch(loginUser({ email, password }));
-    setErrorshow(true)
-    if(error.length > 0){
-      setErrorshow(false)
-    }
+    // if (error.length > 0) {
+      setErrorshow(true);
+    // }
   };
 
   return (
-
     <div className="max-w-sm  rounded-lg shadow-lg p-8 lg:ml-20  ">
-      
       <form onSubmit={handleSubmit}>
         <input
           className="shadow appearance-none border rounded lg:w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="email"
           type="email"
-          placeholder={t("Enter your email")}
+          placeholder={t('Enter your email')}
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
@@ -42,7 +38,7 @@ const FormCard = ({setErrorshow , error}) => {
           className="shadow appearance-none border block rounded lg:w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-4"
           id="password"
           type="password"
-          placeholder={t("Enter your password")}
+          placeholder={t('Enter your password')}
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
