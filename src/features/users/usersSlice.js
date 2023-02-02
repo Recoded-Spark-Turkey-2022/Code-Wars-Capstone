@@ -83,7 +83,7 @@ export const loginUser = createAsyncThunk(
     
       return  docSnap.data()  ;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -413,7 +413,6 @@ const usersSlice = createSlice({
       state.loading = false;
       state.user = {};
       state.error= action.payload;
-      console.log(action.payload)
     });
     // Login Cases:
     builder.addCase(loginUser.pending, (state) => {
@@ -436,6 +435,7 @@ const usersSlice = createSlice({
       state.loading = false;
       state.user = {};
       state.error = action.payload;
+      console.log(action.payload);
     });
     // Login with Google Cases:
     builder.addCase(loginUserWithGoogle.pending, (state) => {
