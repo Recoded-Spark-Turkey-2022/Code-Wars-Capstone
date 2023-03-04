@@ -27,6 +27,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.3",
     "react-i18next": "^12.1.4",
+    "react-icons": "^4.8.0",
     "react-id-generator": "^3.0.2",
     "react-input-trigger": "^1.1.2",
     "react-intl": "^6.2.6",
