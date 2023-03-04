@@ -20,7 +20,7 @@ import ContactUs from './components/contactus/Contact';
 import Careers from './components/about/Careers';
 import TherapistAccount from './components/therapist/TherapistAccount';
 import Requirement from "./components/therapist/requirement"
-import Navbar from "./components/Home/NavBar/navbarresposive"
+import Navbar from './components/Home/NavBar/Navbar';
 
 function App() {
   return (
