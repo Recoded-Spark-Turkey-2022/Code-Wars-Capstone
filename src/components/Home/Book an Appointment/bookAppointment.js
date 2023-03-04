@@ -20,12 +20,13 @@ function BookAppointment() {
   };
 
   return (
+    <div className=''>
     <div
       className="z-20"
       style={{
         backgroundImage: `url(${bacgroundImg})`,
         height: '100vh',
-        width: '98.92vw',
+        width: '100vw',
         backgroundSize: 'cover',
         backgroundPosition: 'top',
         backgroundRepeat: 'no-repeat',
@@ -39,12 +40,12 @@ function BookAppointment() {
           </Alert>
         )}
 
-        <div className="lg:flex  lg:flex-row lg:justify-around md:flex md:flex-col md:items-center    ">
-          <div className="lg:flex-1  lg:mt-20 lg:ml-40  md:mt-10  z-10 ">
-            <p className="lg:text-[2.1875rem] md:text-[1.2rem] sm:text-[0.75]  ">
+        <div className="flex items-center lg:flex-row flex-col justify-evenly">
+          <div className=" mt-20">
+            <p className="text-[2.1875rem] pt-[0rem] ">
               {t('We Are Here To')}
             </p>
-            <p className="lg:text-[8rem] md:text:[4rem] sm:text-[2rem] lg:mb-12 md:mb-4 ">
+            <p className="text-[7rem] ">
              {t('Help')}
             </p>
             <button
@@ -55,11 +56,12 @@ function BookAppointment() {
               {t('BOOK AN APPOINTMENT')}
             </button>
           </div>
-          <div className="lg:mt-20 Lg:mr-40 z-10  md:mt-10 md:mr-20   sm:mt-5 sm:mr-10 lg:w-max md:w-4/12  ">
-            <img src={Mainimg} alt="iltration" className="" />
+          <div className="mt-20 Lg:mr-40 z-10  md:mt-10 md:mr-20    ">
+            <img src={Mainimg} alt="iltration" />
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@ function Card({ imageUrl, header, text }) {
   return (
     <div
       style={{ fontFamily: 'Poppins, sans-serif' }}
-      className="bg-white rounded-lg drop-shadow-xl p-6 w-10/12 mb-4 "
+      className="bg-white rounded-lg drop-shadow-xl p-6  mb-4 "
     >
       <img
         src={imageUrl}

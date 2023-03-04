@@ -19,7 +19,7 @@ function Therapist() {
     }
   };
   return (
-    <div className="h-screen bg-amber-200 ">
+    <div className=" flex items-center p-10 bg-amber-200">
       {alertitem && (
         <Alert severity="info" className="sticky top-0">
           You should log in First to Book an Appointment{' '}
@@ -27,7 +27,7 @@ function Therapist() {
       )}
 
       <div
-        className=" lg:ml-40  md:ml-10  flex flex-col gap-6  "
+        className="md:ml-10 space-y-7"
         style={{ fontFamily: 'Poppins, sans-serif' }}
       >
         <h1 className=" lg:text-5xl text-lg font-bold lg:mt-12 md:mt-12 ">

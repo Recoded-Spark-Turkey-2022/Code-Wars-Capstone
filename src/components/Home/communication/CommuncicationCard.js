@@ -7,14 +7,15 @@ import Video from './Imges/video.svg';
 function CommuncicationCard() {
   const { t } = useTranslation();
   return (
-    <>
+    
+    <div className='flex flex-col lg:justify-items-center p-10'>
       <p
         style={{ fontFamily: 'Poppins, sans-serif' }}
-        className="lg:text-4xl lg:my-20 lg:ml-40 md:text-xl md:my-8 md:ml-10  "
+        className="lg:text-4xl text-3xl lg:my-20 my-10 md:my-8 md:ml-10  "
       >
        {t('WE CAN COMMUNICATE THROUGH')}
       </p>
-      <div className="lg:flex lg:flex-row  lg:gap-8 md:flex md:flex-col md:gap-4 mb-20  lg:mx-40  md:ml-10   ">
+      <div className="lg:flex lg:flex-row  lg:gap-8 md:flex md:flex-col md:gap-4 lg:mx-40 md:ml-10   ">
         <Card
           imageUrl={PhoneCall}
           header={t("Voice Call")}
@@ -31,7 +32,8 @@ function CommuncicationCard() {
           text={t("For better experience therapists recommend video calls, but always remember that its a choice!")}
         />
       </div>
-    </>
+      </div>
+    
   );
 }
 export default CommuncicationCard;

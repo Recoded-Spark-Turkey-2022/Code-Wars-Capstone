@@ -38,9 +38,9 @@ function ImageCarousel({ Carousel }) {
     </Link>
   ));
   return (
-    <div className="bg-cyan-50  ">
-      <div className="lg:ml-40 md:ml-20 pb-20 ">
-        <p className=" py-20 lg:text-5xl md:text-2xl	sm:text-lg ">
+    <div className="bg-cyan-50 ">
+      <div className="lg:ml-40 ml-20 pb-20 ">
+        <p className=" py-10 lg:text-5xl text-4xl md:text-2xl">
           {t('RECENT BLOGS')}
         </p>
         <Carousel
