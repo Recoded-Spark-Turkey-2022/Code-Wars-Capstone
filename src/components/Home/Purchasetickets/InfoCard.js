@@ -11,8 +11,8 @@ export default function InfoCard() {
 
   return (
     <div>
-      <div className="flex flex-col shadow-lg  p-10  text-center rounded-lg w-9/12 lg:ml-40 md:ml-20 mb-20  ">
-        <h1 className=" lg:text-5xl  md:text-2xl	sm:text-sm  lg:pt-8 md:pt:6 sm:pt:4 ">
+      <div className="flex flex-col shadow-lg  p-10  text-center rounded-lg lg:w-9/12 lg:ml-40  lg:mb-20 lg:space-y-0 space-y-5">
+        <h1 className=" lg:text-5xl  text-2xl lg:pt-8 md:pt:6 sm:pt:4 ">
           {t('Are you a counselor?')}{' '}
         </h1>
         <p className="lg:text-1xl md:text-xl	sm:text-sm text-stone-700 lg:pt-8 md:pt:6 sm:pt:4   lg:pb-6 md:pb:4 sm:pb:2 ">
@@ -20,7 +20,7 @@ export default function InfoCard() {
         </p>
         <button
           type="submit"
-          className="lg:text-2xl md:text-1xl sm:text-sm rounded-md box-border py-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white w-2/6 m-auto "
+          className="lg:text-2xl md:text-2xl sm:text-sm rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white lg:w-2/6 m-auto "
           onClick={buttonHanler}
         >
           {' '}

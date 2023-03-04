@@ -8,10 +8,10 @@ function CommuncicationCard() {
   const { t } = useTranslation();
   return (
     
-    <div className='flex flex-col lg:justify-items-center p-10'>
+    <div className='flex flex-col lg:justify-items-center  p-10'>
       <p
         style={{ fontFamily: 'Poppins, sans-serif' }}
-        className="lg:text-4xl text-3xl lg:my-20 my-10 md:my-8 md:ml-10  "
+        className="lg:text-4xl text-3xl lg:my-20 my-10 md:my-8 md:ml-10  text-left "
       >
        {t('WE CAN COMMUNICATE THROUGH')}
       </p>
