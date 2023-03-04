@@ -56,7 +56,7 @@ function BookAppointment() {
               {t('BOOK AN APPOINTMENT')}
             </button>
           </div>
-          <div className="mt-20 Lg:mr-40 z-10  md:mt-10 md:mr-20    ">
+          <div className="mt-20  mb-10 Lg:mr-40 z-10  md:mt-10 md:mr-20    ">
             <img src={Mainimg} alt="iltration" />
           </div>
         </div>
