@@ -6,8 +6,8 @@ import InfoCard from './InfoCard';
 function Purchasetickets() {
   const { t } = useTranslation();
   return (
-    <div style={{ fontFamily: 'Poppins, sans-serif' }} className="space-y-10 p-10 flex flex-col justify-evenly ">
-      <p className=" lg:text-4xl md:ml-10 text-5xl mt-10 text-start">
+    <div style={{ fontFamily: 'Poppins, sans-serif' }} className="space-y-5 p-10 flex flex-col justify-evenly ">
+      <p className=" lg:text-5xl md:ml-10 text-5xl mt-10 text-start">
         {' '}
         {t('Purchase tickets')}
       </p>
