@@ -40,7 +40,7 @@ function BookAppointment() {
           </Alert>
         )}
 
-        <div className="flex items-center lg:flex-row flex-col justify-evenly">
+        <div className="flex items-center lg:flex-row flex-col justify-evenly p-10">
           <div className=" mt-20">
             <p className="text-[2.1875rem] pt-[0rem] ">
               {t('We Are Here To')}
@@ -56,13 +56,12 @@ function BookAppointment() {
               {t('BOOK AN APPOINTMENT')}
             </button>
           </div>
-          <div className="mt-20  mb-10 Lg:mr-40 z-10  md:mt-10 md:mr-20    ">
-            <img src={Mainimg} alt="iltration" />
+            <img src={Mainimg} alt="iltration" className='pt-10' />
           </div>
         </div>
       </div>
     </div>
-    </div>
+   
   );
 }
 
