@@ -45,7 +45,7 @@ function BookAppointment() {
             <p className="text-[2.1875rem] pt-[0rem] ">
               {t('We Are Here To')}
             </p>
-            <p className="text-[7rem] ">
+            <p className="lg:text-[7rem] text-[4rem]">
              {t('Help')}
             </p>
             <button
