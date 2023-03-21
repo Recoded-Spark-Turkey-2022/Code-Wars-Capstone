@@ -24,10 +24,10 @@ const FormCard = ({ setErrorshow }) => {
   };
 
   return (
-    <div className="max-w-sm  rounded-lg shadow-lg p-8 lg:ml-20  ">
+    <div className=" lg:max-w-sm  rounded-lg shadow-lg p-4 lg:p-8 lg:ml-20 ">
       <form onSubmit={handleSubmit}>
         <input
-          className="shadow appearance-none border rounded lg:w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded  lg:w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="email"
           type="email"
           placeholder={t('Enter your email')}

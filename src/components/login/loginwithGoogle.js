@@ -18,7 +18,7 @@ function LoginwithGoogle() {
         </span>
         <div className="border-t-2 w-40"> </div>
       </div>
-      <div className="flex w-16 gap-4 lg:translate-x-60   pt-10 ">
+      <div className="flex w-16 gap-4 lg:translate-x-60 translate-x-20  pt-10 ">
         <button
           type="button"
           style={{ height: 32, width: 32 }}
