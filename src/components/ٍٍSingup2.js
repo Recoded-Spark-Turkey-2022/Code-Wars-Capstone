@@ -11,8 +11,9 @@ import {
 } from '../features/users/usersSlice';
 import facebookicon from './login/Images/facebook.svg';
 import googleicon from './login/Images/google.svg';
+import imagee from './Singupimage.svg';
 
-const SignupForm = () => {
+const Singup = () => {
   const { t } = useTranslation();
   const userInfo = useSelector((state) => state.users);
   const { signedup } = useSelector((state) => state.users);
@@ -62,108 +63,130 @@ const SignupForm = () => {
   }, [signedup]);
 
   return (
-    <div>
-      {alertitem && (
-        <Alert severity="error" className="">
+    <div> 
+
+{alertitem && (
+        <Alert severity="error" className="fixed w-full">
           {error}
         </Alert>
       )}
       {enteredInput && (
-        <Alert severity="error" className="">
+        <Alert severity="error" className="fixed w-full">
           {userInfo.error}
         </Alert>
       )}
+   
+    <div className=" flex flex-col  justify-center lg:flex lg:flex-row lg:justify-around ">
+      <div>
+        <img src={imagee} alt="singupemage" className="lg:mt-40 mt-10" />
+      </div>
 
-      <div className="h-screen flex justify-center content-cente max-[767px]:flex-wrap gap-x-20 mb-32">
-        <div className="flex flex-col">
-          <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-10 max-[767px]:mb-10 md:mb-10'>
-            {t('SIGNUP NOW')}
-          </h2>
+      <div>
+        <h2 className='text-3xl lg:text-5xl font-["Poppins"] font-normal lg:mb-6 mb-10 lg:mt-10 lg:ml-0 ml-4 mt-10 '>
+          {t('SIGNUP NOW')}
+        </h2>
+
+        <div className='flex justify-center'>
           <form
-            className="grid grid-rows-3 gap-4 shadow-2xl lg:px-10 lg:py-10 lg:w-[555px] h-[493]"
+            className="shadow-2xl lg:px-10 lg:py-10 lg:w-[500px] px-4 py-4 flex flex-col gap-4  "
             onSubmit={handleSubmit(onSubmitform)}
           >
-            <div className="flex gap-x-7">
+            <div className="lg:flex lg:flex-row lg:justify-between flex flex-col gap-4">
+              <div>
+                <input
+                  className="broder-solid border-2  placeholder-gray-300 lg:w-48  h-12 "
+                  {...register('firstName', { pattern: /^[A-Za-z]+$/i })}
+                  type="text"
+                  placeholder={t('First Name')}
+                  aria-invalid={errors.firstName ? 'true' : 'false'}
+                  required
+                />
+                {errors.firstName?.type === 'pattern' && (
+                  <span className="text-red-600" role="alert">
+                    The first Name must not contain numbers
+                  </span>
+                )}
+              </div>
+              <div>
+                <input
+                  {...register('lastName', { pattern: /^[A-Za-z]+$/i })}
+                  type="text"
+                  placeholder={t('Last Name')}
+                  className=" broder-solid border-2 placeholder-gray-300 lg:w-48  h-12"
+                  aria-invalid={errors.lastName ? 'true' : 'false'}
+                  required
+                />
+                {errors.lastName?.type === 'pattern' && (
+                  <span className="text-red-600" role="alert">
+                    The Last Name must not contain numbers
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div >
               <input
-                {...register('firstName', { pattern: /^[A-Za-z]+$/i })}
+                {...register('email', {
+                  pattern:
+                    /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                })}
                 type="text"
-                placeholder={t('First Name')}
-                className="lg:h-14 lg:w-56 h-12 w-18 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
-                aria-invalid={errors.firstName ? 'true' : 'false'}
-                required
-              />
-              <input
-                {...register('lastName', { pattern: /^[A-Za-z]+$/i })}
-                type="text"
-                placeholder={t('Last Name')}
-                className="lg:h-14 lg:w-56 h-12 w-22 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+                placeholder={t('Your Email')}
+                className=" broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 lg:w-full h-12 "
                 aria-invalid={errors.lastName ? 'true' : 'false'}
                 required
               />
+              {errors.email?.type === 'pattern' && (
+                <span className="text-red-600" role="alert">
+                  please enter a valid email address{' '}
+                </span>
+              )}
             </div>
-            {errors.firstName?.type === 'pattern' && (
-              <span className="text-red-600" role="alert">
-                The first Name must not contain numbers
-              </span>
-            )}
-            {errors.lastName?.type === 'pattern' && (
-              <span className="text-red-600" role="alert">
-                The Last Name must not contain numbers
-              </span>
-            )}
-
-            <input
-              {...register('email', {
-                pattern:
-                  /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              })}
-              type="text"
-              placeholder={t('Your Email')}
-              className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
-              aria-invalid={errors.lastName ? 'true' : 'false'}
-              required
-            />
-            {errors.email?.type === 'pattern' && (
-              <span className="text-red-600" role="alert">
-                please enter a valid email address{' '}
-              </span>
-            )}
-
+                
+               <div> 
+                
             <input
               {...register('emailConfirmation')}
               type="text"
               placeholder={t('Confirm email')}
-              className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className=" broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 lg:w-full h-12"
               required
             />
-            <div className="flex gap-x-7">
-              <input
+                </div> 
+
+            <div className='lg:flex lg:flex-row lg:justify-between flex flex-col gap-4'> 
+
+                <div> 
+                <input
                 {...register('password', {
                   pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/,
                 })}
                 type="password"
                 placeholder={t('Password')}
-                className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+                className="broder-solid border-2  placeholder-gray-300 h-12 lg:w-48"
                 aria-invalid={errors.lastName ? 'true' : 'false'}
                 required
               />
-
-              <input
-                {...register('passwordConfirmation')}
-                type="password"
-                placeholder={t('Confirm Password')}
-                className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
-                required
-              />
-            </div>
-            {errors.password?.type === 'pattern' && (
+               {errors.password?.type === 'pattern' && (
               <span className="text-red-600" role="alert">
                 password must be eight characters including one uppercase
                 letter, one lower case letter, and number{' '}
               </span>
             )}
-
-            <div className="flex items-center justify-between">
+                </div>
+                    
+                <div> 
+                    
+              <input
+                {...register('passwordConfirmation')}
+                type="password"
+                placeholder={t('Confirm Password')}
+                className="broder-solid border-2  placeholder-gray-300 h-12 lg:w-48"
+                required
+              />
+                </div>
+            </div>
+            <div className="lg:flex lg:items-center lg:justify-between ">
               <p className="mr-7 ml-7 font-light text-[#9DAFBD]">
                 {t('Birth Date')}
               </p>
@@ -173,7 +196,7 @@ const SignupForm = () => {
                 })}
                 type="text"
                 placeholder="DD"
-                className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+                className="h-12 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
                 aria-invalid={errors.lastName ? 'true' : 'false'}
                 required
               />
@@ -183,7 +206,7 @@ const SignupForm = () => {
                 })}
                 type="text"
                 placeholder="MM"
-                className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+                className="h-12 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
                 aria-invalid={errors.lastName ? 'true' : 'false'}
                 required
               />
@@ -193,49 +216,53 @@ const SignupForm = () => {
                 })}
                 type="text"
                 placeholder="YYYY"
-                className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300"
+                className="h-12 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300"
                 aria-invalid={errors.lastName ? 'true' : 'false'}
                 required
               />
             </div>
-              {errors.birthdayDay?.type === 'pattern' && (
-                <span className="text-red-600" role="alert">
-                  invalid Day{' '}
-                </span>
-              )}
+            <div> 
+            {errors.birthdayDay?.type === 'pattern' && (
+              <span className="text-red-600" role="alert">
+                invalid Day{' '}
+              </span>
+            )}
 
-              {errors.birthdayMonth?.type === 'pattern' && (
-                <span className="text-red-600" role="alert">
-                  invalid Month{' '}
-                </span>
-              )}
-              {errors.birthdayYear?.type === 'pattern' && (
-                <span className="text-red-600" role="alert">
-                  invalid Year{' '}
-                </span>
-              )}
-
+            {errors.birthdayMonth?.type === 'pattern' && (
+              <span className="text-red-600" role="alert">
+                invalid Month{' '}
+              </span>
+            )}
+            {errors.birthdayYear?.type === 'pattern' && (
+              <span className="text-red-600" role="alert">
+                invalid Year{' '}
+              </span>
+            )}
+            </div>
             <div className="flex justify-around py-3 gap-8">
               <Link to="/login">
                 <button
                   type="button"
-                  className="bg-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+                  className="bg-[#2DD3E3] font-medium lg:text-2xl lg:px-14 py-3 px-4 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
                 >
                   {t('Login')}
                 </button>
               </Link>
               <button
                 type="submit"
-                className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md"
+                className="broder-solid border-2 border-[#2DD3E3] font-medium lg:text-2xl lg:px-14 px-4 py-3 rounded-md"
               >
                 {t('Sign Up')}
               </button>
             </div>
           </form>
-          <div className="flex justify-around my-6">
+        </div>
+        <div> 
+
+        <div className="flex justify-around my-6">
             <p>{t('Or')}</p>
           </div>
-          <div className="flex justify-center my-6 gap-x-20">
+          <div className="flex justify-center my-6 gap-x-12">
             <button
               type="button"
               style={{ height: 32, width: 32 }}
@@ -264,7 +291,7 @@ const SignupForm = () => {
         </div>
       </div>
     </div>
+    </div>
   );
 };
-
-export default SignupForm;
+export default Singup;

@@ -3,7 +3,6 @@ import './App.css';
 /* import Navebar from './components/Home/NavBar/Navbar';
  */import Login from "./components/login/Login";
 import Home from "./components/Home/Home";
-import Signup from './components/Signup';
 import Thankyoupage from './components/blogs/Thankyoupage';
 import Blogarticle from './components/blogs/Blogarticle';
 import UpdateUserInfo from './components/UpdateUserInfo/UpdateUserInfo'
@@ -21,6 +20,7 @@ import Careers from './components/about/Careers';
 import TherapistAccount from './components/therapist/TherapistAccount';
 import Requirement from "./components/therapist/requirement"
 import Navbar from './components/Home/NavBar/Navbar';
+import Singup2 from './components/ٍٍSingup2' ;
 
 function App() {
   return (
@@ -31,7 +31,6 @@ function App() {
         
         <Route path="/login" element ={<Login/>}/>
         <Route path="/" element ={<Home/>}/>
-        <Route path="/signup" element ={<Signup/>}/>
         <Route path="/blog/:id" element={<Blogarticle/>}/>
        <Route path="/UpdateUserInfo" element={<UpdateUserInfo />}/>
        <Route path="/Profilepic" element={<Profilepic />}/>
@@ -51,6 +50,7 @@ function App() {
         <Route path='/contactus' element={<ContactUs />}/>
         <Route path='/careers' element={<Careers />}/>
         <Route path='/TherapistAccount' element={<TherapistAccount />}/>
+        <Route path='/signup' element={<Singup2 />}/>
       </Routes>
 
       <Fotter/> 

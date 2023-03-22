@@ -43,13 +43,13 @@ const FormCard = ({ setErrorshow }) => {
           onChange={(event) => setPassword(event.target.value)}
         />
         <button
-          className="md:text-xl lg:px-12 rounded-md box-border py-2  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
+          className="md:text-xl lg:px-12 rounded-md box-border py-2 px-4  transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 hover:text-white"
           type="submit"
         >
           {t('Login')}
         </button>
         <button
-          className=" hover:bg-cyan-500 text-cyan-500 font-bold py-2 lg:px-12 rounded mt-4 translate-x-4 border border-cyan-500 rounded hover:text-white"
+          className=" hover:bg-cyan-500 text-cyan-500 font-bold py-2  px-4 lg:px-12 rounded mt-4 translate-x-12 lg:translate-x-4 border border-cyan-500 rounded hover:text-white"
           type="submit"
           onClick={() => {
             nevigate('/signup');
