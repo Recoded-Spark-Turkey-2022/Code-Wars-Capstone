@@ -8,10 +8,18 @@ const FormCard = ({ setErrorshow }) => {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // const userLogin = useSelector((state) => state.users);
 
   const dispatch = useDispatch();
 
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
+
+  // const loginNavigate = (event) => {
+  //   event.preventDefault();
+  //   if (userLogin.userlogin) {
+  //     navigate('/');
+  //   }
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,7 +27,7 @@ const FormCard = ({ setErrorshow }) => {
     // perform some action with the email and password values
     dispatch(loginUser({ email, password }));
     // if (error.length > 0) {
-      setErrorshow(true);
+    setErrorshow(true);
     // }
   };
 
@@ -52,7 +60,7 @@ const FormCard = ({ setErrorshow }) => {
           className=" hover:bg-cyan-500 text-cyan-500 font-bold py-2  px-4 lg:px-12 rounded mt-4 translate-x-12 lg:translate-x-4 border border-cyan-500 rounded hover:text-white"
           type="submit"
           onClick={() => {
-            nevigate('/signup');
+            navigate('/signup');
           }}
         >
           {t('Sign Up')}

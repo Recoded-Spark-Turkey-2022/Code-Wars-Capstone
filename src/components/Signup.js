@@ -198,22 +198,22 @@ const SignupForm = () => {
                 required
               />
             </div>
-              {errors.birthdayDay?.type === 'pattern' && (
-                <span className="text-red-600" role="alert">
-                  invalid Day{' '}
-                </span>
-              )}
+            {errors.birthdayDay?.type === 'pattern' && (
+              <span className="text-red-600" role="alert">
+                invalid Day{' '}
+              </span>
+            )}
 
-              {errors.birthdayMonth?.type === 'pattern' && (
-                <span className="text-red-600" role="alert">
-                  invalid Month{' '}
-                </span>
-              )}
-              {errors.birthdayYear?.type === 'pattern' && (
-                <span className="text-red-600" role="alert">
-                  invalid Year{' '}
-                </span>
-              )}
+            {errors.birthdayMonth?.type === 'pattern' && (
+              <span className="text-red-600" role="alert">
+                invalid Month{' '}
+              </span>
+            )}
+            {errors.birthdayYear?.type === 'pattern' && (
+              <span className="text-red-600" role="alert">
+                invalid Year{' '}
+              </span>
+            )}
 
             <div className="flex justify-around py-3 gap-8">
               <Link to="/login">
@@ -224,12 +224,14 @@ const SignupForm = () => {
                   {t('Login')}
                 </button>
               </Link>
-              <button
-                type="submit"
-                className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md"
-              >
-                {t('Sign Up')}
-              </button>
+              <Link to="/signup">
+                <button
+                  type="button"
+                  className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md"
+                >
+                  {t('Sign Up')}
+                </button>
+              </Link>
             </div>
           </form>
           <div className="flex justify-around my-6">
